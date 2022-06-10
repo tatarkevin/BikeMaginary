@@ -3,3 +3,4 @@ node_modules/
 *Backups*
 Komponenten/
 Textdateien/
+.parcel-cache
