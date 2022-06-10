@@ -70,3 +70,5 @@ Dafür muss ich wahrscheinlich alle Referenzen ändern.
 
                 Also in den combined CSS muss ich alle relativen Pfade weg machen
         Außerdem musste ich in "package.json" "main: index.js" löschen. Was ein Bullshit.
+
+- Policy muss geändert werden https://docs.microsoft.com/de-de/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2
