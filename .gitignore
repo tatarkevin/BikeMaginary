@@ -1,8 +1,9 @@
 /node_modules
 package-lock.json
 package.json
-/dist
 .parcel*
 *cache*
 *backups*
 *Backups*
+/Komponenten
+/Textdateien

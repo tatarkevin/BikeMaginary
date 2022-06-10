@@ -1,0 +1,2 @@
+const videos=document.getElementsByTagName("video");var current_video;function pause_unpause_videos(){current_video=void 0;const e=document.getElementsByClassName("Headerbar")[0].getBoundingClientRect();for(let t=0;t<videos.length;t++)(window.innerHeight-e.bottom)/1.5>Math.abs(e.bottom-videos[t].getBoundingClientRect().top)&&(current_video=videos[t]),videos[t].pause();current_video&&current_video.play()}setInterval(pause_unpause_videos,200);
+//# sourceMappingURL=MiniAtlantis.392eaabc.js.map

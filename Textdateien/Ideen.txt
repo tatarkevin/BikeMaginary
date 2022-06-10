@@ -59,3 +59,14 @@ viel leichter suchen kann. Klar, ist mehr arbeit als ein Video aber dafür umso 
 DONE:
 - Extra Seite für Produkte, damit man auch von Moblie drauf kann (Submenu schwierig auf mobile.)
 Dafür muss ich wahrscheinlich alle Referenzen ändern.
+
+- Probleme mit NMP/NODE/Parcel:
+        Es dürfen keine relativen Pfade verwendet werden. Ich musste alle "../" entfernen und auf die Root verweisen also
+        zum Beispiel:
+                /HTML/index.html
+                
+                Aber nicht
+                ../CSS/combined
+
+                Also in den combined CSS muss ich alle relativen Pfade weg machen
+        Außerdem musste ich in "package.json" "main: index.js" löschen. Was ein Bullshit.
