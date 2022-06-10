@@ -1,2 +1,0 @@
-const footer_section_name="Footer__Section",footer_button_name="Footer__Menu-Button",footer_ausgeklappt_name="Footer--ausgeklappt",footer_sections_arr=document.getElementsByClassName("Footer__Section");for(let e of footer_sections_arr)e.addEventListener("click",(function(){toggleMenuHeight(e)}));function toggleMenuHeight(e){console.log(e),e.classList.toggle("Footer--ausgeklappt")}
-//# sourceMappingURL=MiniAtlantis.f00229a3.js.map

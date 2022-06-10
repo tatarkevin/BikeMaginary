@@ -1,7 +1,5 @@
-/node_modules
-.parcel*
-*cache*
+node_modules/
 *backups*
 *Backups*
-/Komponenten
-/Textdateien
+Komponenten/
+Textdateien/
