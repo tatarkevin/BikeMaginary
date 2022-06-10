@@ -1,0 +1,61 @@
+Mountainbikes:
+- Super Driller (lighting ist noch kagge)
+- Schneemobil (Fahrrad mit Greifplatten) (CHECK) 
+- Für Schneesturm irgendwas? (Unterer link, in Familienversion) (check)
+https://www.auto-motor-und-sport.de/tech-zukunft/alternative-antriebe/venturi-antarctica-schneemobil-elektroantrieb/#bildergalerie
+
+Sky Bikes:
+- Schiff (check)
+- Plane (check)
+- Helikopter (check)
+
+Aqua Bikes:
+- Kapsel (check)
+- Uboot (check)
+- Unterwasserkapsel für Familie
+        - Antrieb (Turbinen? So wie bei erstem Bike? Nur für Wasser oder auch für Land? Raketenantrieb?)
+        - Belüftungssysteme (Wasser zu Sauerstoff)
+        - Küche Abzugshaube
+        - Stauraum für Gepäck
+        - Beleuchtung für alle Räume- Fahrradketten noch in den Boden ziehen
+        - Vorhänge damit man nicht überall reinschauen kann. (TRANSMISSION AUF 0)
+        
+        
+
+Spezial Bikes
+- Wohnmobil (kinda finished)
+- Schulbus (kinda finished)
+- Segelschiff (für Familie) (check)
+
+Charaktere:
+- Weibliche Figur (lange Haare, Kleid?) (check)
+- TODO: Winterkleidung (Bomberjacke also halt so diese Michelinjacken) <-------------------
+
+TODO:
+
+- Scheinwerfer für jedes Fahrzeug
+- Kaufbanner noch optimieren, da ist alles noch nicht so geil, vor allem auf dem rechten Bildschirm.
+- Kaufbutton, der einen direkt runter führt  (Die Produktseite ist etwas lang geworden :D)
+- Ein Besteseller Badge einbauen
+- Suchleiste einbauen?
+- Ein JavaScript machen für ein Tutorial für die fertige Seite. Also ich will zum Beispiel, dass wenn man über einen der
+Slideshow-Punkte oder Pfeile hovered, eine Meldung anzeigen, dass dieses Feature nicht mit HTML oder CSS umgesetzt werden kann.
+Oder wenn ich das Produktsubmenu anzeige will ich einen Pfeil auf "Tiny Atlantis" zeigen lassen, damit man weiß, dass es da noch weiter geht.
+Und bei den anderen submenu links mach ich dann wieder eine Meldung falls drauf geklickt wird, dass ich nur eine Seite ausgearbeitet habe.
+- Produktseite Mini Atlantis mit NPM fertigstellen, also bestenfalls CSS kombinieren, Bilder/Videos noch optimieren, damit immer optimalstes Bild
+geladen wird, Seite auf Netlify hochladen usw.
+- Vielleicht noch ein Paar animationen (scaling oder kleiner bewegungen) für HTML-Elemente einfügen.
+- Bilder mit srcset optimiren (oder mit parcel?)
+- Titelbanner ausarbeiten und schön machen (Art-Direction also eine version für desktop und eine für mobile)
+- Produktseite Banner ist auf mobil noch nicht oben maskiert. Also das Video hat oben keine weiche Kante
+- Submenu unanwählbare Texte auch so einstellen, dass sie nicht angewählt werden können und kein visual cue geben
+
+TODO:--->
+Für JavaScript-Kurs: Dokumentation schreiben, von Anfang an, damit ich alles einfach im Word-Dokument nachschlagen kann und nicht extra
+die Videos wälzen muss. Das muss ich wirklich für alles machen, was ich je lerne. Keine Videos als Dokumentationen, sondern Text, weil ich da
+viel leichter suchen kann. Klar, ist mehr arbeit als ein Video aber dafür umso sortierter. 
+
+
+DONE:
+- Extra Seite für Produkte, damit man auch von Moblie drauf kann (Submenu schwierig auf mobile.)
+Dafür muss ich wahrscheinlich alle Referenzen ändern.

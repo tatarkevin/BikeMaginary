@@ -1,0 +1,473 @@
+:root {
+  --color-background-dark: rgb(42, 42, 42);
+  --color-main-aero: paleturquoise;
+  --header-color: rgb(255, 255, 255);
+  --section-shadow-size: 5px;
+  --section-shadow-bottom: 0 var(--section-shadow-size) 2px 0px
+    var(--header-color);
+  --section-shadow-top: 0 calc(-1 * var(--section-shadow-size)) 1px 0px
+    var(--header-color);
+}
+
+.Section__Heading {
+  /* box-shadow: var(--section-shadow-top); */
+  padding-top: 100px;
+  padding-bottom: 250px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+@media screen and (min-width: 640px) {
+  .Section__Heading {
+    margin-bottom: -100px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .Section__Heading {
+    margin-bottom: -90px;
+  }
+}
+
+@keyframes pulsieren {
+  0% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+
+.Heading__Header {
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: var(--header-color);
+  margin-right: 1rem;
+  animation-name: pulsieren;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out;
+}
+
+.Heading__Description {
+  color: var(--header-color);
+  filter: saturate(50%) brightness(70%);
+}
+
+@media screen and (min-width: 960px) {
+  .Heading__Description {
+    color: var(--header-color);
+    filter: saturate(50%) brightness(70%);
+    width: 60%;
+    margin: auto;
+  }
+}
+
+.Produkt-Block {
+  --amount-to-rotate: -5deg;
+  transform: translateX(-25vw) rotateZ(calc(-1 * var(--amount-to-rotate)));
+  width: 150vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 15px solid var(--color-background-dark);
+  padding: 0 100px;
+}
+
+.Produkt-Block:last-child {
+  border: 0;
+  box-shadow: var(--section-shadow-bottom);
+}
+
+.Produkt-Block__Fahrrad-Typ {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.5;
+  margin: 0;
+  margin-top: 1rem;
+  transform: translateX(-15%);
+}
+
+.Produkt-Block__Container {
+  display: grid;
+  grid-template-columns: repeat(1, fit-content);
+  grid-template-rows: repeat(2, fit-content);
+  width: 100vw;
+  margin: 20px 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.Produkt-Block__Container .Container__Element {
+  margin: 0 10px;
+}
+
+.Produkt-Block__Container .Container__Element:nth-child(1n) {
+  display: none;
+}
+
+.Produkt-Block__Container .Container__Element:nth-child(1) {
+  display: grid;
+}
+
+@media screen and (min-width: 780px) {
+  .Produkt-Block__Container {
+    grid-template-columns: repeat(3, fit-content);
+  }
+  .Container__Element:nth-child(2) {
+    display: grid !important;
+  }
+  .Container__Divider:nth-child(4) {
+    display: block;
+  }
+  .Container__Slideshow-Leiste {
+    grid-column-start: 1;
+    grid-column-end: 100 !important;
+  }
+}
+
+@media screen and (min-width: 1255px) {
+  .Produkt-Block__Container {
+    grid-template-columns: repeat(5, fit-content);
+  }
+  .Container__Element:nth-child(3) {
+    display: grid !important;
+  }
+  .Container__Divider:nth-child(5) {
+    display: block;
+  }
+}
+
+.Container__Element {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  transform: rotateZ(var(--amount-to-rotate));
+}
+
+.Container__Element:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1 / 2;
+}
+.Container__Element:nth-child(2) {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 1 / 2;
+}
+.Container__Element:nth-child(3) {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row: 1 / 2;
+}
+
+.Container__Divider:nth-child(4) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 1 / 2;
+}
+
+.Container__Divider:nth-child(5) {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row: 1 / 2;
+}
+
+.Container__Slideshow-Leiste {
+  padding-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row: 2 / 3;
+}
+
+.Element__Bild {
+  max-width: 350px;
+  background-image: url(../Bilder/ShipPlane_Bike_1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+  animation-name: pulsieren;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out;
+  animation-delay: -0.5s;
+}
+.Container__Element:nth-child(2n) .Element__Bild,
+.Kundenbewertung-Block:nth-child(2n) .Element__Bild {
+  animation-delay: -1s;
+}
+.Container__Element:nth-child(3n) .Element__Bild,
+.Kundenbewertung-Block:nth-child(3n) .Element__Bild {
+  animation-delay: -1.5s;
+}
+
+.Element__Name {
+  font-size: 3rem;
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.Element__Beschreibung {
+  padding: 5px;
+  padding-left: 0;
+  max-height: 15rem;
+  justify-self: flex-start;
+  overflow-y: auto;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  scrollbar-width: 3px;
+}
+
+.Element__Beschreibung::-webkit-scrollbar {
+  width: 3px;
+}
+
+.Element__Beschreibung::-webkit-scrollbar-thumb {
+  background-color: aqua;
+}
+
+.Element__Bewertung__Container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Element__Bewertung__Cutter__Left,
+.Element__Bewertung__Cutter__Right {
+  position: absolute;
+  transform: translateY(-20px);
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  --interpolated-rating: calc(
+    (var(--bike-rating-value) / var(--bike-rating-max-value)) * 100%
+  );
+}
+.Element__Bewertung__Cutter__Left {
+  clip-path: polygon(
+    0% 0%,
+    var(--interpolated-rating) 0%,
+    var(--interpolated-rating) 100%,
+    0% 100%
+  );
+}
+
+.Element__Bewertung__Cutter__Right {
+  clip-path: polygon(
+    var(--interpolated-rating) 0%,
+    100% 0%,
+    100% 100%,
+    var(--interpolated-rating) 100%
+  );
+  filter: opacity(0.2);
+}
+
+.Element__Bewertung {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+  height: fit-content;
+}
+
+.Element__Bewertung__Wert {
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/*
+Just so i remember how cool this feature is.
+.Bewertung__Wert:before {
+  content: attr(data-rating);
+} */
+
+.Bewertung__Wert:before {
+  content: attr(data-rating);
+}
+
+.Bewertung__Wert__Max:before {
+  content: attr(data-max-rating);
+}
+
+.Bewertung-Overlay {
+  position: absolute;
+  width: fit-content;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+}
+
+.Bewertung__Punkt {
+  flex-shrink: 1;
+  --scaling-factor: 0.16;
+  --star-color: rgb(246, 255, 0);
+  position: relative;
+  display: block;
+  color: var(--star-color);
+  border-right: calc(100px * var(--scaling-factor)) solid transparent;
+  border-bottom: calc(70px * var(--scaling-factor)) solid var(--star-color);
+  border-left: calc(100px * var(--scaling-factor)) solid transparent;
+  transform: rotate(35deg);
+}
+.Bewertung__Punkt:before {
+  flex-shrink: 1;
+  border-bottom: calc(80px * var(--scaling-factor)) solid var(--star-color);
+  border-left: calc(30px * var(--scaling-factor)) solid transparent;
+  border-right: calc(30px * var(--scaling-factor)) solid transparent;
+  position: absolute;
+  top: calc(-45px * var(--scaling-factor));
+  left: calc(-65px * var(--scaling-factor));
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.Bewertung__Punkt:after {
+  flex-shrink: 1;
+  position: absolute;
+  display: block;
+  color: var(--star-color);
+  top: calc(3px * var(--scaling-factor));
+  left: calc(-105px * var(--scaling-factor));
+  border-right: calc(100px * var(--scaling-factor)) solid transparent;
+  border-bottom: calc(70px * var(--scaling-factor)) solid var(--star-color);
+  border-left: calc(100px * var(--scaling-factor)) solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
+
+.Element__Knopf {
+  padding: 15px 20px;
+  border-radius: 300px;
+  box-shadow: 3px 3px 0 0 rgba(150, 150, 150, 0.5);
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: 600;
+  transition: transform 0.1s;
+  font-size: clamp(1.6rem, 10vw, 2rem);
+}
+
+.Element__Knopf:hover {
+  transform: scale(1.05);
+  filter: brightness(120%);
+}
+
+.Container__Divider {
+  border-right: 1px solid rgb(255, 255, 255);
+  height: 100%;
+  transform: rotateZ(var(--amount-to-rotate));
+  display: none;
+}
+
+.Container__Slideshow-Leiste {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  transform: translateX(20%);
+}
+
+.Slideshow-Leiste__Knopf {
+  --arrow-width: 7px;
+  --border-style: var(--arrow-width) solid white;
+  --width-and-height: 20px;
+  border-left: var(--border-style);
+  border-top: var(--border-style);
+  width: var(--width-and-height);
+  height: var(--width-and-height);
+  cursor: pointer;
+}
+
+.Produkt-Block--Sky .Slideshow-Leiste__Knopf {
+  --border-style: var(--arrow-width) solid #383082;
+}
+
+.Produkt-Block--Mountain .Slideshow-Leiste__Knopf {
+  --border-style: var(--arrow-width) solid #ffbacc;
+}
+
+.Produkt-Block--Spezial .Slideshow-Leiste__Knopf {
+  --border-style: var(--arrow-width) solid rgba(243, 184, 141, 1);
+}
+
+.Produkt-Block--Aqua .Slideshow-Leiste__Knopf {
+  --border-style: var(--arrow-width) solid rgba(174, 234, 241, 1);
+}
+
+.Slideshow-Leiste__Knopf:nth-of-type(1) {
+  transform: rotateZ(-45deg);
+}
+
+.Slideshow-Leiste__Knopf:nth-last-of-type(1) {
+  transform: rotateZ(135deg);
+}
+
+.Slideshow-Leiste__Punkt {
+  --width-and-height: 15px;
+  width: var(--width-and-height);
+  height: var(--width-and-height);
+  margin: 5px;
+  border-radius: 100%;
+  background-color: rgba(240, 248, 255, 0.397);
+  cursor: pointer;
+}
+
+.Produkt-Block--Sky .Slideshow-Leiste__Punkt {
+  background-color: #38308272;
+}
+
+.Produkt-Block--Mountain .Slideshow-Leiste__Punkt {
+  background-color: #ffbacc95;
+}
+
+.Produkt-Block--Spezial .Slideshow-Leiste__Punkt {
+  background-color: rgba(243, 184, 141, 0.4);
+}
+
+.Produkt-Block--Aqua .Slideshow-Leiste__Punkt {
+  background-color: rgba(174, 234, 241, 0.55);
+}
+
+.Slideshow-Leiste__Punkt--active {
+  background-color: rgba(240, 248, 255, 1);
+}
+
+.Produkt-Block--Sky .Slideshow-Leiste__Punkt--active {
+  background-color: #383082;
+}
+
+.Produkt-Block--Mountain .Slideshow-Leiste__Punkt--active {
+  background-color: #ffbacc;
+}
+
+.Produkt-Block--Spezial .Slideshow-Leiste__Punkt--active {
+  background-color: rgba(243, 184, 141, 1);
+}
+
+.Produkt-Block--Aqua .Slideshow-Leiste__Punkt--active {
+  background-color: rgba(174, 234, 241, 1);
+}

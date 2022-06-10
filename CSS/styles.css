@@ -1,0 +1,224 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --page-background-color: rgb(44, 44, 44);
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: var(--page-background-color);
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+#site::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+#site {
+  --max-header-bar-height: 65px;
+  width: 100vw;
+  height: calc(100vh - var(--max-header-bar-height));
+  overflow-x: hidden;
+  margin-top: var(--max-header-bar-height);
+  scrollbar-color: white transparent;
+  scrollbar-width: thin;
+}
+
+.Button__To-Top {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 777;
+  opacity: 0.3;
+  background-color: rgb(46, 46, 46);
+  border-radius: 100%;
+  box-shadow: 0 0 3px 2px white;
+}
+
+.Button__To-Top:hover {
+  opacity: 1;
+}
+
+.Button__To-Top__Arrow {
+  display: inline-block;
+  --arrow-style: 4px solid rgb(148, 148, 148);
+  border-bottom: var(--arrow-style);
+  border-left: var(--arrow-style);
+  width: 40%;
+  height: 40%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -75%) rotateZ(135deg);
+}
+
+@media screen and (min-width: 400px) {
+  .word-wrap-specific {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  #site {
+    --max-header-bar-height: 85px;
+  }
+  body {
+    font-size: 2rem;
+  }
+
+  .Button__To-Top__Arrow {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateZ(135deg);
+  }
+}
+
+.Produkt-Block--Aqua {
+  background: rgb(0, 9, 53);
+  --gradient-orientation: 0deg;
+  background: linear-gradient(
+    var(--gradient-orientation),
+    rgba(0, 9, 53, 1) 0%,
+    rgba(11, 28, 110, 1) 20%,
+    rgba(19, 107, 178, 1) 50%,
+    rgba(61, 188, 207, 1) 80%,
+    rgba(174, 234, 241, 1) 110%
+  );
+}
+
+.Produkt-Block--Aqua .Element__Beschreibung {
+  color: rgba(174, 234, 241, 1);
+}
+
+.Produkt-Block--Aqua .Element__Beschreibung::-webkit-scrollbar-thumb {
+  background-color: rgba(61, 188, 207, 1);
+}
+
+.Produkt-Block--Aqua .Element__Knopf {
+  color: rgba(19, 107, 178, 1);
+  background-color: rgba(174, 234, 241, 1);
+}
+
+.Produkt-Block--Aqua .Produkt-Block__Fahrrad-Typ,
+.Produkt-Block--Aqua .Element__Name {
+  color: rgb(24, 89, 150);
+}
+
+.Produkt-Block--Sky {
+  background: rgb(2, 0, 36);
+  --gradient-orientation: 0deg;
+  background: linear-gradient(
+    var(--gradient-orientation),
+    #ebb2d6 0%,
+    #f198af 20%,
+    #9f81cd 70%,
+    #766dc1 85%,
+    #383082 110%
+  );
+  color: #e6bfca;
+}
+
+.Produkt-Block--Sky .Element__Beschreibung {
+  color: #383082;
+}
+
+.Produkt-Block--Sky .Element__Beschreibung::-webkit-scrollbar-thumb {
+  background-color: #8277eb;
+}
+
+.Produkt-Block--Sky .Element__Knopf {
+  color: #857be2;
+  background-color: #cfc8ff;
+}
+
+.Produkt-Block--Sky .Produkt-Block__Fahrrad-Typ,
+.Produkt-Block--Sky .Element__Name {
+  color: #cfc8ff;
+}
+
+.Produkt-Block--Mountain {
+  background: rgb(15, 18, 47);
+  --gradient-orientation: 0deg;
+  background: linear-gradient(
+    var(--gradient-orientation),
+    rgba(15, 18, 47, 1) 0%,
+    rgba(109, 80, 152, 1) 20%,
+    rgba(204, 92, 132, 1) 60%,
+    rgb(225, 110, 171) 100%
+  );
+}
+
+.Produkt-Block--Mountain .Element__Beschreibung {
+  color: rgb(231, 187, 202);
+}
+
+.Produkt-Block--Mountain .Element__Beschreibung::-webkit-scrollbar-thumb {
+  background-color: rgb(231, 187, 202);
+}
+
+.Produkt-Block--Mountain .Element__Knopf {
+  color: #984b60;
+  background-color: #ffbacc;
+}
+
+.Produkt-Block--Mountain .Produkt-Block__Fahrrad-Typ,
+.Produkt-Block--Mountain .Element__Name {
+  color: rgb(121, 27, 58);
+}
+
+.Produkt-Block--Spezial {
+  background: rgb(43, 29, 66);
+  --gradient-orientation: 0deg;
+  background: linear-gradient(
+    var(--gradient-orientation),
+    rgba(43, 29, 66, 1) -10%,
+    rgba(74, 47, 72, 1) 5%,
+    rgba(143, 61, 75, 1) 20%,
+    rgba(243, 184, 141, 1) 100%
+  );
+  color: rgb(128, 53, 123);
+}
+
+.Produkt-Block--Spezial .Element__Beschreibung {
+  color: rgba(243, 184, 141, 1);
+}
+
+.Produkt-Block--Spezial .Element__Beschreibung::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 172, 113);
+}
+
+.Produkt-Block--Spezial .Element__Knopf {
+  color: rgb(136, 79, 38);
+  background-color: rgba(243, 184, 141, 1);
+}
+
+.Produkt-Block--Spezial .Produkt-Block__Fahrrad-Typ,
+.Produkt-Block--Spezial .Element__Name {
+  color: rgb(143, 72, 25);
+}

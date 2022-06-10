@@ -1,0 +1,240 @@
+.Kundenbewertungen__Section {
+  /*--base-color-Kundenbewertungen: rgb(150, 255, 65); 
+  
+   */
+  --base-color-Kundenbewertungen: rgb(84, 255, 192);
+  --base-textcolor-Kundenbewertungen: rgb(193, 255, 232);
+  --accent-color-Kundenbewertungen: transparent;
+  margin-top: 50px;
+}
+
+.Kundenbewertungen__Section .Heading__Header {
+  color: var(--base-color-Kundenbewertungen);
+}
+
+.Kundenbewertungen__Section .Heading__Description {
+  color: var(--base-color-Kundenbewertungen);
+}
+
+.Kundenbewertung-Block {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr;
+  width: 95vw;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  padding: 50px 10px;
+  /* --transparency-value: 1%;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  ); 
+  background: linear-gradient(
+    0deg,
+    var(--accent-color-Kundenbewertungen) 80%,
+    var(--base-color-Kundenbewertungen) 110%
+  );
+  box-shadow: 0 0 0 50px var(--base-color-Kundenbewertungen);*/
+  box-shadow: inset 0px 0px 2px 2px var(--base-color-Kundenbewertungen),
+    inset 0px 0px 10px 10px rgba(0, 0, 0, 0.5),
+    0px 0px 5px 1px var(--base-color-Kundenbewertungen);
+  background: linear-gradient(
+    0deg,
+    var(--accent-color-Kundenbewertungen) 50%,
+    var(--base-color-Kundenbewertungen) 115%
+  );
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.Kundenbewertung__Block-Divider {
+  --transparency-value: 40%;
+  margin: 0;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  );
+  background-color: var(--page-background-color);
+  filter: brightness(1.55) contrast(1.5);
+  height: 50px;
+}
+
+.Kundenbewertung__Kunde {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  margin: 10px 0;
+  grid-row: 3 / 4;
+}
+
+.Kundenbewertung__Bild {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 100px;
+  background-image: url(../Bilder/House_2.png);
+  background-position: 50% 50%;
+  background-size: 95%;
+  box-shadow: 1px -1px 3px 1px rgba(255, 255, 255, 0.5),
+    inset 3px -3px 5px 1px rgba(0, 0, 0, 0.5);
+
+  background-repeat: no-repeat;
+  justify-self: right;
+}
+
+.Kundenbewertung__Kunden-Name {
+  font-weight: 500;
+  font-size: 2.5rem;
+  text-decoration: underline;
+  color: var(--base-textcolor-Kundenbewertungen);
+}
+
+.Kundenbewertung__Kunden-Name:after {
+  content: " sagt:";
+}
+
+.Kundenbewertung__Text {
+  --transparency-value: 6%;
+  margin: 0;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value),
+    black calc(100% - var(--transparency-value)),
+    transparent 100%
+  );
+  align-self: center;
+  color: var(--base-textcolor-Kundenbewertungen);
+  font-size: 2.2rem;
+  grid-row: 5/6;
+  height: min-content;
+  justify-self: left;
+  max-height: 500px;
+  /* mix-blend-mode: darken; */
+  overflow-y: auto;
+  padding-right: 10px;
+  padding: 20px 0;
+}
+
+.Kundenbewertung__Divider {
+  --divider-color: var(--base-color-Kundenbewertungen);
+  --divider-width: 2px;
+  filter: opacity(0.5) brightness(1.5);
+}
+
+.Kundenbewertung-Block .Kundenbewertung__Divider {
+  border-bottom: var(--divider-width) solid var(--divider-color);
+}
+
+.Kundenbewertung__Text::-webkit-scrollbar {
+  width: 3px;
+}
+
+.Kundenbewertung__Text::-webkit-scrollbar-thumb {
+  background-color: var(--base-color-Kundenbewertungen);
+}
+
+.Kundenbewertung-Block .Container__Element {
+  grid-template-rows: min-content 1fr min-content;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.Kundenbewertung-Block .Container__Element .Element__Knopf {
+  color: rgb(43, 43, 43);
+  background-color: var(--base-color-Kundenbewertungen);
+  font-size: clamp(2rem, 2vw, 2.5rem);
+}
+
+.Kundenbewertung-Block .Container__Element .Element__Bild {
+  background: url(../Bilder/Bus.png);
+  min-width: 250px;
+  min-height: 250px;
+  width: 100%;
+  height: 100%;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 90% 45%;
+}
+
+@media screen and (min-width: 800px) {
+  .Kundenbewertung-Block {
+    grid-template-columns: min-content min-content 1fr;
+    grid-template-rows: max-content min-content 1fr;
+    padding-left: 50px;
+    width: 90vw;
+  }
+
+  .Kundenbewertung__Text {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+  }
+
+  .Kundenbewertung__Kunde {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .Kundenbewertung-Block .Container__Element {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .Kundenbewertung-Block .Kundenbewertung__Divider:nth-of-type(1n) {
+    border-right: var(--divider-width) solid var(--divider-color);
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+    margin: 0 10px;
+  }
+
+  .Kundenbewertung-Block .Kundenbewertung__Divider:nth-of-type(2n) {
+    border-bottom: var(--divider-width) solid var(--divider-color);
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .Kundenbewertung-Block .Container__Element .Element__Bild {
+    background: url(../Bilder/Bus.png);
+    min-width: 300px;
+    min-height: 300px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 90% 45%;
+  }
+}
+
+.Kundenbewertungen__Section .Element__Name {
+  color: var(--base-textcolor-Kundenbewertungen);
+}
+
+.Kundenbewertungen__Section .Element__Knopf {
+  background-color: var(--accent-color-Kundenbewertungen);
+}

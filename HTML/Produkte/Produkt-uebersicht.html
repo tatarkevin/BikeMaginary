@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <title>BikeMaginary - Das passende Zweirad für alle Orte</title>
+    <link rel="stylesheet" href="/CSS/normalize.css" />
+    <link rel="stylesheet" href="/CSS/combined_Produktuebersicht.css" />
+  </head>
+  <body>
+    <div class="Headerbar-Container">
+      <div class="Headerbar">
+        <!-- Ich muss hier Root-Verweise machen, und die funktionieren nur mit einem Live-Server.
+          Ohne Live Server bezieht sich "/" auf das Laufwerk.
+        Mit Live Server bezieht sich Root auf dem obersten Ordner also einen über -> "9999_Playground_BikeMaginary" -->
+        <a
+          href="/HTML/index.html"
+          class="Headerbar__Button Button__Home Headerbar__Link"
+        >
+          <span class="Headerbar__Icon bg-House_Door_closed"></span>
+          <span class="Headerbar__Icon bg-House_Door_open"></span>
+          <p class="Headerbar__Label">Home</p>
+        </a>
+        <a
+          href="/HTML/Produkte/Produkt-uebersicht.html"
+          class="Headerbar__Button Button__Products Headerbar__Link"
+          data-submenu_id="Produkte"
+        >
+          <span class="Headerbar__Icon bg-Products_Lights_off"></span>
+          <span class="Headerbar__Icon bg-Products_Lights_on"></span>
+          <p class="Headerbar__Label">Produkte</p>
+        </a>
+        <div class="Headerbar__Filler"></div>
+        <div class="Headerbar__Logo-And-Menu">
+          <div class="Headerbar__Logo">
+            <span class="BM_Logo"></span>
+            <h1 class="Logo__Text">BikeMaginary</h1>
+          </div>
+          <div class="Headerbar__Button Button__Menu">
+            <span class="icon-menu icon-menu__clicked icon-hidden"></span>
+            <span class="icon-menu icon-menu__unclicked"></span>
+          </div>
+        </div>
+        <div class="Headerbar__Filler"></div>
+        <a href="" class="Headerbar__Button Button__Warenkorb Headerbar__Link">
+          <span class="Headerbar__Icon bg-Warenkorb_Pakete_off"></span>
+          <span class="Headerbar__Icon bg-Warenkorb_Pakete_on"></span>
+          <p class="Headerbar__Label">Warenkorb</p>
+        </a>
+        <a
+          href=""
+          class="Headerbar__Button Button__Logged-Out Headerbar__Link"
+          data-submenu_id="Login"
+        >
+          <span class="Headerbar__Icon bg-Lock_log_in_no_hover"></span>
+          <span class="Headerbar__Icon bg-Lock_log_in_hover"></span>
+          <p class="Headerbar__Label">Login</p>
+        </a>
+        <a href="" class="Headerbar__Button Button__Logged-In Headerbar__Link">
+          <span class="Headerbar__Icon bg-Lock_log_out_no_hover"></span>
+          <span class="Headerbar__Icon bg-Lock_log_out_hover"></span>
+          <p class="Headerbar__Label">Logout</p>
+        </a>
+        <a
+          href=""
+          class="Headerbar__Button Button__Register Headerbar__Link"
+          data-submenu_id="Registrieren"
+        >
+          <span class="Headerbar__Icon bg-Register_unsigned"></span>
+          <span class="Headerbar__Icon bg-Register_signed"></span>
+          <p class="Headerbar__Label">Registrieren</p>
+        </a>
+        <a href="" class="Headerbar__Button Button__Profile Headerbar__Link">
+          <span class="Headerbar__Icon bg-Profile_no_hover"></span>
+          <span class="Headerbar__Icon bg-Profile_hover"></span>
+          <p class="Headerbar__Label">Profil</p>
+        </a>
+      </div>
+      <div class="Headerbar__Submenus">
+        <ul class="Submenu Submenu--Products" data-submenu_id="Produkte">
+          <li class="Submenu__Category">Sky Bikes</li>
+          <li class="Submenu__Item">Käpt'n der Lüfte</li>
+          <li class="Submenu__Item">Weißer Baron</li>
+          <li class="Submenu__Category">Mountain Bikes</li>
+          <li class="Submenu__Item">Super Driller</li>
+          <li class="Submenu__Item">Arctis 3000</li>
+          <li class="Submenu__Category">Spezial Bikes</li>
+          <li class="Submenu__Item">Wohnen auf Rädern</li>
+          <li class="Submenu__Item">Schoolbus</li>
+          <li class="Submenu__Category">Aqua Bikes</li>
+          <li class="Submenu__Item">Yellow Submarine</li>
+          <li class="Submenu__Item">Kapsel von Loch Ness</li>
+          <li class="Submenu__Item">
+            <a href="/HTML/Produkte/MiniAtlantis.HTML">Mini Atlantis</a>
+          </li>
+        </ul>
+        <form class="Submenu Submenu--Login" data-submenu_id="Login">
+          <input type="text" placeholder="Benutzername/E-Mail" />
+          <input type="password" placeholder="Passwort" />
+          <input type="submit" value="Einloggen" />
+        </form>
+        <form class="Submenu Submenu--Register" data-submenu_id="Registrieren">
+          <input type="text" placeholder="Benutzername/E-Mail" />
+          <input type="password" placeholder="Passwort" />
+          <input type="password" placeholder="Passwort bestätigen" />
+          <input type="submit" value="Registrieren" />
+        </form>
+      </div>
+    </div>
+
+    <div id="site">
+      <div class="Produkt-Uebersicht">
+        <div class="Uebersicht__Bereich Produkt-Block--Sky">
+          <div class="Bereich__Titel">Sky Bikes</div>
+          <div class="Bereich__Divider"></div>
+          <div class="Bereich__Produkte">
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/FlyingShip0001-0019.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Käpt'n der Lüfte</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Plane0001-0019.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Weißer Baron</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Heli_Cut0000-0029.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Cyclocopter</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Uebersicht__Bereich Produkt-Block--Mountain">
+          <div class="Bereich__Titel">Mountain Bikes</div>
+          <div class="Bereich__Divider"></div>
+          <div class="Bereich__Produkte">
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <img
+                    class="Product_Image"
+                    src="/Bilder/Super Driller.png"
+                    alt=""
+                  />
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Super Driller</p>
+                <p class="Product_Price">Preis: 34.500 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <img
+                    class="Product_Image"
+                    src="/Bilder/Snowmobile_Single1.png"
+                    alt=""
+                  />
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Arctis 3000</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Snowmobile_Family_Video.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Möbius der Schneebändiger</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Uebersicht__Bereich Produkt-Block--Spezial">
+          <div class="Bereich__Titel">Spezial Bikes</div>
+          <div class="Bereich__Divider"></div>
+          <div class="Bereich__Produkte">
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Wohnmobil_video0000-0124.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Wohnen auf Rädern</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <img class="Product_Image" src="/Bilder/Bus.png" />
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Schoolbus</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <img
+                    class="Product_Image"
+                    src="/Bilder/Airship_Family8.png"
+                  />
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Wolkenzähmer</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Uebersicht__Bereich Produkt-Block--Aqua">
+          <div class="Bereich__Titel">Aqua Bikes</div>
+          <div class="Bereich__Divider"></div>
+          <div class="Bereich__Produkte">
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <img class="Product_Image" src="/Bilder/Aqua_Family28.png" />
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Tiny Atlantis</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <a
+                  href="/HTML/Produkte/MiniAtlantis.HTML"
+                  class="btn btn--primary"
+                  >Mehr Info</a
+                >
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Submarine_2_Video0000-0173.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Yellow Submarine</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <a class="btn btn--primary">Mehr Info</a>
+              </div>
+            </div>
+            <div class="Product_Card">
+              <div class="image_slider">
+                <div data-image-index="0" data-images-loaded="0" class="Images">
+                  <video
+                    class="Product_Image"
+                    src="/Bilder/Submarine_2_0001-0019.webm"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+                <span class="Image_Button button_left">
+                  <span class="button_left_arrow"> </span>
+                </span>
+                <span class="Image_Button button_right">
+                  <span class="button_right_arrow"></span>
+                </span>
+                <div class="image_dots"></div>
+              </div>
+              <div class="Product_Info">
+                <p class="Product_Name">Kapsel von Loch Ness</p>
+                <p class="Product_Price">Preis: 29.000 Schrauben</p>
+                <button class="btn btn--primary">Jetzt Kaufen</button>
+                <button class="btn btn--primary">Mehr Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="Footer">
+        <div class="Footer__Logo">
+          <div class="BM_Logo"></div>
+          <h2 class="Footer__Logo__Header">BikeMaginary</h2>
+          <p class="Footer__Logo__Text">Copyright &copy; 2022 KT</p>
+        </div>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Über Uns</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">Unser Team</li>
+            <li class="Footer__Listen-Element">Vision</li>
+            <li class="Footer__Listen-Element">Alles zur Herstellung</li>
+            <li class="Footer__Listen-Element">Umweltschutz</li>
+          </ul>
+        </section>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Produkte</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">Stadtbikes</li>
+            <li class="Footer__Listen-Element">Mountainbikes</li>
+            <li class="Footer__Listen-Element">Luftbikes</li>
+            <li class="Footer__Listen-Element">Wasserbikes</li>
+            <li class="Footer__Listen-Element">Zubehör</li>
+          </ul>
+        </section>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Support</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">Hilfe und Fragen</li>
+            <li class="Footer__Listen-Element">Retoure</li>
+            <li class="Footer__Listen-Element">Lieferprobleme</li>
+            <li class="Footer__Listen-Element">Accountprobleme</li>
+          </ul>
+        </section>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Kontakt</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">E-Mail</li>
+            <li class="Footer__Listen-Element">Kontaktformular</li>
+            <li class="Footer__Listen-Element">Telefon</li>
+          </ul>
+        </section>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Jobs</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">Bürokratie</li>
+            <li class="Footer__Listen-Element">Logistik</li>
+            <li class="Footer__Listen-Element">Forschung</li>
+            <li class="Footer__Listen-Element">Informatik</li>
+            <li class="Footer__Listen-Element">Marketing</li>
+            <li class="Footer__Listen-Element">Support und Hilfe</li>
+          </ul>
+        </section>
+        <section class="Footer__Section">
+          <div class="Footer__Menu-Header">
+            <h2 class="Footer__Section__Header">Wichtige Hinweise</h2>
+            <div class="Footer__Menu-Button">
+              <div class="Menu-Button__Arrow"></div>
+            </div>
+          </div>
+          <ul class="Footer__Liste">
+            <li class="Footer__Listen-Element">
+              Allgemeine Geschäftsbedingungen
+            </li>
+            <li class="Footer__Listen-Element">Datenschutz</li>
+          </ul>
+        </section>
+      </footer>
+      <!-- #site end -->
+    </div>
+
+    <script src="/JavaScript/Menu-Button.js"></script>
+    <script src="/JavaScript/Footer-Menu.js"></script>
+    <script src="/JavaScript/Submenu.js"></script>
+  </body>
+</html>

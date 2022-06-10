@@ -1,0 +1,136 @@
+.Footer {
+  width: 100%;
+  background-color: rgb(25, 25, 25);
+  padding: 20px 10px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 3px solid white;
+  position: relative;
+  z-index: 4;
+}
+
+.Footer__Section {
+  width: 90%;
+  max-width: 600px;
+  align-self: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.Footer__Liste {
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.Footer--ausgeklappt .Footer__Liste {
+  /* Es muss VH sein, ansonsten geht es nicht. Und je höher VH desto zackiger animiert es */
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.Footer__Section__Header {
+  margin: 0;
+}
+
+.Footer__Menu-Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.Footer__Listen-Element {
+  list-style: none;
+  color: rgb(126, 126, 126);
+  margin-bottom: 0.7rem;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.Footer__Listen-Element:hover {
+  color: rgb(219, 219, 219);
+}
+
+.Footer__Logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+  order: 100;
+}
+
+.Footer__Logo__Header {
+  margin: 0;
+}
+
+.Footer__Logo__Text {
+  color: rgb(160, 160, 160);
+}
+
+.Footer__Menu-Button {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(65, 65, 65);
+  border-radius: 100%;
+  cursor: pointer;
+  transform: rotateZ(45deg);
+  transition: transform 0.4s;
+  user-select: none;
+}
+
+.Footer--ausgeklappt .Footer__Menu-Button {
+  transform: rotateZ(-135deg);
+}
+
+.Menu-Button__Arrow {
+  --arrow-style: 3px solid white;
+  border-right: var(--arrow-style);
+  border-bottom: var(--arrow-style);
+  --width-and-height: 40%;
+  width: var(--width-and-height);
+  height: var(--width-and-height);
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-55%, -55%);
+}
+
+@media screen {
+  .Footer {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .Footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .Footer__Section {
+    border-bottom: 0;
+    align-self: flex-start;
+    margin-right: 20px;
+  }
+  .Footer__Liste {
+    max-height: 100%;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+  .Footer__Menu-Button {
+    display: none;
+  }
+  .Footer__Menu-Header {
+    cursor: default;
+  }
+
+  .Footer__Logo {
+    order: 0;
+  }
+}

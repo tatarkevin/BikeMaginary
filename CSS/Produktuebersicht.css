@@ -1,0 +1,343 @@
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgb(231, 231, 231);
+  --color-main: rgba(255, 255, 255, 0.638);
+  --color-main-darker: rgba(255, 255, 255, 0.413);
+  --color-main-font: rgb(36, 36, 36);
+  --gradient-direction-DetailPanel: 180deg;
+}
+
+.Uebersicht__Bereich {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  --transparency-delta-top: 1%;
+  --transparency-delta-bottom: 1%;
+  --transparency-start: 0%;
+  --transparency-stop: 100%;
+  --transparency-direction: 0deg;
+  -webkit-mask-image: linear-gradient(
+    var(--transparency-direction),
+    transparent var(--transparency-start),
+    green calc(var(--transparency-start) + var(--transparency-delta-top)),
+    green calc(var(--transparency-stop) - var(--transparency-delta-bottom)),
+    transparent var(--transparency-stop)
+  );
+  mask-image: linear-gradient(
+    var(--transparency-direction),
+    transparent var(--transparency-start),
+    green calc(var(--transparency-start) + var(--transparency-delta-top)),
+    green calc(var(--transparency-stop) - var(--transparency-delta-bottom)),
+    transparent var(--transparency-stop)
+  );
+}
+
+.Bereich__Titel {
+  font-weight: bold;
+  font-size: 4rem;
+  mix-blend-mode: overlay;
+  color: white;
+  margin-left: 5px;
+}
+
+.Bereich__Divider {
+  width: 99%;
+  margin: 20px auto;
+  border-top: 1px solid white;
+  mix-blend-mode: overlay;
+}
+
+.Bereich__Produkte {
+  display: flex;
+  flex: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+
+.Product_Card {
+  min-width: 300px;
+  max-width: 350px;
+  width: 80%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  --Card_Box-Shadow-spread: 3px;
+  --Card_Box-Shadow-blur: 0px;
+  box-shadow: 0 0 var(--Card_Box-Shadow-blur) var(--Card_Box-Shadow-spread)
+    var(--color-main);
+  margin: 30px;
+  transition: transform 0.3s;
+  filter: drop-shadow(0px 0px 3px #acacac);
+}
+
+@media screen and (min-width: 0px) {
+  .Product_Card {
+    transition: transform 0.3s;
+    z-index: 0;
+  }
+  .Product_Card:hover {
+    transform: scale(1.05);
+  }
+}
+
+.Images {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: row;
+  width: fit-content;
+  height: 100%;
+  position: relative;
+  mix-blend-mode: normal;
+  background-color: rgba(255, 255, 255, 0.176);
+}
+
+.Product_Image {
+  object-fit: cover;
+  z-index: 9000;
+  width: 80%;
+  margin: auto;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.6));
+}
+
+.Product_Info {
+  background-color: var(--color-main-darker);
+  height: 200px;
+  color: var(--color-main-font);
+}
+
+.Product_Name {
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.Product_Price {
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  padding: 1rem 1.4rem;
+  outline: 0;
+  border: 0;
+  width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  display: block;
+  font-size: 2rem;
+}
+
+.btn--primary {
+  background-color: var(--color-main);
+  box-shadow: 0 0 0 2px var(--color-main-darker);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-main-darker);
+  box-shadow: 0 0 0 2px var(--color-main);
+  --btn--hover-color: rgb(255, 255, 255);
+  color: var(--btn--hover-color);
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container_temp {
+  width: 400px;
+  height: 400px;
+  display: block;
+  position: relative;
+  margin: auto;
+}
+
+.image_slider {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 9996;
+}
+
+:root {
+  --arrow: 3px solid rgba(255, 255, 255, 0.637);
+  --arrow-size: 10px;
+  --button-color: rgba(0, 0, 0, 0.301);
+}
+
+.Image_Button {
+  /* display: inline-block; */
+  display: none;
+  z-index: 9997;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+
+  position: absolute;
+  background-color: var(--button-color);
+  border-radius: 100%;
+  cursor: pointer;
+}
+.button_left,
+.button_right {
+  height: 35px;
+  width: 35px;
+}
+
+.button_left {
+  left: 10px;
+}
+
+.button_left_arrow {
+  height: var(--arrow-size);
+  width: var(--arrow-size);
+  border-left: var(--arrow);
+  border-top: var(--arrow);
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%) rotate(-45deg);
+  display: inline-block;
+  position: absolute;
+}
+
+.button_right {
+  right: 10px;
+}
+
+.button_right_arrow {
+  height: var(--arrow-size);
+  width: var(--arrow-size);
+  border-right: var(--arrow);
+  border-top: var(--arrow);
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%) rotate(45deg);
+  display: inline-block;
+  position: absolute;
+}
+
+@keyframes arrow-pulsing-right {
+  50% {
+    left: 60%;
+  }
+}
+
+@keyframes arrow-pulsing-left {
+  50% {
+    left: 40%;
+  }
+}
+
+.button_left:hover .button_left_arrow {
+  animation-name: arrow-pulsing-left;
+}
+
+.button_right:hover .button_right_arrow {
+  animation-name: arrow-pulsing-right;
+}
+
+.button_left:hover .button_left_arrow,
+.button_right:hover .button_right_arrow {
+  animation-duration: 0.3s;
+  animation-direction: normal;
+  animation-iteration-count: 2;
+}
+
+.image_dots {
+  position: absolute;
+  bottom: 0;
+  width: fit-content;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  user-select: none;
+  z-index: 9997;
+}
+
+.image_dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 2px;
+  border: 1px solid rgb(165, 165, 165);
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: inset 0px -2px 3px -1px black;
+  --bg-transparent: rgba(255, 255, 255, 0);
+  --bg-normal: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes image_dot_initial_blink {
+  0% {
+    background-color: var(--bg-transparent);
+  }
+  33% {
+    background-color: var(--bg-normal);
+  }
+  34% {
+    background-color: var(--bg-transparent);
+  }
+  66% {
+    background-color: var(--bg-normal);
+  }
+  67% {
+    background-color: var(--bg-transparent);
+  }
+  100% {
+    background-color: var(--bg-normal);
+  }
+}
+
+.image_dot:not(.image_dot_highlighted):hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Irgendwie blinkt das wieder wenn ich das bild gewechselt habe. */
+.image_dot_initial_animation {
+  animation-name: image_dot_initial_blink;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dot-pulsing {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(121, 121, 121);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+.image_dot_highlighted {
+  animation-name: dot-pulsing;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.Produkt-Block--Sky,
+.Produkt-Block--Mountain,
+.Produkt-Block--Spezial,
+.Produkt-Block--Aqua {
+  --gradient-orientation: -10deg;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <title>BikeMaginary - Das passende Zweirad für alle Orte</title>
+    <link rel="stylesheet" href="../CSS/normalize.css" />
+    <link rel="stylesheet" href="../CSS/combined.css" />
+  </head>
+  <body>
+    <div class="Headerbar-Container">
+      <div class="Headerbar">
+        <a href="" class="Headerbar__Button Button__Home Headerbar__Link">
+          <span class="Headerbar__Icon bg-House_Door_closed"></span>
+          <span class="Headerbar__Icon bg-House_Door_open"></span>
+          <p class="Headerbar__Label">Home</p>
+        </a>
+        <a
+          href=""
+          class="Headerbar__Button Button__Products Headerbar__Link"
+          data-submenu_id="Produkte"
+        >
+          <span class="Headerbar__Icon bg-Products_Lights_off"></span>
+          <span class="Headerbar__Icon bg-Products_Lights_on"></span>
+          <p class="Headerbar__Label">Produkte</p>
+        </a>
+        <div class="Headerbar__Filler"></div>
+        <div class="Headerbar__Logo-And-Menu">
+          <div class="Headerbar__Logo">
+            <span class="BM_Logo"></span>
+            <h1 class="Logo__Text">BikeMaginary</h1>
+          </div>
+          <div class="Headerbar__Button Button__Menu">
+            <span class="icon-menu icon-menu__clicked icon-hidden"></span>
+            <span class="icon-menu icon-menu__unclicked"></span>
+          </div>
+        </div>
+        <div class="Headerbar__Filler"></div>
+        <a href="" class="Headerbar__Button Button__Warenkorb Headerbar__Link">
+          <span class="Headerbar__Icon bg-Warenkorb_Pakete_off"></span>
+          <span class="Headerbar__Icon bg-Warenkorb_Pakete_on"></span>
+          <p class="Headerbar__Label">Warenkorb</p>
+        </a>
+        <a
+          href=""
+          class="Headerbar__Button Button__Logged-Out Headerbar__Link"
+          data-submenu_id="Login"
+        >
+          <span class="Headerbar__Icon bg-Lock_log_in_no_hover"></span>
+          <span class="Headerbar__Icon bg-Lock_log_in_hover"></span>
+          <p class="Headerbar__Label">Login</p>
+        </a>
+        <a href="" class="Headerbar__Button Button__Logged-In Headerbar__Link">
+          <span class="Headerbar__Icon bg-Lock_log_out_no_hover"></span>
+          <span class="Headerbar__Icon bg-Lock_log_out_hover"></span>
+          <p class="Headerbar__Label">Logout</p>
+        </a>
+        <a
+          href=""
+          class="Headerbar__Button Button__Register Headerbar__Link"
+          data-submenu_id="Registrieren"
+        >
+          <span class="Headerbar__Icon bg-Register_unsigned"></span>
+          <span class="Headerbar__Icon bg-Register_signed"></span>
+          <p class="Headerbar__Label">Registrieren</p>
+        </a>
+        <a href="" class="Headerbar__Button Button__Profile Headerbar__Link">
+          <span class="Headerbar__Icon bg-Profile_no_hover"></span>
+          <span class="Headerbar__Icon bg-Profile_hover"></span>
+          <p class="Headerbar__Label">Profil</p>
+        </a>
+      </div>
+      <div class="Headerbar__Submenus">
+        <ul class="Submenu Submenu--Products" data-submenu_id="Produkte">
+          <li class="Submenu__Category">Sky Bikes</li>
+          <li class="Submenu__Item">Käpt'n der Lüfte</li>
+          <li class="Submenu__Item">Weißer Baron</li>
+          <li class="Submenu__Category">Mountain Bikes</li>
+          <li class="Submenu__Item">Super Driller</li>
+          <li class="Submenu__Item">Arctis 3000</li>
+          <li class="Submenu__Category">Spezial Bikes</li>
+          <li class="Submenu__Item">Wohnen auf Rädern</li>
+          <li class="Submenu__Item">Schoolbus</li>
+          <li class="Submenu__Category">Aqua Bikes</li>
+          <li class="Submenu__Item">Yellow Submarine</li>
+          <li class="Submenu__Item">Kapsel von Loch Ness</li>
+        </ul>
+        <form class="Submenu Submenu--Login" data-submenu_id="Login">
+          <input type="text" placeholder="Benutzername/E-Mail" />
+          <input type="password" placeholder="Passwort" />
+          <input type="submit" value="Einloggen" />
+        </form>
+        <form class="Submenu Submenu--Register" data-submenu_id="Registrieren">
+          <input type="text" placeholder="Benutzername/E-Mail" />
+          <input type="password" placeholder="Passwort" />
+          <input type="password" placeholder="Passwort bestätigen" />
+          <input type="submit" value="Registrieren" />
+        </form>
+      </div>
+    </div>
+    <script src="../JavaScript/Menu-Button.js"></script>
+    <script src="../JavaScript/Footer-Menu.js"></script>
+    <!-- <script src="../JavaScript/Submenu.js"></script> -->
+  </body>
+</html>

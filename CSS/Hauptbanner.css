@@ -1,0 +1,70 @@
+.Hauptbanner {
+  position: relative;
+  background: rgb(184, 255, 242);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    0deg,
+    rgb(0, 47, 123) 20%,
+    rgba(184, 255, 242, 1) 35%,
+    rgba(27, 86, 180, 1) 80%,
+    rgb(0, 47, 123) 100%
+  );
+  border-bottom: var(--section-shadow-size) solid var(--header-color);
+}
+
+.Hauptbanner__Bild {
+  object-fit: cover;
+  width: 100%;
+  transform: translateY(5px);
+  position: relative;
+  left: 0;
+  max-height: 90vh;
+  top: 0;
+}
+
+.Hauptbanner__Text {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 1%;
+  right: 16%;
+  width: 10ch;
+  text-align: center;
+  font-size: clamp(2.5rem, 6.5vw, 10rem);
+  text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.518);
+  padding: 0;
+  margin: 0;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 0 1px rgb(0, 0, 0));
+}
+
+@media screen and (min-width: 2000px) {
+  .Hauptbanner__Text {
+    top: 28%;
+    right: 22%;
+    text-align: center;
+    font-size: 4.3vw;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .Hauptbanner__Text {
+    top: 31.5%;
+    right: 27%;
+    text-align: center;
+    font-size: 5vw;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .Hauptbanner__Text {
+    top: 36%;
+    right: 35%;
+    text-align: center;
+    font-size: 4vw;
+    padding: 0;
+    margin: 0;
+  }
+}

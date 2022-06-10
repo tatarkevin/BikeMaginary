@@ -1,0 +1,247 @@
+/* https://www.toptal.com/developers/css/sprite-generator/ */
+
+.Headerbar__Filler {
+  flex-grow: 1;
+}
+
+.Headerbar__Icon {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  transform: scale(0.8);
+}
+
+.BM_Logo {
+  background-image: url(../Icons/Logo3.png);
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  filter: drop-shadow(1px -1px 1px rgba(255, 255, 255, 0.9));
+}
+
+.bg-Lock_log_in_hover,
+.bg-Lock_log_in_no_hover,
+.bg-Lock_log_out_hover,
+.bg-Lock_log_out_no_hover,
+.bg-Warenkorb_Pakete_off,
+.bg-Warenkorb_Pakete_on,
+.bg-Register_signed,
+.bg-Register_unsigned {
+  transform: scale(60%);
+}
+.Button__Menu {
+  display: none;
+}
+
+.icon-menu {
+  background-size: cover;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  filter: invert(100%);
+}
+
+.icon-menu__unclicked {
+  background-image: url(../Icons/icons8-menu-64.png);
+}
+
+.icon-menu__clicked {
+  background-image: url(../Icons/icons8-stornieren-64.png);
+  transform: scale(0.7);
+}
+
+.icon-hidden {
+  display: none;
+}
+
+.bg-House_Door_closed,
+.bg-House_Door_open,
+.bg-Lock_log_in_hover,
+.bg-Lock_log_in_no_hover,
+.bg-Lock_log_out_hover,
+.bg-Lock_log_out_no_hover,
+.bg-Products_Lights_off,
+.bg-Products_Lights_on,
+.bg-Register_signed,
+.bg-Register_unsigned,
+.bg-Warenkorb_Pakete_off,
+.bg-Warenkorb_Pakete_on,
+.bg-Profile_no_hover,
+.bg-Profile_hover {
+  background-image: url("../Icons/css_sprites.png");
+}
+
+/* Home Button */
+.bg-House_Door_closed {
+  width: 100px;
+  height: 74px;
+  background-position: -370px -130px;
+}
+
+.bg-House_Door_open {
+  width: 100px;
+  height: 74px;
+  background-position: -370px -224px;
+  display: none;
+}
+
+.Button__Home:hover .bg-House_Door_open {
+  display: inline-block;
+}
+
+.Button__Home:hover .bg-House_Door_closed {
+  display: none;
+}
+
+/* Produkte Button */
+.Headerbar__Icon {
+  filter: drop-shadow(1px -1px 0px rgba(255, 255, 255, 0.7));
+}
+.bg-Products_Lights_off {
+  width: 100px;
+  height: 69px;
+  background-position: -130px -370px;
+}
+
+.bg-Products_Lights_on {
+  width: 100px;
+  height: 69px;
+  background-position: -10px -370px;
+  display: none;
+}
+
+.Button__Products:hover .bg-Products_Lights_on {
+  display: inline-block;
+}
+
+.Button__Products:hover .bg-Products_Lights_off {
+  display: none;
+}
+
+/* Login Button */
+.bg-Lock_log_in_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -10px -10px;
+  display: none;
+}
+
+.bg-Lock_log_in_no_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -130px -10px;
+}
+
+.Button__Logged-Out:hover .bg-Lock_log_in_no_hover {
+  display: none;
+}
+
+.Button__Logged-Out:hover .bg-Lock_log_in_hover {
+  display: inline-block;
+}
+
+/* Logout Button */
+.bg-Lock_log_out_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -10px -130px;
+  display: none;
+}
+
+.bg-Lock_log_out_no_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -130px -130px;
+}
+
+.Button__Logged-In:hover .bg-Lock_log_out_no_hover {
+  display: none;
+}
+
+.Button__Logged-In:hover .bg-Lock_log_out_hover {
+  display: inline-block;
+}
+
+/* Register Button */
+
+.bg-Register_signed {
+  width: 100px;
+  height: 100px;
+  background-position: -10px -250px;
+  display: none;
+}
+
+.bg-Register_unsigned {
+  width: 100px;
+  height: 100px;
+  background-position: -130px -250px;
+}
+
+.Button__Register:hover .bg-Register_unsigned {
+  display: none;
+}
+
+.Button__Register:hover .bg-Register_signed {
+  display: inline-block;
+}
+
+/* Cart Icon */
+
+.bg-Warenkorb_Pakete_off {
+  width: 100px;
+  height: 100px;
+  background-position: -250px -250px;
+}
+
+.bg-Warenkorb_Pakete_on {
+  width: 100px;
+  height: 100px;
+  background-position: -370px -10px;
+  display: none;
+}
+
+.Button__Warenkorb:hover .bg-Warenkorb_Pakete_on {
+  display: inline-block;
+}
+
+.Button__Warenkorb:hover .bg-Warenkorb_Pakete_off {
+  display: none;
+}
+
+/* Profile Icon */
+.bg-Profile_hover,
+.bg-Profile_no_hover {
+  transform: scale(0.6);
+}
+
+.bg-Profile_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -250px -10px;
+  display: none;
+}
+
+.bg-Profile_no_hover {
+  width: 100px;
+  height: 100px;
+  background-position: -250px -130px;
+}
+
+.Button__Profile:hover .bg-Profile_no_hover {
+  display: none;
+}
+
+.Button__Profile:hover .bg-Profile_hover {
+  display: inline-block;
+}
+
+.Headerbar__Icon-Container {
+  height: fit-content;
+}
+
+.lorem5000 {
+  color: rgb(71, 71, 71);
+}

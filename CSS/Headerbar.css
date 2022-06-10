@@ -1,0 +1,282 @@
+@import url(../CSS/Headerbar-icons.css);
+
+.Headerbar-Container {
+  --top-offset: -25px;
+  --max-height-headerbar: 90px;
+  --background-color-headerbar: rgba(30, 30, 30, 0.95);
+  --borderstyle-headerbar: 2px solid white;
+}
+
+.Headerbar {
+  background-color: var(--background-color-headerbar);
+  border-bottom: var(--borderstyle-headerbar);
+  display: grid;
+  grid-auto-rows: 70px;
+  grid-template-columns: 100vw;
+  justify-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 20px;
+  position: fixed;
+  top: var(--top-offset);
+  transition: max-height 0.5s ease-in-out;
+  width: 100vw;
+  z-index: 999;
+  max-height: var(--max-height-headerbar);
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.Headerbar::-webkit-scrollbar {
+  width: 0;
+}
+
+.Headerbar__Link {
+  text-decoration: none;
+  color: rgb(204, 204, 204);
+}
+
+.Headerbar__Filler {
+  display: none;
+}
+
+.Headerbar__Button {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.246);
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: transform 0.1s;
+  width: 90%;
+}
+
+.Headerbar .Headerbar__Button:last-child {
+  border: 0;
+}
+
+.Headerbar__Button:hover {
+  transform: scale(1.01);
+  z-index: 100;
+}
+
+.Headerbar__Label {
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: left;
+  user-select: none;
+}
+
+.Headerbar__Logo-And-Menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  order: -1;
+}
+
+.Headerbar__Logo {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+.Logo__Text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  user-select: none;
+  color: var(--header-color);
+  text-decoration-color: white;
+  margin: 0;
+}
+
+.Button__Menu {
+  width: fit-content;
+  border: 0;
+}
+@media screen and (min-width: 600px) {
+  .Headerbar__Logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .Button__Menu {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.Headerbar--ausgeklapt {
+  max-height: calc(100vh - var(--top-offset));
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 1250px) {
+  .Headerbar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    top: -55px;
+    padding-right: 10px;
+    --max-height-headerbar: 150px;
+  }
+
+  .Headerbar__Label {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .Headerbar__Filler {
+    display: block;
+  }
+
+  .Headerbar__Button {
+    flex-direction: column;
+    width: fit-content;
+    border: 0;
+    position: relative;
+    bottom: 10px;
+  }
+
+  .Headerbar__Button:hover {
+    transform: scale(1.1);
+    z-index: 100;
+  }
+  .Headerbar__Icon {
+    transform: scale(0.6) translateY(25px);
+  }
+
+  .Headerbar__Button:not(.Button__Home):not(.Button__Products)
+    .Headerbar__Icon {
+    transform: scale(0.45) translateY(60px);
+  }
+  .Headerbar__Logo-And-Menu {
+    width: fit-content;
+    border: 0;
+    order: 0;
+  }
+  .Headerbar__Logo-And-Menu .Button__Menu {
+    display: none;
+  }
+  .Headerbar__Logo {
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-55px) translateX(-50%);
+  }
+  .BM_Logo {
+    transform: translateY(14px);
+  }
+  .Logo__Text {
+    font-size: 2rem;
+  }
+}
+
+.Submenu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: absolute;
+  background-color: var(--background-color-headerbar);
+  border: var(--borderstyle-headerbar);
+  border-top: none;
+  padding: 0;
+  padding-bottom: 10px;
+  --border-radius-submenu: 5px;
+  border-radius: 0 0 var(--border-radius-submenu) var(--border-radius-submenu);
+  --default-submenu-color: #cccccc;
+  z-index: 10000000;
+  max-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white;
+  transform-origin: 50% 0;
+  transition: max-height 0.5s;
+  box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.7);
+}
+
+.Submenu--expanded {
+  max-height: 80vh !important;
+}
+
+.Submenu::-webkit-scrollbar {
+  width: 2px;
+}
+.Submenu::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+}
+.Submenu::-webkit-scrollbar-track {
+  background-color: rgb(133, 133, 133);
+}
+
+.Submenu__Category {
+  margin: 10px 0;
+  font-weight: 500;
+  color: var(--default-submenu-color);
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.Submenu__Category:not(.Submenu__Category:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+}
+
+.Submenu__Category:hover,
+.Submenu__Item:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.Submenu__Item {
+  color: var(--default-submenu-color);
+  padding-left: 40px;
+  margin-right: 2rem;
+}
+
+.Submenu--Products {
+  margin-top: 0;
+}
+
+.Submenu input[type="text"],
+.Submenu input[type="password"] {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  outline: none;
+  margin: 10px;
+  padding: 1.5rem 2rem;
+  border: none;
+  border-radius: 1000px;
+  transition: all 0.3s;
+}
+
+.Submenu input[type="text"]::placeholder,
+.Submenu input[type="password"]::placeholder {
+  color: #aaaaaa;
+}
+
+.Submenu input[type="text"]:hover,
+.Submenu input[type="password"]:hover {
+  background-color: rgb(90, 90, 90);
+  box-shadow: inset 0 0 1px 1px white;
+}
+
+.Submenu input[type="text"]:hover::placeholder,
+.Submenu input[type="password"]:hover::placeholder {
+  color: #111111;
+}
+
+.Submenu input[type="submit"] {
+  margin: auto;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 1.5rem 2rem;
+  border-radius: 1000px;
+  margin: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
