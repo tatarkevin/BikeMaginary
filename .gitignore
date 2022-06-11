@@ -4,3 +4,4 @@ node_modules/
 Komponenten/
 Textdateien/
 .parcel-cache
+dist/

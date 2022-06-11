@@ -42,6 +42,7 @@ body {
   margin-top: var(--max-header-bar-height);
   scrollbar-color: white transparent;
   scrollbar-width: thin;
+  position: fixed;
 }
 
 .Button__To-Top {

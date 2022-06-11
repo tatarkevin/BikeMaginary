@@ -12,7 +12,7 @@
 }
 
 .BM_Logo {
-  background-image: url(../Icons/Logo3.png);
+  background-image: url(/Icons/Logo3.png);
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -45,11 +45,11 @@
 }
 
 .icon-menu__unclicked {
-  background-image: url(../Icons/icons8-menu-64.png);
+  background-image: url(/Icons/icons8-menu-64.png);
 }
 
 .icon-menu__clicked {
-  background-image: url(../Icons/icons8-stornieren-64.png);
+  background-image: url(/Icons/icons8-stornieren-64.png);
   transform: scale(0.7);
 }
 
@@ -71,7 +71,7 @@
 .bg-Warenkorb_Pakete_on,
 .bg-Profile_no_hover,
 .bg-Profile_hover {
-  background-image: url("../Icons/css_sprites.png");
+  background-image: url("/Icons/css_sprites.png");
 }
 
 /* Home Button */

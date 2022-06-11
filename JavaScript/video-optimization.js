@@ -22,4 +22,4 @@ function pause_unpause_videos() {
     current_video.play();
   }
 }
-setInterval(pause_unpause_videos, 200);
+setInterval(pause_unpause_videos, 500);
