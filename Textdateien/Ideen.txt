@@ -73,3 +73,8 @@ Dafür muss ich wahrscheinlich alle Referenzen ändern.
 
 - Policy muss geändert werden https://docs.microsoft.com/de-de/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2
 - package.json darf nicht in .gitignore!!!
+
+- TODO:
+Slideshow mit CSS (einfach Opacity abwechselnd setzen) damit ich Performance sparen kann.
+Ich glaube das Problem sind wirklich diese Videos. Ich müsste es einfach mal versuchen ob 
+und wie sich das auswirkt wenn ich nur die nötigsten Bilder pro Bike habe, die dann einfach das wichtigste beschreiben (z.b. bei Möbius ein Bild hinten mit Türe offen und zu und dann halt von vorne.)
