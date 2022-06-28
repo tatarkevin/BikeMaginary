@@ -5,8 +5,8 @@
   padding: 0;
   background: linear-gradient(
     0deg,
-    rgb(0, 47, 123) 20%,
-    rgba(184, 255, 242, 1) 35%,
+    rgb(0, 47, 123) 0%,
+    rgba(184, 255, 242, 1) 40%,
     rgba(27, 86, 180, 1) 80%,
     rgb(0, 47, 123) 100%
   );
