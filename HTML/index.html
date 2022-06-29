@@ -117,9 +117,21 @@
       <div id="top_edge"></div>
 
       <section class="Hauptbanner">
-        <picture>
-          <img src="/Bilder/TitelBanner.png" alt="" />
-        </picture>
+        <picture
+          ><source
+            media="(max-width: 950px)"
+            srcset="/Bilder/TitelBanner-w950.png"
+            type="image/png" />
+          <source
+            media="(max-width: 1500px)"
+            srcset="/Bilder/TitelBanner-w1500.png"
+            type="image/png" />
+          <img
+            type="image/png"
+            src="/Bilder/TitelBanner.png"
+            alt=""
+            class="Hauptbanner__Bild"
+        /></picture>
         <h2 class="Hauptbanner__Text">
           <!-- Für jede Situation, das passende Rad. -->Wir haben das Rad neu
           erfunden.
@@ -262,7 +274,6 @@
             </div>
             <div class="Container__Element">
               <div class="Element__Bild" style="background: none">
-                <!-- <img src="/Bilder/Heli_Img2.png" style="width: 100%" alt="" /> -->
                 <video
                   src="/Bilder/Heli_Cut0000-0029.webm"
                   autoplay

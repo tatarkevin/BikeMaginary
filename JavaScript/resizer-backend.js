@@ -1,5 +1,6 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
 const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
+const bilder_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/Bilder";
 
 /* Connection Logic */
 const { error } = require("console");
@@ -44,16 +45,12 @@ var belonging_files;
 function find_belonging_files(current_file_name, response) {
   const fs = require("fs");
   try {
-    belonging_files = fs.readdirSync(
-      "C:/Users/Kevin/Desktop/Video-Resizer_JS/Bilder",
-      "utf8",
-      (err, data) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
+    belonging_files = fs.readdirSync(bilder_pfad, "utf8", (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
       }
-    );
+    });
     const temp = new Array();
     for (let entry of belonging_files) {
       if (entry.match(current_file_name)) {

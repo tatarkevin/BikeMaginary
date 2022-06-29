@@ -220,6 +220,7 @@ function sort_available_files(available_files) {
 
 function create_source_Elements(available_files, currentContent) {
   available_files = sort_available_files(available_files);
+  console.log(available_files);
   const new_picture_Element = document.createElement("picture");
   for (let file of available_files) {
     const regex_find_width = new RegExp("-w([0-9]*)");
@@ -230,6 +231,7 @@ function create_source_Elements(available_files, currentContent) {
       new_source_element = document.createElement("source");
       new_source_element.media = `(max-width: ${match[1]}px)`;
       new_source_element.srcset = `/Bilder/${file}`;
+      console.log(new_source_element);
       if (file.match(".png")) {
         new_source_element.setAttribute("type", "image/png");
       } else if (file.match(".webp")) {
@@ -287,7 +289,6 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
     )) {
       match_end_string_array.push(temp);
     }
-    /* TODO: Hier gibt es jetzt ein Problem :( */
     end_string_start = match_end_string_array[0].index - 1;
     end_string_end =
       match_end_string_array[0].index + match_end_string_array[0][0].length + 1;
@@ -309,7 +310,7 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
     ); */
     console.log("final_string last ", final_string);
 
-    //save_html_file(final_string);
+    save_html_file(final_string);
   }
 }
 
