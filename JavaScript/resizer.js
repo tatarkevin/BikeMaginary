@@ -118,9 +118,6 @@ function parse_content_for_picture_elements() {
       );
       let image_element_structure;
       const img_regex = "<img[.]*";
-      let iterator_to_array = new Array([
-        ...string_to_be_stored.matchAll(img_regex),
-      ]);
       for (let temp_item of string_to_be_stored.matchAll(img_regex)) {
         image_element_structure = string_to_be_stored.slice(
           temp_item.index,
@@ -132,7 +129,8 @@ function parse_content_for_picture_elements() {
       }
       const element_attribute_array = new Array();
       let image_ref_temp;
-      const regex_attributes = '([a-zA-Z]{3,})="([a-zA-Z0-9/. _-]*)"';
+      //const regex_attributes = '([a-zA-Z]{3,})="([a-zA-Z0-9%/. _-]*)"';
+      const regex_attributes = '([a-zA-Z]{3,})="(.*)"';
 
       let attributes_array = "";
       attributes_array = image_element_structure.matchAll(
@@ -190,46 +188,10 @@ function iterate_through_picture_elements() {
   connectToBackend("find_belonging_resized_files", temp_mna, temp_pea);
 }
 
-function sort_available_files(available_files) {
-  const new_array = [...available_files];
-  const regex_find_width = new RegExp("-w([0-9]*)");
-
-  for (let i = 0; i < new_array.length / 2 + 1; i++) {
-    for (let j = new_array.length - 1; j > new_array.length / 2 - 1; j--) {
-      let temp = new_array[i];
-      new_array[i] = new_array[j];
-      new_array[j] = temp;
-    }
-  }
-  for (let i = 0; i < new_array.length - 1; i++) {
-    for (let j = i + 1; j < new_array.length; j++) {
-      let temp_entry_ref_i = new_array[i].match(regex_find_width);
-      let temp_entry_ref_j = new_array[j].match(regex_find_width);
-      if (temp_entry_ref_i && temp_entry_ref_j) {
-        if (parseInt(temp_entry_ref_i[1]) > parseInt(temp_entry_ref_j[1])) {
-          let temp = new_array[i];
-          new_array[i] = new_array[j];
-          new_array[j] = temp;
-        }
-      } else if (!temp_entry_ref_i) {
-        let temp = new_array[i];
-        new_array[i] = new_array[j];
-        new_array[j] = temp;
-      }
-      if (new_array[i].match(".png") && new_array[j].match(".webp")) {
-        let temp = new_array[i];
-        new_array[i] = new_array[j];
-        new_array[j] = temp;
-      }
-    }
-  }
-
-  return new_array;
-}
-
 function create_source_Elements(available_files, currentContent) {
+  console.log("previous available_files", available_files);
   available_files = sort_available_files(available_files);
-  console.log(available_files);
+  console.log("current available_files", available_files);
   const new_picture_Element = document.createElement("picture");
   for (let file of available_files) {
     const regex_find_width = new RegExp("-w([0-9]*)");
@@ -248,12 +210,21 @@ function create_source_Elements(available_files, currentContent) {
       }
       new_picture_Element.appendChild(new_source_element);
     } else if (!match) {
+      //TODO: Es darf keine feste Dateiextension sein, sondern die Anfangsextension.
+      //Also wenn das img-Tag am Anfang ein .jpg hat, dann muss alles was nicht .jpg ist
+      //ein source-tag bekommen und nur das jpg wird zum img-Element
       if (file.match(".png")) {
         new_source_element = document.createElement("img");
         new_source_element.setAttribute("type", "image/png");
+        console.log("new_source_element", new_source_element);
+        console.log(
+          "currentContent.previous_attributes",
+          currentContent.previous_attributes
+        );
         for (let attribute of currentContent.previous_attributes) {
           new_source_element.setAttribute(attribute.attribut, attribute.wert);
         }
+        console.log("new_source_element", new_source_element);
       } else if (file.match(".webp")) {
         new_source_element = document.createElement("source");
         new_source_element.setAttribute("type", "image/webp");
@@ -266,6 +237,44 @@ function create_source_Elements(available_files, currentContent) {
   overwrite_local_html_content(new_picture_Element, currentContent);
 }
 
+function sort_available_files(available_files) {
+  const new_array = [...available_files];
+  const regex_find_width = new RegExp("-w([0-9]*)");
+
+  if (new_array.length > 1) {
+    for (let i = 0; i < new_array.length / 2 + 1; i++) {
+      for (let j = new_array.length - 1; j > new_array.length / 2 - 1; j--) {
+        let temp = new_array[i];
+        new_array[i] = new_array[j];
+        new_array[j] = temp;
+      }
+    }
+
+    for (let i = 0; i < new_array.length - 1; i++) {
+      for (let j = i + 1; j < new_array.length; j++) {
+        let temp_entry_ref_i = new_array[i].match(regex_find_width);
+        let temp_entry_ref_j = new_array[j].match(regex_find_width);
+        if (temp_entry_ref_i && temp_entry_ref_j) {
+          if (parseInt(temp_entry_ref_i[1]) > parseInt(temp_entry_ref_j[1])) {
+            let temp = new_array[i];
+            new_array[i] = new_array[j];
+            new_array[j] = temp;
+          }
+        } else if (!temp_entry_ref_i) {
+          let temp = new_array[i];
+          new_array[i] = new_array[j];
+          new_array[j] = temp;
+        }
+        if (new_array[i].match(".png") && new_array[j].match(".webp")) {
+          let temp = new_array[i];
+          new_array[i] = new_array[j];
+          new_array[j] = temp;
+        }
+      }
+    }
+  }
+  return new_array;
+}
 function overwrite_local_html_content(new_picture_Element, current_content) {
   const temp_container = document.createElement("div");
   temp_container.appendChild(new_picture_Element);
@@ -282,7 +291,7 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
 
   console.log("---------------------------------------------------");
   if (media_name_array_length >= 0) {
-    console.log("final_string", final_string);
+    //console.log("final_string", final_string);
     connectToBackend(
       "find_belonging_resized_files",
       media_name_array[media_name_array_length],
@@ -310,7 +319,7 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
       end_string.slice(end_string_start, end_string_end) +
       "-->" +
       end_string.slice(end_string_end, end_string.length);
-    console.log("final_string last ", final_string);
+    //console.log("final_string last ", final_string);
     save_html_file(final_string);
   }
 }
