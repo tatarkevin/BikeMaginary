@@ -1,5 +1,5 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
-const html_datei_pfad = "C:/Users/Kevin/Desktop/Video-Resizer_JS/index.html";
+const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
 
 /* Connection Logic */
 const { error } = require("console");

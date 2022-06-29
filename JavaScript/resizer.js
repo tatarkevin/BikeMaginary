@@ -1,7 +1,7 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
 //alert("resizer.js wird ausgeführt und füllt jetzt die picture-Elemente aus.");
 const html_datei_name = "index.html";
-const html_datei_pfad = "C:/Users/Kevin/Desktop/Video-Resizer_JS/index.html";
+const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
 const javascript_data_pfad = "/JavaScript/resizer.js";
 
 /* Ab hier nichts mehr ändern, außer du kennst dich aus :D */
@@ -284,16 +284,16 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
       end_string.slice(end_string_start, end_string_end) +
       "-->" +
       end_string.slice(end_string_end, end_string.length);
-    console.log("start_string last ", start_string);
+    /* console.log("start_string last ", start_string);
     console.log("temp_container last ", temp_container.innerHTML);
     console.log("end_string last ", end_string);
     console.log(
       "end_string_slice last ",
       end_string.slice(end_string_start, end_string_end)
-    );
+    ); */
     console.log("final_string last ", final_string);
 
-    save_html_file(final_string);
+    //save_html_file(final_string);
   }
 }
 
