@@ -117,7 +117,15 @@
       <div id="top_edge"></div>
 
       <section class="Hauptbanner">
-        <picture>
+        <picture
+          ><source
+            media="(max-width: 950px)"
+            srcset="/Bilder/TitelBanner-w950.png"
+            type="image/png" />
+          <source
+            media="(max-width: 1300px)"
+            srcset="/Bilder/TitelBanner-w1300.png"
+            type="image/png" />
           <img
             type="image/png"
             src="/Bilder/TitelBanner.png"
@@ -1214,7 +1222,7 @@
       <!-- #site end -->
     </div>
 
-    <script src="/JavaScript/resizer.js"></script>
+    <!--<script src="/JavaScript/resizer.js"></script>-->
     <script src="/JavaScript/Menu-Button.js"></script>
     <script src="/JavaScript/Footer-Menu.js"></script>
     <script src="/JavaScript/Submenu.js"></script>

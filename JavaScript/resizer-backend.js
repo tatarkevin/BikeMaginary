@@ -18,6 +18,7 @@ const server = http.createServer((req, res) => {
     let queryName = "";
 
     try {
+      console.log("data", data);
       queryName = Object.keys(JSON.parse(data));
       console.log("queryname", queryName);
       if (queryName[0] == "find_belonging_resized_files") {

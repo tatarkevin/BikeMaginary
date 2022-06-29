@@ -5,11 +5,13 @@ const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
 const javascript_data_pfad = "/JavaScript/resizer.js";
 
 /* Ab hier nichts mehr ändern, außer du kennst dich aus :D */
+
 var local_html_content = "";
 var media_name_array = new Array();
 
 setTimeout(get_local_html_file_content, 1000);
 function get_local_html_file_content() {
+  console.log("-----------resizer------------");
   connectToBackend("get_local_html_file_content", html_datei_pfad, "");
 }
 
@@ -20,6 +22,8 @@ function connectToBackend(requestName, fileName, currentContent) {
   xhr.open("POST", url, true);
 
   if (requestName === "find_belonging_resized_files") {
+    console.log(fileName);
+    console.log(currentContent);
     // Set the request header i.e. which type of content you are sending
     xhr.setRequestHeader("Content-Type", "text/plain");
     // Create a state change callback
@@ -113,14 +117,16 @@ function parse_content_for_picture_elements() {
         matches_array[i + 1].index + element_to_search_for.length + 1
       );
       let image_element_structure;
-      for (let temp_item of string_to_be_stored.matchAll("<img.*/>")) {
+      const img_regex = "<img[.]*";
+      let iterator_to_array = new Array([
+        ...string_to_be_stored.matchAll(img_regex),
+      ]);
+      for (let temp_item of string_to_be_stored.matchAll(img_regex)) {
         image_element_structure = string_to_be_stored.slice(
           temp_item.index,
           matches_array[i + 1].index - matches_array[i].index - 1
         );
-        console.log("image_element_structure1", image_element_structure);
       }
-      console.log("image_element_structure2", image_element_structure);
       if (!image_element_structure) {
         continue;
       }
@@ -138,7 +144,6 @@ function parse_content_for_picture_elements() {
           ([a-zA-Z]{3,})="([a-zA-Z0-9/. _-]*)"
       */
 
-      console.log("attributes_array", attributes_array);
       for (let attribute of attributes_array) {
         if (attribute[1] == "src") {
           image_ref_temp = attribute[2];
@@ -159,11 +164,15 @@ function parse_content_for_picture_elements() {
       );
     }
   }
+  console.log(picture_element_array);
   iterate_through_picture_elements();
 }
 
-let media_name_array_length;
+var media_name_array_length;
 function iterate_through_picture_elements() {
+  //TODO: hier geht irgendwas verloren
+  media_name_array = new Array();
+  console.log(picture_element_array);
   for (let element of picture_element_array) {
     const regex_media_name = new RegExp(/(([a-zA-Z_0-9]+){1})\.[a-zA-Z]{1,5}/);
     const regex_media_name_split = new RegExp(/[\.][a-zA-Z]+/);
@@ -176,11 +185,9 @@ function iterate_through_picture_elements() {
     );
   }
   media_name_array_length = media_name_array.length - 1;
-  connectToBackend(
-    "find_belonging_resized_files",
-    media_name_array[media_name_array_length],
-    picture_element_array[media_name_array_length--]
-  );
+  const temp_mna = media_name_array[media_name_array_length];
+  const temp_pea = picture_element_array[media_name_array_length--];
+  connectToBackend("find_belonging_resized_files", temp_mna, temp_pea);
 }
 
 function sort_available_files(available_files) {
