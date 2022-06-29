@@ -111,17 +111,33 @@ function parse_content_for_picture_elements() {
         matches_array[i + 1].index + element_to_search_for.length + 1
       );
       let image_element_structure;
-      for (let temp_item of string_to_be_stored.matchAll("<img[.]*")) {
+      for (let temp_item of string_to_be_stored.matchAll("<img.*/>")) {
         image_element_structure = string_to_be_stored.slice(
           temp_item.index,
           matches_array[i + 1].index - matches_array[i].index - 1
         );
+        console.log("image_element_structure1", image_element_structure);
+      }
+      console.log("image_element_structure2", image_element_structure);
+      if (!image_element_structure) {
+        continue;
       }
       const element_attribute_array = new Array();
       let image_ref_temp;
-      for (let attribute of image_element_structure.matchAll(
-        '([a-zA-Z]*)="(.*)"'
-      )) {
+      const regex_attributes = '([a-zA-Z]{3,})="([a-zA-Z0-9/. _-]*)"';
+
+      let attributes_array = "";
+      attributes_array = image_element_structure.matchAll(
+        String(regex_attributes)
+      );
+      /* ([a-zA-Z]+)="(.*)" [a-z]+|[\/] 
+          ([a-zA-Z]{3,})=
+          [a-zA-Z]+="([a-zA-Z0-9/. _-]*)"
+          ([a-zA-Z]{3,})="([a-zA-Z0-9/. _-]*)"
+      */
+
+      console.log("attributes_array", attributes_array);
+      for (let attribute of attributes_array) {
         if (attribute[1] == "src") {
           image_ref_temp = attribute[2];
         }
