@@ -49,6 +49,8 @@ function connectToBackend(requestName, fileName, currentContent) {
         console.log("200, Die Datei wurde erfolgreich gespeichert!");
       } else if (xhr.status == 404) {
         console.log(xhr.responseText);
+      } else {
+        console.log("irgendwas lief beim speichern schief!");
       }
       xhr.abort();
       return;
@@ -301,15 +303,7 @@ function overwrite_local_html_content(new_picture_Element, current_content) {
       end_string.slice(end_string_start, end_string_end) +
       "-->" +
       end_string.slice(end_string_end, end_string.length);
-    /* console.log("start_string last ", start_string);
-    console.log("temp_container last ", temp_container.innerHTML);
-    console.log("end_string last ", end_string);
-    console.log(
-      "end_string_slice last ",
-      end_string.slice(end_string_start, end_string_end)
-    ); */
     console.log("final_string last ", final_string);
-
     save_html_file(final_string);
   }
 }

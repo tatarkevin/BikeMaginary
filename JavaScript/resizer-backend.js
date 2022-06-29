@@ -16,22 +16,26 @@ const server = http.createServer((req, res) => {
   });
   req.on("end", () => {
     let queryName = "";
+
     try {
       queryName = Object.keys(JSON.parse(data));
+      console.log("queryname", queryName);
       if (queryName[0] == "find_belonging_resized_files") {
         /* find_belonging_files(res); */
+        console.log("find_belonging_resized_files");
         find_belonging_files(
           JSON.parse(data).find_belonging_resized_files,
           res
         );
       } else if (queryName[0] == "save_html_file") {
+        console.log("save_html_file");
         save_new_html_file(JSON.parse(data), res);
       } else if (queryName[0] == "get_local_html_file_content") {
+        console.log("get_local_html_file_content");
         get_local_html_file_content(JSON.parse(data), res);
       }
     } catch (error) {
       console.log(error);
-      /* console.log("current Data: " + data); */
     }
     resetDataStream();
   });
@@ -44,6 +48,7 @@ server.listen(port, hostname, () => {
 var belonging_files;
 function find_belonging_files(current_file_name, response) {
   const fs = require("fs");
+  console.log("find_belonging_files");
   try {
     belonging_files = fs.readdirSync(bilder_pfad, "utf8", (err, data) => {
       if (err) {
@@ -100,7 +105,6 @@ function get_local_html_file_content(fileName, response) {
       }
     }
   );
-  console.log(html_file_content);
 
   response.writeHead(200, {
     "Content-Type": "text/plain",
