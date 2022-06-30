@@ -1,7 +1,11 @@
 html,
 body {
   /* Auf Seiten wo sowieos nicht seitlich gescrolled werden kann, resette ich overflow-x wieder*/
-  overflow-x: initial !important;
+  overflow-x: initial;
+  scrollbar-width: 0;
+}
+body {
+  overflow-x: hidden;
 }
 
 .Spotlight,
