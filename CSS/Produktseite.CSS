@@ -21,11 +21,12 @@ body {
     var(--gradient-color-DetailPanel)
   );
   border-top: 3px solid white;
+  margin-bottom: 200px;
   height: var(--panel-height-minus-headerbar-height);
-  /* TODO: position: sticky;
-  top: calc(var(--max-header-bar-height) - 2px); 
-   margin-bottom: 200px;*/
+  position: sticky;
+  top: calc(var(--max-header-bar-height) - 2px);
 }
+
 .Spotlight {
   top: var(--max-header-bar-height);
 }
@@ -513,7 +514,7 @@ body {
     margin: 2px;
   }
   .Footer {
-    margin-top: 500px;
+    margin-top: 400px;
   }
 }
 
@@ -521,4 +522,12 @@ body {
   .Kaufbanner__Preis-Knopf {
     flex-direction: row;
   }
+}
+
+.Kaufbanner {
+  z-index: 9999;
+}
+
+.Footer {
+  z-index: 10000 !important;
 }

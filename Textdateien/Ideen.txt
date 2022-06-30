@@ -83,3 +83,25 @@ und wie sich das auswirkt wenn ich nur die nötigsten Bilder pro Bike habe, die 
 - Die Mini Atlantis Seite wird je weiter ich runterscrolle mehr laggy. Das Problem ist wahrscheinlich, dass alle Elemente gleichzeitig gerendert werden. Das liegt daran, weil die Elemente nicht aus dem Bild verschwinden, sondern einfach nur auf einer hinteren Ebene liegen. Anscheinend rendert der Browser alles was sich im Viewport befindet, egal auf welcher z-Ebene.
 - Slideshow-Knöpfe auf Hauptseite bei Sky bikes komisch nach unten verrutscht
 - Sterne auf Ipad bei Kundenbewertung auf Hauptseite komisch
+
+- RegEx erklären anhand von Schablonen. Also wir haben eine Schablone mit "abc" und diese Schablone schieben wir über einene Text, bis die buchstaben in die ausgestanzten Löcher passen also, bis wir in diesem Fall ein "abc" gefunden haben.
+<script>
+      let userAgent = navigator.userAgent;
+      let browserName;
+
+      if (userAgent.match(/chrome|chromium|crios/i)) {
+        browserName = "chrome";
+      } else if (userAgent.match(/firefox|fxios/i)) {
+        browserName = "firefox";
+      } else if (userAgent.match(/safari/i)) {
+        browserName = "safari";
+      } else if (userAgent.match(/opr\//i)) {
+        browserName = "opera";
+      } else if (userAgent.match(/edg/i)) {
+        browserName = "edge";
+      } else {
+        browserName = "No browser detection";
+      }
+
+      alert("You are using " + browserName + " browser");
+    </script>
