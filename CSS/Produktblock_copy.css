@@ -322,7 +322,8 @@ Just so i remember how cool this feature is.
 
 .Bewertung__Punkt {
   flex-shrink: 1;
-  --scaling-factor: 0.16;
+  /* TODO: scaling factor muss dynamisch angepasst werden */
+  --scaling-factor: 0.14;
   --star-color: rgb(246, 255, 0);
   position: relative;
   display: block;

@@ -39,7 +39,10 @@
   opacity: 1;
 }
 .Navigation-Map--ausgeklappt {
-  max-height: 100vh !important;
+  /* TODO: ich muss die Headerbarhöhe abziehen von 100vh */
+  max-height: calc(
+    100vh - var(--max-header-bar-height) - var(--max-height_Nav-Map-padding)
+  ) !important;
 }
 #Navigation-Map > :first-child {
   cursor: pointer;
