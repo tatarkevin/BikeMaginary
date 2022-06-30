@@ -813,5 +813,49 @@
     <script src="/JavaScript/Footer-Menu.js"></script>
     <script src="/JavaScript/Submenu.js"></script>
     <script src="/JavaScript/video-optimization.js"></script>
+    <script>
+      const detail_panel_array =
+        document.getElementsByClassName("Detail-Panel");
+      let index_vorher = 0;
+      let index_nachher = 1;
+      let scroll_pos_vorher = 0;
+      if (detail_panel_array.length > 1) {
+        window.addEventListener("scroll", () => {
+          if (scroll_pos_vorher - window.scrollY < 0) {
+            /* runtergescrolled */
+            if (
+              index_nachher < detail_panel_array.length &&
+              detail_panel_array[index_vorher].getBoundingClientRect().top ==
+                detail_panel_array[index_nachher].getBoundingClientRect().top
+            ) {
+              detail_panel_array[index_vorher].style.visibility = "hidden";
+              if (index_nachher < detail_panel_array.length - 1) {
+                index_vorher++;
+                index_nachher++;
+              }
+              console.log("index vorher ", index_vorher);
+              console.log("index nachher ", index_nachher);
+            }
+          } else if (
+            /* hochgescrolled */
+            index_vorher >= 0 &&
+            detail_panel_array[index_vorher].getBoundingClientRect().top !=
+              detail_panel_array[index_nachher].getBoundingClientRect().top
+          ) {
+            {
+              detail_panel_array[index_vorher].style.visibility = "visible";
+              if (index_vorher > 0) {
+                index_vorher--;
+                index_nachher--;
+              }
+
+              console.log("index vorher ", index_vorher);
+              console.log("index nachher ", index_nachher);
+            }
+          }
+          scroll_pos_vorher = window.scrollY;
+        });
+      }
+    </script>
   </body>
 </html>

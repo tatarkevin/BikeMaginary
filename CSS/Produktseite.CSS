@@ -25,6 +25,7 @@ body {
   height: var(--panel-height-minus-headerbar-height);
   position: sticky;
   top: calc(var(--max-header-bar-height) - 2px);
+  /* visibility: hidden; */
 }
 
 .Spotlight {
@@ -525,9 +526,9 @@ body {
 }
 
 .Kaufbanner {
-  z-index: 9999;
+  z-index: 775;
 }
 
 .Footer {
-  z-index: 10000 !important;
+  z-index: 776 !important;
 }
