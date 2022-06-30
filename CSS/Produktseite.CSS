@@ -21,19 +21,13 @@ body {
     var(--gradient-color-DetailPanel)
   );
   border-top: 3px solid white;
-  position: sticky !important;
+  position: sticky;
   height: var(--panel-height-minus-headerbar-height);
   top: calc(var(--max-header-bar-height) - 2px);
   margin-bottom: 200px;
 }
 .Spotlight {
   top: var(--max-header-bar-height);
-}
-.Kaufbanner {
-  position: relative !important;
-  padding-top: calc(var(--max-header-bar-height) - 2px) !important;
-  top: 0;
-  height: fit-content;
 }
 
 .Spotlight--Aqua,
@@ -283,6 +277,7 @@ body {
 }
 
 .Kaufbanner {
+  top: 0;
   background-color: black;
   display: grid;
   position: relative;
@@ -427,18 +422,19 @@ body {
   }
 
   .Kaufbanner {
-    grid-template-columns: 50% 50%;
-    grid-template-rows: min-content 1fr fit-content;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 1fr fit-content 1fr;
     justify-items: center;
     align-items: center;
     position: sticky !important;
     /* TODO: */
     height: var(--panel-height-minus-headerbar-height);
     top: var(--max-header-bar-height);
-    padding: 20px 0 !important;
+    padding: 0;
   }
 
   .Kaufbanner__Bild {
+    width: 80%;
     object-fit: contain;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -455,7 +451,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0;
-    height: 80%;
+    height: 90%;
     width: 100%;
   }
 
@@ -463,7 +459,9 @@ body {
     align-self: flex-end;
     font-weight: bold;
     text-align: center;
-    font-size: 5rem;
+    font-size: 70px;
+    position: relative;
+    top: 50px;
     grid-column: 1/2;
     grid-row: 1/2;
   }
@@ -493,6 +491,8 @@ body {
     grid-column: 1/2;
     flex-direction: column;
     align-self: flex-start;
+    position: relative;
+    bottom: 70px;
   }
 
   #Navigation-Map {
