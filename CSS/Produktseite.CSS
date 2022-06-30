@@ -9,8 +9,8 @@
   );
   border-top: 3px solid white;
   position: sticky;
-  top: -3px;
-  height: 95vh;
+  height: calc(100vh - var(--max-header-bar-height));
+  top: var(--max-header-bar-height);
   margin-bottom: 200px;
 }
 
@@ -122,7 +122,6 @@
   grid-template-rows: min-content 1fr;
   overflow: hidden;
   border: 0;
-  top: 0;
 }
 
 .Spotlight__Bild {
@@ -174,6 +173,7 @@
 
   justify-items: center;
   grid-template-rows: 50% 50%;
+  /* TODO:  */
   grid-template-columns: 100vw;
   border-top: 3px solid white;
   --gradient-direction-DetailPanel: 180deg;
@@ -472,8 +472,6 @@
   }
 
   #Navigation-Map {
-    --max-height_Nav-Map-padding: 7px;
-    max-height: calc(3.4rem + var(--max-height_Nav-Map-padding) + 3px);
     margin: 5px 2px;
   }
   .Footer {

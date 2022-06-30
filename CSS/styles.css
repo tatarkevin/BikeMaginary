@@ -19,7 +19,9 @@ html {
 body {
   background-color: var(--page-background-color);
   font-size: 2.5rem;
-  overflow: hidden;
+  overflow-x: hidden;
+  --max-header-bar-height: 65px;
+  padding-top: var(--max-header-bar-height);
 }
 
 ::-webkit-scrollbar {
@@ -36,7 +38,6 @@ body {
 }
 
 #site {
-  --max-header-bar-height: 65px;
   width: 100vw;
   height: calc(100vh - var(--max-header-bar-height));
   overflow-x: hidden;
@@ -87,10 +88,9 @@ body {
 }
 
 @media screen and (min-width: 1250px) {
-  #site {
-    --max-header-bar-height: 85px;
-  }
   body {
+    --max-header-bar-height: 85px;
+
     font-size: 2rem;
   }
 

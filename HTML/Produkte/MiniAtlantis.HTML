@@ -112,51 +112,50 @@
       </div>
     </div>
 
-    <div id="site">
-      <a class="Button__To-Top" href="#top_edge">
-        <span class="Button__To-Top__Arrow"></span>
-      </a>
+    <a class="Button__To-Top" href="#top_edge">
+      <span class="Button__To-Top__Arrow"></span>
+    </a>
 
-      <div id="top_edge"></div>
+    <div id="top_edge"></div>
+    <span
+      id="Navigation-Map"
+      onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
+    >
+      <span>Menü <span class="Menu-Pfeil"></span></span>
       <span
-        id="Navigation-Map"
-        onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
+        onclick="document.getElementById('site').scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
+        id="Navigation-Map__Items"
+        ><a href="#Detail-1">Kontrollzentren</a>
+        <a href="#Detail-2">Stauraum</a>
+        <a href="#Detail-3">Toilette</a>
+        <a href="#Detail-4">Badezimmer</a>
+        <a href="#Detail-5">Schlafzimmer</a>
+        <a href="#Detail-6">Küche</a>
+        <a href="#Detail-7">Esszimmer</a>
+        <a href="#Detail-8">Eingangshalle</a>
+        <a href="#Detail-9">Luftversorgung</a>
+        <a href="#Detail-10">Antrieb</a>
+        <a href="#Detail-11">Motor und Komponenten</a>
+        <a href="#Detail-12">Jetzt Kaufen</a></span
       >
-        <span>Menü <span class="Menu-Pfeil"></span></span>
-        <span
-          onclick="document.getElementById('site').scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
-          id="Navigation-Map__Items"
-          ><a href="#Detail-1">Kontrollzentren</a>
-          <a href="#Detail-2">Stauraum</a>
-          <a href="#Detail-3">Toilette</a>
-          <a href="#Detail-4">Badezimmer</a>
-          <a href="#Detail-5">Schlafzimmer</a>
-          <a href="#Detail-6">Küche</a>
-          <a href="#Detail-7">Esszimmer</a>
-          <a href="#Detail-8">Eingangshalle</a>
-          <a href="#Detail-9">Luftversorgung</a>
-          <a href="#Detail-10">Antrieb</a>
-          <a href="#Detail-11">Motor und Komponenten</a>
-          <a href="#Detail-12">Jetzt Kaufen</a></span
-        >
-      </span>
+    </span>
 
-      <div class="Spotlight Spotlight--Aqua">
-        <div class="Spotlight__Text">
-          <h2>
-            <span class="Spotlight__Heading"> Mini Atlantis</span> <br /><br />
-            Die kleine mobile Wasserstadt.
-          </h2>
-        </div>
-        <video
-          class="Spotlight__Bild"
-          muted
-          loop
-          autoplay
-          src="/Bilder/Aqua_Family_Spotlight.webm"
-          type="video/mp4"
-        >
-          <!-- <source
+    <div class="Spotlight Spotlight--Aqua">
+      <div class="Spotlight__Text">
+        <h2>
+          <span class="Spotlight__Heading"> Mini Atlantis</span> <br /><br />
+          Die kleine mobile Wasserstadt.
+        </h2>
+      </div>
+      <video
+        class="Spotlight__Bild"
+        muted
+        loop
+        autoplay
+        src="/Bilder/Aqua_Family_Spotlight.webm"
+        type="video/mp4"
+      >
+        <!-- <source
             srcset="/Bilder/Aqua_Family_Spotlight.webm"
             type="video/webm"
             class="Spotlight__Bild"
@@ -167,649 +166,647 @@
             class="Spotlight__Bild"
           />
           video nicht unterstützt -->
-        </video>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-1">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Kontrollraum.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">
-            Kontrollzentren für 8 Personen
-          </h3>
-
-          Das Fahrzeug besitzt zwei Stockwerke, mit jeweils einem
-          Kontrollzentrum für bis zu 4 Personen.
-          <br />
-          <br />
-          Jedes Kontrollzentrum besitzt ein Panel, welches den Zustand aller
-          wichtigen Komponenten des bikes anzeigt.
-          <br /><br />
-          Um die Langeweile zu vertreiben, können sie auch Serien, Filme oder
-          sonstige Unterhaltung auf dem Panel anschauen.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-2">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Stauraum.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Stauraum für Gepäck</h3>
-          Natürlich möchte man auf großen Reisen gerne alles dabei haben, was
-          man zu Hause genießt. Deshalb gibt es auch genügend Platz für Gepäck
-          und sonstige Mitbringsel.
-
-          <br /><br />
-          Im oberen Stockwerk haben wir jeweils, seitlich, zwei Holzzäune
-          angebracht, die das Gepäck an Ort und Stelle halten sollen.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-3">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Toilette.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">
-            Vollständig funktionsfähige Toilette
-          </h3>
-          Auch daran haben wir gedacht. Das stille Örtchen ist unter Wasser doch
-          etwas schwer zu finden. Deshalb haben wir es mit in das Fahrzeug
-          eingebaut. Alle Abflüsse die es in dem Bike gibt, führen zum hinteren
-          Ende.
-
-          <br /><br />
-          Damit sie sich, ohne Angst haben zu müssen bei ihrem Geschäft
-          beobachtet zu werden, erleichtern können, haben wir eine neue
-          Technologie entwickelt, die es erlaubt das Glas zu verdichten. Per
-          Knopfdruck wird das Glas also undurchsichtig gemacht.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-4">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Bad.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Badezimmer</h3>
-          Genau gegenüber der Toilette befindet sich ein Badezimmer. Auch wenn
-          sie von viel Wasser umgeben sind, sollen sie natürlich die Möglichkeit
-          haben, sich wie zu Hause zu hygenisieren.
-          <br /><br />
-          Auch hier können sie die Glasscheibe undurchsichtig machen.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-5">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Schlafzimmer.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Schlafzimmer</h3>
-          Ein Hotel in den tiefen der Meere wird wohl schwer zu finden sein.
-          Auch wenn es eine coole Idee wäre ein Unterwasserhotel zu besuchen,
-          müssen sie sich bis zur Verwirklichung dieser Idee noch damit
-          abfinden, im Schlafzimmer des "Tiny Atlantis" ihre Batterien wieder
-          aufzuladen. Aber ich denke bei all der Bequemlichkeit, die das
-          Schlafzimmer und die speziell angefertigten Matrazen bieten, sollte es
-          wohl kein Problem sein auf das Unterwasserhotel zu verzichten.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-6">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Kueche.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Küche</h3>
-          Auch wenn es um sie herum von Fischen auf ihren Reisen wimmeln wird,
-          möchten wir ihnen trotzdem die Möglichkeit bieten, ihre
-          Lieblingsgerichte auch 1000m Unterwasser zubereiten zu können.
-
-          <br /><br />
-          In dieser Küche ist alles so gesichert, dass selbst bei Turbulenzen
-          alles an seinem Platz bleibt. Die Messer sind an der Wand befestigt
-          und können durch einen kleinen Mechanismus abgeschlossen werden.
-          <br /><br />
-          Die Schubladen werden alle durch einen kleinen Druck geöffnet und
-          sind, wenn sie verschlossen sind auch wieder durch einen Mechanismus
-          sicher zu.
-          <br /><br />
-          Töpfe sowie Pfannen oder ähnliches besitzen einen magnetischen Boden,
-          und das Gegenstück ist die Herdplatte. Deshalb können sie auch da
-          beruhigt sein, dass ihr leckeres Essen nicht einfach durch die Gegend
-          fliegt.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-7">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Esszimmer0001-0240.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Esszimmer</h3>
-          Um ihre Speisen auch in vollen Zügen genießen zu können, haben wir
-          auch ein kleines Esszimmer eingebaut.
-
-          <br /><br />
-          Der Tisch ist sicher am Boden befestigt, damit sie sich bei
-          Turbulenzen gut festhalten können.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-8">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Eingang.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Eingangshalle</h3>
-          Um in das Bike zu gelangen, gibt es zwei schwere, durch Hydraulik
-          gesteuerte, Türen. Diese Türen sind sehr stabil, und können somit als
-          Rampe benutzt werden um in die Eingangshalle zu kommen.
-
-          <br /><br />
-          In der Eingangshalle haben sie viele Möglichkeiten um es einladend
-          einzurichten. Falls sie bestimmte Einrichtung hinzufügen wollen, für
-          welche ein Bohrer zum Einsatz kommt, sprechen sie uns beim Kauf an, da
-          wir die genauen Kabel- und Rohrpositionen in den Wänden dann
-          berücksichtigen können.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-9">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Luftzufuhr.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Luftzufuhr</h3>
-          Auch wenn das Fahrzeug recht groß ist, wird ihnen irgendwann die Luft
-          ausgehen. Aber natürlich haben wir auch daran gedacht. Mit unserer
-          neuesten Technologie, wird Wasser von außen angesaugt und in Luft
-          umgewandelt. Jeder Raum besitzt mindestens ein solches Gerät, welches
-          das Wasser umwandeln kann. Somit können sie beruhigt sein, dass sie
-          immer genug Luft haben.
-
-          <br /><br />
-          Falls eins der Geräte mal ausfallen sollte, wird der Zufluss sofort
-          blockiert, damit kein Wasser in das Fahrzeug gelangen kann.
-        </div>
-      </div>
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-10">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Antrieb.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">Antrieb</h3>
-          Der Antrieb des Fahrzeugs ist etwas sehr besonderes. Wie sie sehen,
-          befinden sich am Bauch des Bikes 4 Räder mit einer propellerartigen
-          Struktur.
-          <br /><br />
-          Die Räder lassen sich alle, unabhängig voneinander, um 360&#176; auf
-          der vertikalen Achse drehen. Der Vorteil hiervon ist, dass sie sowohl
-          auf festem Unterboden, aber auch im Wasser immer den maximal möglichen
-          Antrieb generieren können.
-          <br /><br />
-          Aber auch auf dem Land ist die Rotation der Räder sehr hilfreich,
-          somit müssen sie um zu Wenden keine großen Kreise ziehen, sondern
-          einfach nur die Reifen auf ihrer vertikalen Achse drehen um das
-          Gefährt auch seitlich zu fahren. Auch beim Einparken kann das sehr
-          hilfreich sein.
-        </div>
-      </div>
-
-      <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-11">
-        <video
-          class="Detail-Panel__Bild"
-          src="/Bilder/Aqua_Family_Motor-Komponenten.webm"
-          muted
-          loop
-          autoplay
-        ></video>
-        <div class="Detail-Panel__Text">
-          <h3 class="Detail-Panel__Text__Heading">
-            Motor und sonstige Komponenten
-          </h3>
-          Hier kommen wir jetzt zum Herzstück des Gefährts.
-          <br /><br />
-          Der Motor ist ein Geheimnis, aber stark genug um bis zu 2 Tonnen auf
-          100 km/h zu bewegen und das in 5 Sekunden.
-          <br /><br />
-          Da wir alles so kompakt wie möglich halten wollten, haben wir neben
-          dem Motor auch alle sonstigen Systeme verbaut.
-          <br /><br />
-          Der Wasser-zu-Sauerstoff-Wandler wäre ein Beispiel. Das Fahrzeug wird
-          100% durch erneuerbare Energien angetrieben. Wenn das angesaugte
-          Wasser in Sauerstoff umgewandelt wird, bleibt natürlich noch was
-          übrig. Wasserstoff. Das wird dem Motor zugeführt.
-          <br /><br />
-          Aber auch Substanzen die durch die Toilette, Dusche oder sonstige
-          Abflüsse in die Rohre gelangt, wird verarbeitet. Somit entstehen auch
-          keine Abfälle, alles wird verwertet. :)
-        </div>
-      </div>
-
-      <div class="Kaufbanner Kaufbanner--Aqua" id="Detail-12">
-        <img class="Kaufbanner__Bild" src="/Bilder/Aqua_Family28.png" />
-        <div class="Kaufbanner__Titel">Tiny Atlantis</div>
-        <div class="Kaufbanner__Preis-Knopf">
-          <div class="Kaufbanner__Preis">49.000 Schrauben UVP</div>
-          <div class="Kaufbanner__Knopf">Jetzt kaufen</div>
-        </div>
-        <div class="Kaufbanner__Info">
-          <table class="Kaufbanner__Info__Daten">
-            <thead class="Kaufbanner__Info__Head">
-              <tr class="Kaufbanner__Daten__Reihe">
-                <th colspan="2">Produktdaten</th>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <th colspan="1">Merkmal</th>
-                <th colspan="1">Wert</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Leergewicht</td>
-                <td>963 kg</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Maximale Last an Land</td>
-                <td>2000 kg</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Maximale Geschwindigkeit an Land</td>
-                <td>150 km/h</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Maximale Geschwindigkeit im Wasser</td>
-                <td>200 km/h</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Kraftstoff</td>
-                <td>Wasser oder Wasserstoff sowie Bio-Abfälle</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Motor</td>
-                <td>theFutor3000</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Antriebskraft</td>
-                <td>300 PS</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-              <tr class="Kaufbanner__Daten__Reihe">
-                <td>Bereifung</td>
-                <td>Spezialmisching, luftleerer Reifen.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer class="Footer">
-        <div class="Footer__Logo">
-          <div class="BM_Logo"></div>
-          <h2 class="Footer__Logo__Header">BikeMaginary</h2>
-          <p class="Footer__Logo__Text">Copyright &copy; 2022 KT</p>
-        </div>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Über Uns</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">Unser Team</li>
-            <li class="Footer__Listen-Element">Vision</li>
-            <li class="Footer__Listen-Element">Alles zur Herstellung</li>
-            <li class="Footer__Listen-Element">Umweltschutz</li>
-          </ul>
-        </section>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Produkte</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">Stadtbikes</li>
-            <li class="Footer__Listen-Element">Mountainbikes</li>
-            <li class="Footer__Listen-Element">Luftbikes</li>
-            <li class="Footer__Listen-Element">Wasserbikes</li>
-            <li class="Footer__Listen-Element">Zubehör</li>
-          </ul>
-        </section>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Support</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">Hilfe und Fragen</li>
-            <li class="Footer__Listen-Element">Retoure</li>
-            <li class="Footer__Listen-Element">Lieferprobleme</li>
-            <li class="Footer__Listen-Element">Accountprobleme</li>
-          </ul>
-        </section>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Kontakt</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">E-Mail</li>
-            <li class="Footer__Listen-Element">Kontaktformular</li>
-            <li class="Footer__Listen-Element">Telefon</li>
-          </ul>
-        </section>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Jobs</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">Bürokratie</li>
-            <li class="Footer__Listen-Element">Logistik</li>
-            <li class="Footer__Listen-Element">Forschung</li>
-            <li class="Footer__Listen-Element">Informatik</li>
-            <li class="Footer__Listen-Element">Marketing</li>
-            <li class="Footer__Listen-Element">Support und Hilfe</li>
-          </ul>
-        </section>
-        <section class="Footer__Section">
-          <div class="Footer__Menu-Header">
-            <h2 class="Footer__Section__Header">Wichtige Hinweise</h2>
-            <div class="Footer__Menu-Button">
-              <div class="Menu-Button__Arrow"></div>
-            </div>
-          </div>
-          <ul class="Footer__Liste">
-            <li class="Footer__Listen-Element">
-              Allgemeine Geschäftsbedingungen
-            </li>
-            <li class="Footer__Listen-Element">Datenschutz</li>
-          </ul>
-        </section>
-      </footer>
-      <!-- #site end -->
+      </video>
     </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-1">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Kontrollraum.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">
+          Kontrollzentren für 8 Personen
+        </h3>
+
+        Das Fahrzeug besitzt zwei Stockwerke, mit jeweils einem Kontrollzentrum
+        für bis zu 4 Personen.
+        <br />
+        <br />
+        Jedes Kontrollzentrum besitzt ein Panel, welches den Zustand aller
+        wichtigen Komponenten des bikes anzeigt.
+        <br /><br />
+        Um die Langeweile zu vertreiben, können sie auch Serien, Filme oder
+        sonstige Unterhaltung auf dem Panel anschauen.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-2">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Stauraum.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Stauraum für Gepäck</h3>
+        Natürlich möchte man auf großen Reisen gerne alles dabei haben, was man
+        zu Hause genießt. Deshalb gibt es auch genügend Platz für Gepäck und
+        sonstige Mitbringsel.
+
+        <br /><br />
+        Im oberen Stockwerk haben wir jeweils, seitlich, zwei Holzzäune
+        angebracht, die das Gepäck an Ort und Stelle halten sollen.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-3">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Toilette.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">
+          Vollständig funktionsfähige Toilette
+        </h3>
+        Auch daran haben wir gedacht. Das stille Örtchen ist unter Wasser doch
+        etwas schwer zu finden. Deshalb haben wir es mit in das Fahrzeug
+        eingebaut. Alle Abflüsse die es in dem Bike gibt, führen zum hinteren
+        Ende.
+
+        <br /><br />
+        Damit sie sich, ohne Angst haben zu müssen bei ihrem Geschäft beobachtet
+        zu werden, erleichtern können, haben wir eine neue Technologie
+        entwickelt, die es erlaubt das Glas zu verdichten. Per Knopfdruck wird
+        das Glas also undurchsichtig gemacht.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-4">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Bad.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Badezimmer</h3>
+        Genau gegenüber der Toilette befindet sich ein Badezimmer. Auch wenn sie
+        von viel Wasser umgeben sind, sollen sie natürlich die Möglichkeit
+        haben, sich wie zu Hause zu hygenisieren.
+        <br /><br />
+        Auch hier können sie die Glasscheibe undurchsichtig machen.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-5">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Schlafzimmer.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Schlafzimmer</h3>
+        Ein Hotel in den tiefen der Meere wird wohl schwer zu finden sein. Auch
+        wenn es eine coole Idee wäre ein Unterwasserhotel zu besuchen, müssen
+        sie sich bis zur Verwirklichung dieser Idee noch damit abfinden, im
+        Schlafzimmer des "Tiny Atlantis" ihre Batterien wieder aufzuladen. Aber
+        ich denke bei all der Bequemlichkeit, die das Schlafzimmer und die
+        speziell angefertigten Matrazen bieten, sollte es wohl kein Problem sein
+        auf das Unterwasserhotel zu verzichten.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-6">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Kueche.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Küche</h3>
+        Auch wenn es um sie herum von Fischen auf ihren Reisen wimmeln wird,
+        möchten wir ihnen trotzdem die Möglichkeit bieten, ihre
+        Lieblingsgerichte auch 1000m Unterwasser zubereiten zu können.
+
+        <br /><br />
+        In dieser Küche ist alles so gesichert, dass selbst bei Turbulenzen
+        alles an seinem Platz bleibt. Die Messer sind an der Wand befestigt und
+        können durch einen kleinen Mechanismus abgeschlossen werden.
+        <br /><br />
+        Die Schubladen werden alle durch einen kleinen Druck geöffnet und sind,
+        wenn sie verschlossen sind auch wieder durch einen Mechanismus sicher
+        zu.
+        <br /><br />
+        Töpfe sowie Pfannen oder ähnliches besitzen einen magnetischen Boden,
+        und das Gegenstück ist die Herdplatte. Deshalb können sie auch da
+        beruhigt sein, dass ihr leckeres Essen nicht einfach durch die Gegend
+        fliegt.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-7">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Esszimmer0001-0240.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Esszimmer</h3>
+        Um ihre Speisen auch in vollen Zügen genießen zu können, haben wir auch
+        ein kleines Esszimmer eingebaut.
+
+        <br /><br />
+        Der Tisch ist sicher am Boden befestigt, damit sie sich bei Turbulenzen
+        gut festhalten können.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-8">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Eingang.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Eingangshalle</h3>
+        Um in das Bike zu gelangen, gibt es zwei schwere, durch Hydraulik
+        gesteuerte, Türen. Diese Türen sind sehr stabil, und können somit als
+        Rampe benutzt werden um in die Eingangshalle zu kommen.
+
+        <br /><br />
+        In der Eingangshalle haben sie viele Möglichkeiten um es einladend
+        einzurichten. Falls sie bestimmte Einrichtung hinzufügen wollen, für
+        welche ein Bohrer zum Einsatz kommt, sprechen sie uns beim Kauf an, da
+        wir die genauen Kabel- und Rohrpositionen in den Wänden dann
+        berücksichtigen können.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-9">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Luftzufuhr.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Luftzufuhr</h3>
+        Auch wenn das Fahrzeug recht groß ist, wird ihnen irgendwann die Luft
+        ausgehen. Aber natürlich haben wir auch daran gedacht. Mit unserer
+        neuesten Technologie, wird Wasser von außen angesaugt und in Luft
+        umgewandelt. Jeder Raum besitzt mindestens ein solches Gerät, welches
+        das Wasser umwandeln kann. Somit können sie beruhigt sein, dass sie
+        immer genug Luft haben.
+
+        <br /><br />
+        Falls eins der Geräte mal ausfallen sollte, wird der Zufluss sofort
+        blockiert, damit kein Wasser in das Fahrzeug gelangen kann.
+      </div>
+    </div>
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-10">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Antrieb.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">Antrieb</h3>
+        Der Antrieb des Fahrzeugs ist etwas sehr besonderes. Wie sie sehen,
+        befinden sich am Bauch des Bikes 4 Räder mit einer propellerartigen
+        Struktur.
+        <br /><br />
+        Die Räder lassen sich alle, unabhängig voneinander, um 360&#176; auf der
+        vertikalen Achse drehen. Der Vorteil hiervon ist, dass sie sowohl auf
+        festem Unterboden, aber auch im Wasser immer den maximal möglichen
+        Antrieb generieren können.
+        <br /><br />
+        Aber auch auf dem Land ist die Rotation der Räder sehr hilfreich, somit
+        müssen sie um zu Wenden keine großen Kreise ziehen, sondern einfach nur
+        die Reifen auf ihrer vertikalen Achse drehen um das Gefährt auch
+        seitlich zu fahren. Auch beim Einparken kann das sehr hilfreich sein.
+      </div>
+    </div>
+
+    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-11">
+      <video
+        class="Detail-Panel__Bild"
+        src="/Bilder/Aqua_Family_Motor-Komponenten.webm"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="Detail-Panel__Text">
+        <h3 class="Detail-Panel__Text__Heading">
+          Motor und sonstige Komponenten
+        </h3>
+        Hier kommen wir jetzt zum Herzstück des Gefährts.
+        <br /><br />
+        Der Motor ist ein Geheimnis, aber stark genug um bis zu 2 Tonnen auf 100
+        km/h zu bewegen und das in 5 Sekunden.
+        <br /><br />
+        Da wir alles so kompakt wie möglich halten wollten, haben wir neben dem
+        Motor auch alle sonstigen Systeme verbaut.
+        <br /><br />
+        Der Wasser-zu-Sauerstoff-Wandler wäre ein Beispiel. Das Fahrzeug wird
+        100% durch erneuerbare Energien angetrieben. Wenn das angesaugte Wasser
+        in Sauerstoff umgewandelt wird, bleibt natürlich noch was übrig.
+        Wasserstoff. Das wird dem Motor zugeführt.
+        <br /><br />
+        Aber auch Substanzen die durch die Toilette, Dusche oder sonstige
+        Abflüsse in die Rohre gelangt, wird verarbeitet. Somit entstehen auch
+        keine Abfälle, alles wird verwertet. :)
+      </div>
+    </div>
+
+    <div class="Kaufbanner Kaufbanner--Aqua" id="Detail-12">
+      <img class="Kaufbanner__Bild" src="/Bilder/Aqua_Family28.png" />
+      <div class="Kaufbanner__Titel">Tiny Atlantis</div>
+      <div class="Kaufbanner__Preis-Knopf">
+        <div class="Kaufbanner__Preis">49.000 Schrauben UVP</div>
+        <div class="Kaufbanner__Knopf">Jetzt kaufen</div>
+      </div>
+      <div class="Kaufbanner__Info">
+        <table class="Kaufbanner__Info__Daten">
+          <thead class="Kaufbanner__Info__Head">
+            <tr class="Kaufbanner__Daten__Reihe">
+              <th colspan="2">Produktdaten</th>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <th colspan="1">Merkmal</th>
+              <th colspan="1">Wert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Leergewicht</td>
+              <td>963 kg</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Maximale Last an Land</td>
+              <td>2000 kg</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Maximale Geschwindigkeit an Land</td>
+              <td>150 km/h</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Maximale Geschwindigkeit im Wasser</td>
+              <td>200 km/h</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Kraftstoff</td>
+              <td>Wasser oder Wasserstoff sowie Bio-Abfälle</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Motor</td>
+              <td>theFutor3000</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Antriebskraft</td>
+              <td>300 PS</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+            <tr class="Kaufbanner__Daten__Reihe">
+              <td>Bereifung</td>
+              <td>Spezialmisching, luftleerer Reifen.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="Footer">
+      <div class="Footer__Logo">
+        <div class="BM_Logo"></div>
+        <h2 class="Footer__Logo__Header">BikeMaginary</h2>
+        <p class="Footer__Logo__Text">Copyright &copy; 2022 KT</p>
+      </div>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Über Uns</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">Unser Team</li>
+          <li class="Footer__Listen-Element">Vision</li>
+          <li class="Footer__Listen-Element">Alles zur Herstellung</li>
+          <li class="Footer__Listen-Element">Umweltschutz</li>
+        </ul>
+      </section>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Produkte</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">Stadtbikes</li>
+          <li class="Footer__Listen-Element">Mountainbikes</li>
+          <li class="Footer__Listen-Element">Luftbikes</li>
+          <li class="Footer__Listen-Element">Wasserbikes</li>
+          <li class="Footer__Listen-Element">Zubehör</li>
+        </ul>
+      </section>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Support</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">Hilfe und Fragen</li>
+          <li class="Footer__Listen-Element">Retoure</li>
+          <li class="Footer__Listen-Element">Lieferprobleme</li>
+          <li class="Footer__Listen-Element">Accountprobleme</li>
+        </ul>
+      </section>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Kontakt</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">E-Mail</li>
+          <li class="Footer__Listen-Element">Kontaktformular</li>
+          <li class="Footer__Listen-Element">Telefon</li>
+        </ul>
+      </section>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Jobs</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">Bürokratie</li>
+          <li class="Footer__Listen-Element">Logistik</li>
+          <li class="Footer__Listen-Element">Forschung</li>
+          <li class="Footer__Listen-Element">Informatik</li>
+          <li class="Footer__Listen-Element">Marketing</li>
+          <li class="Footer__Listen-Element">Support und Hilfe</li>
+        </ul>
+      </section>
+      <section class="Footer__Section">
+        <div class="Footer__Menu-Header">
+          <h2 class="Footer__Section__Header">Wichtige Hinweise</h2>
+          <div class="Footer__Menu-Button">
+            <div class="Menu-Button__Arrow"></div>
+          </div>
+        </div>
+        <ul class="Footer__Liste">
+          <li class="Footer__Listen-Element">
+            Allgemeine Geschäftsbedingungen
+          </li>
+          <li class="Footer__Listen-Element">Datenschutz</li>
+        </ul>
+      </section>
+    </footer>
+    <!-- #site end -->
 
     <script src="/JavaScript/Menu-Button.js"></script>
     <script src="/JavaScript/Footer-Menu.js"></script>

@@ -79,4 +79,5 @@ Slideshow mit CSS (einfach Opacity abwechselnd setzen) damit ich Performance spa
 Ich glaube das Problem sind wirklich diese Videos. Ich müsste es einfach mal versuchen ob 
 und wie sich das auswirkt wenn ich nur die nötigsten Bilder pro Bike habe, die dann einfach das wichtigste beschreiben (z.b. bei Möbius ein Bild hinten mit Türe offen und zu und dann halt von vorne.)
 - Logo ist auf Ipad abgeschnitten in der Headerbar aber nur auf der Produkte-Seite also da wo alle Produkte aufgelistet weren
--
+- WEMB funktioniert auf iPad nicht
+- Weil bei mobilen Geräten die Tableiste zum Viewport zählt, wird von der Seite was abgeschnitten. Das liegt daran, dass ich nicht den Body scrolle, sondern nur in einem div. Aber nur wenn man den Body scrolled, wird die unnötige Taskleiste versteckt.
