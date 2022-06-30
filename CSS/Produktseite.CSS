@@ -6,6 +6,9 @@ body {
 }
 body {
   overflow-x: hidden;
+  --panel-height-minus-headerbar-height: calc(
+    100vh - var(--max-header-bar-height)
+  );
 }
 
 .Spotlight,
@@ -19,7 +22,7 @@ body {
   );
   border-top: 3px solid white;
   position: sticky !important;
-  height: calc(100vh - var(--max-header-bar-height));
+  height: var(--panel-height-minus-headerbar-height);
   top: calc(var(--max-header-bar-height) - 2px);
   margin-bottom: 200px;
 }
@@ -428,9 +431,11 @@ body {
     grid-template-rows: min-content 1fr fit-content;
     justify-items: center;
     align-items: center;
-    position: sticky;
-    height: 93vh;
-    padding-top: 30px;
+    position: sticky !important;
+    /* TODO: */
+    height: var(--panel-height-minus-headerbar-height);
+    top: var(--max-header-bar-height);
+    padding: 20px 0 !important;
   }
 
   .Kaufbanner__Bild {
@@ -493,9 +498,6 @@ body {
   #Navigation-Map {
     margin: 5px 2px;
   }
-  .Footer {
-    margin-top: 500px;
-  }
 
   .Kaufbanner__Info {
     border-radius: 20px 0 0 20px;
@@ -510,6 +512,9 @@ body {
     background-color: rgb(175, 175, 175);
     color: rgba(42, 42, 42, 1);
     margin: 2px;
+  }
+  .Footer {
+    margin-top: 500px;
   }
 }
 
