@@ -14,8 +14,9 @@
 .BM_Logo {
   background-image: url(/Icons/Logo3.png);
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  --logo-width-and-height: 58px;
+  width: var(--logo-width-and-height);
+  height: var(--logo-width-and-height);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
