@@ -26,6 +26,7 @@ body {
 
 html,
 body {
+  /* Muss hinzugefügt werden, damit auf Ipad nicht seitlich gescrolled werden kann. */
   position: relative;
   overflow-x: hidden;
 }

@@ -122,8 +122,9 @@
       onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
     >
       <span>Menü <span class="Menu-Pfeil"></span></span>
+      <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. -->
       <span
-        onclick="document.getElementById('site').scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
+        onclick="window.scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
         id="Navigation-Map__Items"
         ><a href="#Detail-1">Kontrollzentren</a>
         <a href="#Detail-2">Stauraum</a>

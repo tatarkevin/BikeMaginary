@@ -1,3 +1,9 @@
+html,
+body {
+  /* Auf Seiten wo sowieos nicht seitlich gescrolled werden kann, resette ich overflow-x wieder*/
+  overflow-x: initial !important;
+}
+
 .Spotlight,
 .Detail-Panel,
 .Kaufbanner {
@@ -8,10 +14,19 @@
     var(--gradient-color-DetailPanel)
   );
   border-top: 3px solid white;
-  position: sticky;
+  position: sticky !important;
   height: calc(100vh - var(--max-header-bar-height));
-  top: var(--max-header-bar-height);
+  top: calc(var(--max-header-bar-height) - 2px);
   margin-bottom: 200px;
+}
+.Spotlight {
+  top: var(--max-header-bar-height);
+}
+.Kaufbanner {
+  position: relative !important;
+  padding-top: calc(var(--max-header-bar-height) - 2px) !important;
+  top: 0;
+  height: fit-content;
 }
 
 .Spotlight--Aqua,
