@@ -277,7 +277,6 @@ body {
 }
 
 .Kaufbanner {
-  top: 0;
   background-color: black;
   display: grid;
   position: relative;
@@ -434,7 +433,7 @@ body {
   }
 
   .Kaufbanner__Bild {
-    width: 80%;
+    width: 70%;
     object-fit: contain;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -518,8 +517,12 @@ body {
   }
 }
 
-@media screen and (min-width: 1135px) {
+@media screen and (min-width: 1440px) {
   .Kaufbanner__Preis-Knopf {
     flex-direction: row;
   }
+}
+
+.Footer {
+  z-index: 100000;
 }

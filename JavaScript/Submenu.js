@@ -97,12 +97,16 @@ const breakpoint_desktop = 1250; // Das ist der Breakpoint ab wann die mobile He
       element = combined_array[index].submenu;
 
       element.style.display = element.dataset.default_display;
-      element.style.top =
-        headerbar_ref.getBoundingClientRect().bottom - 2 + "px"; //Weil ich jetzt immer die bottom edge neu berechne, geht endlich die animation
+      calculateVerticalOffsetOfSubmenu(element);
       element.style.left = button.dataset.left_offset + "px";
       element.classList.add(expanded_submenu_class);
       active_Submenu = element;
     }
+  }
+
+  function calculateVerticalOffsetOfSubmenu(element) {
+    element.style.top =
+      window.screenY + headerbar_ref.getBoundingClientRect().bottom - 2 + "px"; //Weil ich jetzt immer die bottom edge neu berechne, geht endlich die animation
   }
 
   function hideSubmenu() {
@@ -164,7 +168,7 @@ const breakpoint_desktop = 1250; // Das ist der Breakpoint ab wann die mobile He
     delayedCheckForHidingSubmenu();
   });
 
-  for (let item of button_array) {
+  /*  for (let item of button_array) {
     console.log(item);
   }
   console.log("------------------");
@@ -178,5 +182,5 @@ const breakpoint_desktop = 1250; // Das ist der Breakpoint ab wann die mobile He
   console.log("------------------");
   for (let item of all_buttons_array) {
     console.log(item);
-  }
+  } */
 }
