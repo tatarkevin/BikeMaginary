@@ -20,6 +20,7 @@ body {
   background-color: var(--page-background-color);
   font-size: 2.5rem;
   overflow-x: hidden;
+  width: 100vw;
   --max-header-bar-height: 65px;
   padding-top: var(--max-header-bar-height);
 }
