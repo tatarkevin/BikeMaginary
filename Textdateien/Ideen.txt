@@ -80,5 +80,6 @@ Ich glaube das Problem sind wirklich diese Videos. Ich müsste es einfach mal ve
 und wie sich das auswirkt wenn ich nur die nötigsten Bilder pro Bike habe, die dann einfach das wichtigste beschreiben (z.b. bei Möbius ein Bild hinten mit Türe offen und zu und dann halt von vorne.)
 - WEMB funktioniert auf iPad nicht
 - Footer auf Mini Atlantis ist auf Ipad weg.
+- Die Mini Atlantis Seite wird je weiter ich runterscrolle mehr laggy. Das Problem ist wahrscheinlich, dass alle Elemente gleichzeitig gerendert werden. Das liegt daran, weil die Elemente nicht aus dem Bild verschwinden, sondern einfach nur auf einer hinteren Ebene liegen. Anscheinend rendert der Browser alles was sich im Viewport befindet, egal auf welcher z-Ebene.
 - Slideshow-Knöpfe auf Hauptseite bei Sky bikes komisch nach unten verrutscht
 - Sterne auf Ipad bei Kundenbewertung auf Hauptseite komisch

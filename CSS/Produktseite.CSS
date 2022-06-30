@@ -21,10 +21,10 @@ body {
     var(--gradient-color-DetailPanel)
   );
   border-top: 3px solid white;
-  position: sticky;
   height: var(--panel-height-minus-headerbar-height);
-  top: calc(var(--max-header-bar-height) - 2px);
-  margin-bottom: 200px;
+  /* TODO: position: sticky;
+  top: calc(var(--max-header-bar-height) - 2px); 
+   margin-bottom: 200px;*/
 }
 .Spotlight {
   top: var(--max-header-bar-height);
@@ -521,8 +521,4 @@ body {
   .Kaufbanner__Preis-Knopf {
     flex-direction: row;
   }
-}
-
-.Footer {
-  z-index: 100000;
 }
