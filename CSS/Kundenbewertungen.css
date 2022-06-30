@@ -93,9 +93,9 @@
   height: 80px;
   margin-right: 20px;
   border-radius: 100px;
-  background-image: url(../Bilder/HTML-CSS-Teacher1.png);
-  background-position: 50% -20%;
-  background-size: 80%;
+  background-image: url(../Bilder/HTML-CSS-Teacher1-w100.png);
+  background-position: 50% 50%;
+  background-size: 100%;
   box-shadow: 1px -1px 3px 1px rgba(255, 255, 255, 0.5),
     inset 3px -3px 5px 1px rgba(0, 0, 0, 0.5);
 
@@ -175,7 +175,7 @@
 }
 
 .Kundenbewertung-Block .Container__Element .Element__Bild {
-  background: url(../Bilder/Bus.png);
+  background: url(../Bilder/Bus-w350.png);
   min-width: 250px;
   min-height: 250px;
   width: 100%;

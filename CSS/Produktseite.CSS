@@ -107,8 +107,12 @@
   object-fit: cover;
   height: 100%;
   width: 100vw;
-  --transparency-direction: 0deg;
+  --gradient-direction-DetailPanel: 0deg;
   --transparency-delta-top: 10%;
+  --transparency-delta-bottom: 10%;
+  --transparency-start: 0%;
+  --transparency-stop: 100%;
+  --transparency-direction: 0deg;
   -webkit-mask-image: linear-gradient(
     var(--transparency-direction),
     transparent var(--transparency-start),
