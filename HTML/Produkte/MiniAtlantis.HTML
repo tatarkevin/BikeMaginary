@@ -126,18 +126,18 @@
       <span
         onclick="window.scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
         id="Navigation-Map__Items"
-        ><a href="#Detail-1">Kontrollzentren</a>
-        <a href="#Detail-2">Stauraum</a>
-        <a href="#Detail-3">Toilette</a>
-        <a href="#Detail-4">Badezimmer</a>
-        <a href="#Detail-5">Schlafzimmer</a>
-        <a href="#Detail-6">Küche</a>
-        <a href="#Detail-7">Esszimmer</a>
-        <a href="#Detail-8">Eingangshalle</a>
-        <a href="#Detail-9">Luftversorgung</a>
-        <a href="#Detail-10">Antrieb</a>
-        <a href="#Detail-11">Motor und Komponenten</a>
-        <a href="#Detail-12">Jetzt Kaufen</a></span
+        ><a class="Navigation__Item" href="#Detail-1">Kontrollzentren</a>
+        <a class="Navigation__Item" href="#Detail-2">Stauraum</a>
+        <a class="Navigation__Item" href="#Detail-3">Toilette</a>
+        <a class="Navigation__Item" href="#Detail-4">Badezimmer</a>
+        <a class="Navigation__Item" href="#Detail-5">Schlafzimmer</a>
+        <a class="Navigation__Item" href="#Detail-6">Küche</a>
+        <a class="Navigation__Item" href="#Detail-7">Esszimmer</a>
+        <a class="Navigation__Item" href="#Detail-8">Eingangshalle</a>
+        <a class="Navigation__Item" href="#Detail-9">Luftversorgung</a>
+        <a class="Navigation__Item" href="#Detail-10">Antrieb</a>
+        <a class="Navigation__Item" href="#Detail-11">Motor und Komponenten</a>
+        <a class="Navigation__Item" href="#Detail-12">Jetzt Kaufen</a></span
       >
     </span>
 
@@ -814,8 +814,43 @@
     <script src="/JavaScript/Submenu.js"></script>
     <script src="/JavaScript/video-optimization.js"></script>
     <script>
+      /* Diese Skript funktioniert nur auf der Produktseite.
+        immer wenn ein Detailpanel vollständig über einem anderen liegt, wird das verdeckte
+        Detailpanel mit "visibility: hidden" versteckt. Somit werden immer nur die wirklich sichtbaren
+        Detailpanel gerendert. Getestet auf dem Ipad und alles läuft flüßig wie dünnpfiff alla.
+
+        TODO: Problem:
+        Wenn ich die Menübuttons verwende und zu einem versteckten Element springe, wird es nicht angezeigt.
+      */
       const detail_panel_array =
         document.getElementsByClassName("Detail-Panel");
+      const nav_items_ref = document.getElementsByClassName("Navigation__Item");
+      const toTop_knopf_ref =
+        document.getElementsByClassName("Button__To-Top")[0];
+      for (let nav_item of nav_items_ref) {
+        nav_item.addEventListener("click", function () {
+          console.log(this.getAttribute("href").match("[0-9]+"));
+          console.log(detail_panel_array.length);
+          trigger_scroll_event(this.getAttribute("href").match("[0-9]+") - 1);
+        });
+      }
+      toTop_knopf_ref.addEventListener("click", function () {
+        trigger_scroll_event(0);
+      });
+      function trigger_scroll_event(index) {
+        console.log("knopf jedrückt");
+
+        if (index == 0) {
+          index_vorher = 0;
+          index_nachher = 1;
+        } else {
+          index_nachher = index;
+          index_vorher = index - 1;
+        }
+        console.log("vorher", index_vorher);
+        console.log("nachher", index_nachher);
+        window.dispatchEvent(new Event("scroll"));
+      }
       let index_vorher = 0;
       let index_nachher = 1;
       let scroll_pos_vorher = 0;

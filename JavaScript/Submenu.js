@@ -105,8 +105,7 @@ const breakpoint_desktop = 1250; // Das ist der Breakpoint ab wann die mobile He
   }
 
   function calculateVerticalOffsetOfSubmenu(element) {
-    element.style.top =
-      window.screenY + headerbar_ref.getBoundingClientRect().bottom - 2 + "px"; //Weil ich jetzt immer die bottom edge neu berechne, geht endlich die animation
+    element.style.top = headerbar_ref.getBoundingClientRect().bottom - 2 + "px"; //Weil ich jetzt immer die bottom edge neu berechne, geht endlich die animation
   }
 
   function hideSubmenu() {
