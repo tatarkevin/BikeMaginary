@@ -9,9 +9,10 @@
     />
     <title>BikeMaginary - Das passende Zweirad für alle Orte</title>
     <link rel="stylesheet" href="/CSS/normalize.css" />
-    <link rel="stylesheet" href="/CSS/combined_Productseite.css" />
+    <link rel="stylesheet" href="/playground/combined_Productseite.css" />
   </head>
   <body>
+    <div id="top_edge"></div>
     <div class="Headerbar-Container">
       <div class="Headerbar">
         <!-- Ich muss hier Root-Verweise machen, und die funktionieren nur mit einem Live-Server.
@@ -116,7 +117,6 @@
       <span class="Button__To-Top__Arrow"></span>
     </a>
 
-    <div id="top_edge"></div>
     <span
       id="Navigation-Map"
       onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
@@ -124,7 +124,7 @@
       <span>Menü <span class="Menu-Pfeil"></span></span>
       <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. -->
       <span
-        onclick="window.scrollTo(0, 0/* {top: 0, behavior: 'smooth'} */);"
+        onclick="setTimeout(function(){window.scrollBy(0, -parseInt(getComputedStyle(document.getElementsByClassName('Headerbar')[0]).getPropertyValue('--max-header-bar-height')))}, 0);"
         id="Navigation-Map__Items"
         ><a class="Navigation__Item" href="#Detail-1">Kontrollzentren</a>
         <a class="Navigation__Item" href="#Detail-2">Stauraum</a>
@@ -147,276 +147,801 @@
           <span class="Spotlight__Heading"> Mini Atlantis</span> <br /><br />
           Die kleine mobile Wasserstadt.
         </h2>
+        <div class="Divider">
+          <span class="Divider__Fish"></span>
+          <span class="Divider__Fish"></span>
+          <span class="Divider__Fish"></span>
+          <span class="Divider__Fish"></span>
+          <span class="Divider__Fish"></span>
+          <span class="Divider__Fish"></span>
+        </div>
       </div>
       <video
         class="Spotlight__Bild"
         muted
         loop
         autoplay
-        src="/Bilder/Aqua_Family_Spotlight.webm"
+        src="/Bilder/Produktseite/Aqua_Family/Spotlight/Spotlight.webm"
         type="video/mp4"
-      >
-        <!-- <source
-            srcset="/Bilder/Aqua_Family_Spotlight.webm"
-            type="video/webm"
-            class="Spotlight__Bild"
-          />
-          <source
-            srcset="/Bilder/Aqua_Family_Spotlight_avijpg0001-0270.avi"
-            type="video/avi"
-            class="Spotlight__Bild"
-          />
-          video nicht unterstützt -->
-      </video>
+      ></video>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-1">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Kontrollraum.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">
-          Kontrollzentren für 8 Personen
-        </h3>
+      <h3 class="Detail-Panel__Heading">Kontrollzentren für 8 Personen</h3>
 
-        Das Fahrzeug besitzt zwei Stockwerke, mit jeweils einem Kontrollzentrum
-        für bis zu 4 Personen.
-        <br />
-        <br />
-        Jedes Kontrollzentrum besitzt ein Panel, welches den Zustand aller
-        wichtigen Komponenten des bikes anzeigt.
-        <br /><br />
-        Um die Langeweile zu vertreiben, können sie auch Serien, Filme oder
-        sonstige Unterhaltung auf dem Panel anschauen.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kontrollraum/Kontrollraum_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kontrollraum/Kontrollraum_2.png"
+            alt=""
+        /></picture>
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kontrollraum/Kontrollraum_3.png"
+            alt=""
+        /></picture>
+        <picture
+          style="display: hidden"
+          data-parcel-resizer="400+webp, 600+webp, 800+webp"
+        >
+          <!-- Das hier ist nur zum Testen 
+            1. Wir müssen aus img-Element die src-URL auslesen
+            2. dann hängen wir an die URL etwas dran wie "?as=webp&width=800"
+            3. natürlich muss das irgendwo stehen also bspw. in data-parcel-resizer="webp+800, webp+400, usw."
+              Also webp und 800 width das bedeutet webp+800
+            4. picture-Element muss umgeschrieben werden:
+              <picture>
+                <source srcset="URL?as=webp&width=800" media="(min-width: 800px)" type="image/webp">
+                <source srcset="URL?as=webp&width=400" media="(min-width: 400px)" type="image/webp">
+                <img src="URL" alt="blablabla"/>
+              </picture>
+            5. Den ganzen Bumms speichern.
+            
+            Hier die Vorlage aus Parcel-Doc:
+            <picture>
+              <source srcset="image.jpeg?as=avif&width=800" type="image/avif" />
+              <source srcset="image.jpeg?as=webp&width=800" type="image/webp" />
+              <source srcset="image.jpeg?width=800" type="image/jpeg" />
+              <img src="image.jpeg?width=200" alt="test image" />
+            </picture>
+          -->
+        </picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Das Fahrzeug besitzt zwei Stockwerke, mit jeweils einem
+          Kontrollzentrum für bis zu 4 Personen.
+          <br />
+          <br />
+          Jedes Kontrollzentrum besitzt ein Panel, welches den Zustand aller
+          wichtigen Komponenten des bikes anzeigt.
+          <br /><br />
+          Um die Langeweile zu vertreiben, können sie auch Serien, Filme oder
+          sonstige Unterhaltung auf dem Panel anschauen.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-2">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Stauraum.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Stauraum für Gepäck</h3>
-        Natürlich möchte man auf großen Reisen gerne alles dabei haben, was man
-        zu Hause genießt. Deshalb gibt es auch genügend Platz für Gepäck und
-        sonstige Mitbringsel.
+      <h3 class="Detail-Panel__Heading">Stauraum für Gepäck</h3>
 
-        <br /><br />
-        Im oberen Stockwerk haben wir jeweils, seitlich, zwei Holzzäune
-        angebracht, die das Gepäck an Ort und Stelle halten sollen.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Stauraum/Stauraum_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Stauraum/Stauraum_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Stauraum/Stauraum_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Natürlich möchte man auf großen Reisen gerne alles dabei haben, was
+          man zu Hause genießt. Deshalb gibt es auch genügend Platz für Gepäck
+          und sonstige Mitbringsel.
+          <br /><br />
+          Im oberen Stockwerk haben wir seitlich zwei Holzzäune angebracht, die
+          das Gepäck an Ort und Stelle halten.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-3">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Toilette.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">
-          Vollständig funktionsfähige Toilette
-        </h3>
-        Auch daran haben wir gedacht. Das stille Örtchen ist unter Wasser doch
-        etwas schwer zu finden. Deshalb haben wir es mit in das Fahrzeug
-        eingebaut. Alle Abflüsse die es in dem Bike gibt, führen zum hinteren
-        Ende.
+      <h3 class="Detail-Panel__Heading">
+        Vollständig funktionsfähige Toilette
+      </h3>
 
-        <br /><br />
-        Damit sie sich, ohne Angst haben zu müssen bei ihrem Geschäft beobachtet
-        zu werden, erleichtern können, haben wir eine neue Technologie
-        entwickelt, die es erlaubt das Glas zu verdichten. Per Knopfdruck wird
-        das Glas also undurchsichtig gemacht.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Toilette/Toilette_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Toilette/Toilette_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Toilette/Toilette_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Auch daran haben wir gedacht. Das stille Örtchen ist unter Wasser doch
+          etwas schwer zu finden. Deshalb haben wir es mit in das Fahrzeug
+          eingebaut. Alle Abflüsse die es in dem Fahrzeug gibt, führen zur
+          Recycling-Einheit ganz hinten im Fahrzeug.
+          <br /><br />
+          Damit sie sich, ohne Angst haben zu müssen bei ihrem Geschäft
+          beobachtet zu werden, erleichtern können, haben wir eine neue
+          Technologie entwickelt, die es erlaubt das Glas zu verdichten. Per
+          Knopfdruck wird die Scheibe dann komplett undurchsichtig gemacht.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-4">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Bad.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Badezimmer</h3>
-        Genau gegenüber der Toilette befindet sich ein Badezimmer. Auch wenn sie
-        von viel Wasser umgeben sind, sollen sie natürlich die Möglichkeit
-        haben, sich wie zu Hause zu hygenisieren.
-        <br /><br />
-        Auch hier können sie die Glasscheibe undurchsichtig machen.
+      <h3 class="Detail-Panel__Heading">Badezimmer</h3>
+
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Badezimmer/Bad_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Badezimmer/Bad_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Badezimmer/Bad_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Genau gegenüber der Toilette befindet sich das Badezimmer. Auch wenn
+          sie von viel Wasser umgeben sind, sollen sie natürlich die Möglichkeit
+          haben, sich wie zu Hause zu hygienisieren.
+          <br /><br />
+          Genau wie in der Toilette lässt sich auch hier das Glas undurchsichtig
+          machen.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-5">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Schlafzimmer.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Schlafzimmer</h3>
-        Ein Hotel in den tiefen der Meere wird wohl schwer zu finden sein. Auch
-        wenn es eine coole Idee wäre ein Unterwasserhotel zu besuchen, müssen
-        sie sich bis zur Verwirklichung dieser Idee noch damit abfinden, im
-        Schlafzimmer des "Mini Atlantis" ihre Batterien wieder aufzuladen. Aber
-        ich denke bei all der Bequemlichkeit, die das Schlafzimmer und die
-        speziell angefertigten Matrazen bieten, sollte es wohl kein Problem sein
-        auf das Unterwasserhotel zu verzichten.
+      <h3 class="Detail-Panel__Heading">Schlafzimmer</h3>
+
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Schlafzimmer/Schlafzimmer_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Schlafzimmer/Schlafzimmer_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Schlafzimmer/Schlafzimmer_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Ein Hotel in den tiefen der Meere wird wohl schwer zu finden sein.
+          Auch wenn es eine coole Idee wäre ein Unterwasserhotel zu besuchen,
+          müssen Sie sich bis zur Verwirklichung dieser Idee noch damit
+          abfinden, im Schlafzimmer des "Mini Atlantis" Ihre Batterien wieder
+          aufzuladen.
+          <br /><br />
+          Aber ich denke bei all der Bequemlichkeit, die das Schlafzimmer und
+          die speziell angefertigten Matrazen bieten, sollte es wohl kein
+          Problem sein auf das Unterwasserhotel zu verzichten.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-6">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Kueche.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Küche</h3>
-        Auch wenn es um sie herum von Fischen auf ihren Reisen wimmeln wird,
-        möchten wir ihnen trotzdem die Möglichkeit bieten, ihre
-        Lieblingsgerichte auch 1000m Unterwasser zubereiten zu können.
+      <h3 class="Detail-Panel__Heading">Küche</h3>
 
-        <br /><br />
-        In dieser Küche ist alles so gesichert, dass selbst bei Turbulenzen
-        alles an seinem Platz bleibt. Die Messer sind an der Wand befestigt und
-        können durch einen kleinen Mechanismus abgeschlossen werden.
-        <br /><br />
-        Die Schubladen werden alle durch einen kleinen Druck geöffnet und sind,
-        wenn sie verschlossen sind auch wieder durch einen Mechanismus sicher
-        zu.
-        <br /><br />
-        Töpfe sowie Pfannen oder ähnliches besitzen einen magnetischen Boden,
-        und das Gegenstück ist die Herdplatte. Deshalb können sie auch da
-        beruhigt sein, dass ihr leckeres Essen nicht einfach durch die Gegend
-        fliegt.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kueche/Kueche_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kueche/Kueche_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Kueche/Kueche_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Auch wenn es um sie herum von Fischen auf ihren Reisen wimmeln wird,
+          möchten wir ihnen trotzdem die Möglichkeit bieten, ihre
+          Lieblingsgerichte auch 1000m Unterwasser zubereiten zu können.
+          <br /><br />
+          In dieser Küche ist alles so gesichert, dass selbst bei Turbulenzen
+          alles an seinem Platz bleibt. Die Messer sind an der Wand befestigt
+          und können durch einen kleinen Mechanismus abgeschlossen werden.
+          <br /><br />
+          Die Schubladen werden alle durch einen kleinen Druck geöffnet und
+          sind, wenn sie verschlossen sind auch wieder durch einen Mechanismus
+          sicher zu.
+          <br /><br />
+          Töpfe sowie Pfannen oder ähnliches besitzen einen magnetischen Boden,
+          und das Gegenstück ist die Herdplatte. Deshalb können sie auch da
+          beruhigt sein, dass ihr leckeres Essen nicht einfach durch die Gegend
+          fliegt.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-7">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Esszimmer0001-0240.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Esszimmer</h3>
-        Um ihre Speisen auch in vollen Zügen genießen zu können, haben wir auch
-        ein kleines Esszimmer eingebaut.
+      <h3 class="Detail-Panel__Heading">Speiseraum</h3>
 
-        <br /><br />
-        Der Tisch ist sicher am Boden befestigt, damit sie sich bei Turbulenzen
-        gut festhalten können.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Speiseraum/Speiseraum_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Speiseraum/Speiseraum_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Speiseraum/Speiseraum_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Um ihre Speisen auch in vollen Zügen genießen zu können, haben wir
+          auch genug Platz für einen Speiseraum eingerichtet.
+          <br /><br />
+          Der Tisch ist sicher am Boden befestigt, damit Sie sich bei
+          Turbulenzen gut festhalten können.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-8">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Eingang.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Eingangshalle</h3>
-        Um in das Bike zu gelangen, gibt es zwei schwere, durch Hydraulik
-        gesteuerte, Türen. Diese Türen sind sehr stabil, und können somit als
-        Rampe benutzt werden um in die Eingangshalle zu kommen.
+      <h3 class="Detail-Panel__Heading">Eingang</h3>
 
-        <br /><br />
-        In der Eingangshalle haben sie viele Möglichkeiten um es einladend
-        einzurichten. Falls sie bestimmte Einrichtung hinzufügen wollen, für
-        welche ein Bohrer zum Einsatz kommt, sprechen sie uns beim Kauf an, da
-        wir die genauen Kabel- und Rohrpositionen in den Wänden dann
-        berücksichtigen können.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Eingang/Eingang_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Eingang/Eingang_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Eingang/Eingang_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Um in das Bike zu gelangen, gibt es zwei schwere, durch Hydraulik
+          gesteuerte, Türen. Diese Türen sind sehr stabil, und können somit als
+          Rampe benutzt werden um in die Eingangshalle zu kommen.
+          <br /><br />
+          an dem beiden Toren sind ausfahrbare Treppen und Gelände angebracht,
+          damit Ihnen der Einstieg in das Fahrzeug so leicht wie möglich gemacht
+          wird. Außerdem werden diese Treppen und Geländer beim Schließen der
+          Tore auch wieder automatisch eingefahren, somit wird viel Platz
+          gespart.
+          <br /><br />
+          In der Eingangshalle haben sie viele Möglichkeiten um es einladend
+          einzurichten. Falls sie bestimmte Einrichtung hinzufügen wollen, für
+          welche ein Bohrer zum Einsatz kommt, sprechen sie uns beim Kauf an, da
+          wir die genauen Kabel- und Rohrpositionen in den Wänden
+          berücksichtigen können.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-9">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Luftzufuhr.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Luftzufuhr</h3>
-        Auch wenn das Fahrzeug recht groß ist, wird ihnen irgendwann die Luft
-        ausgehen. Aber natürlich haben wir auch daran gedacht. Mit unserer
-        neuesten Technologie, wird Wasser von außen angesaugt und in Luft
-        umgewandelt. Jeder Raum besitzt mindestens ein solches Gerät, welches
-        das Wasser umwandeln kann. Somit können sie beruhigt sein, dass sie
-        immer genug Luft haben.
+      <h3 class="Detail-Panel__Heading">Luftversorgung</h3>
 
-        <br /><br />
-        Falls eins der Geräte mal ausfallen sollte, wird der Zufluss sofort
-        blockiert, damit kein Wasser in das Fahrzeug gelangen kann.
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Luftversorgung/Luftzufuhr_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Luftversorgung/Luftzufuhr_2.png"
+            alt=""
+        /></picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Luftversorgung/Luftzufuhr_3.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Auch wenn das Fahrzeug recht groß ist, wird ihnen irgendwann die Luft
+          ausgehen. Aber natürlich haben wir auch daran gedacht.
+          <br /><br />
+          Mit unserer neuesten Technologie, wird Wasser von außen angesaugt und
+          in Luft umgewandelt. Jeder Raum besitzt mindestens eins dieser Geräte,
+          welches das Wasser umwandeln kann. Somit können sie beruhigt sein,
+          dass sie immer genug Luft haben.
+          <br /><br />
+          Falls eins der Geräte mal ausfallen sollte, wird der Zufluss sofort
+          blockiert, damit kein Wasser in das Fahrzeug gelangen kann. Die
+          Zustände dieser Wasser-Luft-Wandler können Sie jederzeit in den
+          Kontrollräumen an den Bildschirmen einsehen.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-10">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Antrieb.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">Antrieb</h3>
-        Der Antrieb des Fahrzeugs ist etwas sehr besonderes. Wie sie sehen,
-        befinden sich am Bauch des Bikes 4 Räder mit einer propellerartigen
-        Struktur.
-        <br /><br />
-        Die Räder lassen sich alle, unabhängig voneinander, um 360&#176; auf der
-        vertikalen Achse drehen. Der Vorteil hiervon ist, dass sie sowohl auf
-        festem Unterboden, aber auch im Wasser immer den maximal möglichen
-        Antrieb generieren können.
-        <br /><br />
-        Aber auch auf dem Land ist die Rotation der Räder sehr hilfreich, somit
-        müssen sie um zu Wenden keine großen Kreise ziehen, sondern einfach nur
-        die Reifen auf ihrer vertikalen Achse drehen um das Gefährt auch
-        seitlich zu fahren. Auch beim Einparken kann das sehr hilfreich sein.
+      <h3 class="Detail-Panel__Heading">Antrieb</h3>
+
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 2; --slideshow-name: slideshow-2"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Antrieb/Antrieb_1.png"
+            alt=""
+          />
+        </picture>
+        <picture
+          ><img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Antrieb/Antrieb_2.png"
+            alt=""
+        /></picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Der Antrieb des Fahrzeugs ist etwas sehr besonderes. Wie sie sehen,
+          befinden sich am Bauch des Bikes 4 Räder mit einer propellerartigen
+          Struktur.
+          <br /><br />
+          Die Räder lassen sich alle, unabhängig voneinander, um 360° auf der
+          vertikalen Achse drehen. Der Vorteil hiervon ist, dass sie sowohl auf
+          festem Unterboden, aber auch im Wasser immer den maximal möglichen
+          Antrieb generieren können.
+          <br /><br />
+          Aber auch auf dem Land ist die Rotation der Räder sehr hilfreich,
+          somit müssen sie um zu Wenden keine großen Kreise ziehen, sondern
+          einfach nur die Reifen auf ihrer vertikalen Achse drehen um das
+          Gefährt auch seitlich zu fahren. Auch beim Einparken kann das sehr
+          hilfreich sein.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
-
     <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-11">
-      <video
-        class="Detail-Panel__Bild"
-        src="/Bilder/Aqua_Family_Motor-Komponenten.webm"
-        muted
-        loop
-        autoplay
-      ></video>
-      <div class="Detail-Panel__Text">
-        <h3 class="Detail-Panel__Text__Heading">
-          Motor und sonstige Komponenten
-        </h3>
-        Hier kommen wir jetzt zum Herzstück des Gefährts.
-        <br /><br />
-        Der Motor ist ein Geheimnis, aber stark genug um bis zu 2 Tonnen auf 100
-        km/h zu bewegen und das in 5 Sekunden.
-        <br /><br />
-        Da wir alles so kompakt wie möglich halten wollten, haben wir neben dem
-        Motor auch alle sonstigen Systeme verbaut.
-        <br /><br />
-        Der Wasser-zu-Sauerstoff-Wandler wäre ein Beispiel. Das Fahrzeug wird
-        100% durch erneuerbare Energien angetrieben. Wenn das angesaugte Wasser
-        in Sauerstoff umgewandelt wird, bleibt natürlich noch was übrig.
-        Wasserstoff. Das wird dem Motor zugeführt.
-        <br /><br />
-        Aber auch Substanzen die durch die Toilette, Dusche oder sonstige
-        Abflüsse in die Rohre gelangt, wird verarbeitet. Somit entstehen auch
-        keine Abfälle, alles wird verwertet. :)
+      <h3 class="Detail-Panel__Heading">Motor und sonstige Komponenten</h3>
+
+      <div
+        class="Detail-Panel__Slideshow"
+        style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
+      >
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Motor-Komponenten/Motor-Komponenten_1.png"
+            alt=""
+          />
+        </picture>
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Motor-Komponenten/Motor-Komponenten_2.png"
+            alt=""
+          />
+        </picture>
+        <picture>
+          <img
+            class="Slideshow__Item"
+            src="/Bilder/Produktseite/Aqua_Family/Motor-Komponenten/Motor-Komponenten_3.png"
+            alt=""
+          />
+        </picture>
+      </div>
+
+      <div class="Detail-Panel__Info">
+        <div class="Panel__Info__Button">Info</div>
+        <div class="Panel__Info__Text">
+          Hier kommen wir jetzt zum Herzstück des Gefährts.
+          <br /><br />
+          Der Motor ist ein Geheimnis, aber stark genug um bis zu 2 Tonnen auf
+          100 km/h zu bewegen und das in 5 Sekunden.
+          <br /><br />
+          Da wir alles so kompakt wie möglich halten wollten, haben wir neben
+          dem Motor auch alle sonstigen Systeme verbaut.
+          <br /><br />
+          Der Wasser-zu-Sauerstoff-Wandler wäre ein Beispiel. Das Fahrzeug wird
+          100% durch erneuerbare Energien angetrieben. Wenn das angesaugte
+          Wasser in Sauerstoff umgewandelt wird, bleibt natürlich noch was
+          übrig. Wasserstoff. Das wird dem Motor zugeführt.
+          <br /><br />
+          Aber auch Substanzen die durch die Toilette, Dusche oder sonstige
+          Abflüsse in die Rohre gelangt, wird verarbeitet. Somit entstehen auch
+          keine Abfälle, alles wird verwertet.
+        </div>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+      </div>
+      <div class="Divider">
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
+        <span class="Divider__Fish"></span>
       </div>
     </div>
 
@@ -812,85 +1337,5 @@
     <script src="/JavaScript/Menu-Button.js"></script>
     <script src="/JavaScript/Footer-Menu.js"></script>
     <script src="/JavaScript/Submenu.js"></script>
-    <script src="/JavaScript/video-optimization.js"></script>
-    <script>
-      /* Diese Skript funktioniert nur auf der Produktseite.
-        immer wenn ein Detailpanel vollständig über einem anderen liegt, wird das verdeckte
-        Detailpanel mit "visibility: hidden" versteckt. Somit werden immer nur die wirklich sichtbaren
-        Detailpanel gerendert. Getestet auf dem Ipad und alles läuft flüßig wie dünnpfiff alla.
-
-        TODO: Problem:
-        Wenn ich die Menübuttons verwende und zu einem versteckten Element springe, wird es nicht angezeigt.
-      */
-      const detail_panel_array =
-        document.getElementsByClassName("Detail-Panel");
-      const nav_items_ref = document.getElementsByClassName("Navigation__Item");
-      const toTop_knopf_ref =
-        document.getElementsByClassName("Button__To-Top")[0];
-      for (let nav_item of nav_items_ref) {
-        nav_item.addEventListener("click", function () {
-          console.log(this.getAttribute("href").match("[0-9]+"));
-          console.log(detail_panel_array.length);
-          trigger_scroll_event(this.getAttribute("href").match("[0-9]+") - 1);
-        });
-      }
-      toTop_knopf_ref.addEventListener("click", function () {
-        trigger_scroll_event(0);
-      });
-      function trigger_scroll_event(index) {
-        console.log("knopf jedrückt");
-
-        if (index == 0) {
-          index_vorher = 0;
-          index_nachher = 1;
-        } else {
-          index_nachher = index;
-          index_vorher = index - 1;
-        }
-        console.log("vorher", index_vorher);
-        console.log("nachher", index_nachher);
-        window.dispatchEvent(new Event("scroll"));
-      }
-      let index_vorher = 0;
-      let index_nachher = 1;
-      let scroll_pos_vorher = 0;
-      if (detail_panel_array.length > 1) {
-        window.addEventListener("scroll", () => {
-          if (scroll_pos_vorher - window.scrollY < 0) {
-            /* runtergescrolled */
-            if (
-              index_nachher < detail_panel_array.length &&
-              detail_panel_array[index_vorher].getBoundingClientRect().top ==
-                detail_panel_array[index_nachher].getBoundingClientRect().top
-            ) {
-              detail_panel_array[index_vorher].style.visibility = "hidden";
-              if (index_nachher < detail_panel_array.length - 1) {
-                index_vorher++;
-                index_nachher++;
-              }
-              console.log("index vorher ", index_vorher);
-              console.log("index nachher ", index_nachher);
-            }
-          } else if (
-            /* hochgescrolled */
-            index_vorher >= 0 &&
-            detail_panel_array[index_vorher].getBoundingClientRect().top !=
-              detail_panel_array[index_nachher].getBoundingClientRect().top
-          ) {
-            {
-              detail_panel_array[index_vorher].style.visibility = "visible";
-              if (index_vorher > 0) {
-                index_vorher--;
-                index_nachher--;
-              }
-
-              console.log("index vorher ", index_vorher);
-              console.log("index nachher ", index_nachher);
-            }
-          }
-          scroll_pos_vorher = window.scrollY;
-        });
-      }
-    </script>
   </body>
 </html>
