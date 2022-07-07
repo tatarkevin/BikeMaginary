@@ -4,7 +4,7 @@ const html_datei_pfad =
 const javascript_datei_pfad = "/JavaScript/resizer.js";
 
 //TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
-const skript_testen = true;
+const skript_testen = false;
 
 /* TODO: Ab hier nichts mehr ändern, außer du kennst dich aus :D */
 
