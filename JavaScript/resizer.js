@@ -1,33 +1,10 @@
-/* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
-/*  1. Füge das Script in die HTML Datei ans Ende des Body-Elements ein
-    2. Ändere die Referenzen von "html_datei_name", "html_datei_pfad" und "javascript_datei_pfad"
-    3. In der jetzigen HTML-Datei, die dieses Skript verwenden soll musst du jetzt jedem picture Element folgende
-      data-Attribute:
-      Beispiel:
-      data-parcel-resizer="400+webp, 500+webp, 600+webp@1000, 400+png, 500+png, ..."
-      data-parcel-order="webp, png"
-      Somit erstellst das Skript im Picture-Element mehrere source Elemente die so aussehen:
-      für 400+webp:
-      <source type="image/webp" srcset="[Hier steht der Pfad zum bild]?as=webp&width=400" media="(max-width: 400px)">
-      für 600+webp@1000:
-      <source type="image/webp" srcset="[Hier steht der Pfad zum bild]?as=webp&width=600" media="(min-width: 1000px) and (max-width=1600px)">
-      Das Skript berechnet alles selber, wichtig ist nur, dass du dieses Format bei data-parcel-resizer einhältst:
-      data-parcel-resizer="[Bildbreite]+[Bildtyp]@[Bildmedia-Min]"
-      zum Beispiel:
-      data-parcel-resizer="400+jpeg@800"
-      
-*/
-
+/* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei und JavaScript eingeben */
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/Produkt-uebersicht.html";
-const html_datei_name = html_datei_pfad.match(
-  new RegExp(/\/([a-zA-Z-]+.html)/gm)
-);
-console.log(html_datei_name);
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
 const javascript_datei_pfad = "/JavaScript/resizer.js";
 
 //TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
-const skript_testen = true;
+const skript_testen = false;
 
 /* TODO: Ab hier nichts mehr ändern, außer du kennst dich aus :D */
 
@@ -46,28 +23,7 @@ function connectToBackend(requestName, fileName, currentContent) {
   // open a connection
   xhr.open("POST", url, true);
 
-  if (requestName === "find_belonging_resized_files") {
-    /* console.log(fileName);
-    console.log(currentContent); */
-    // Set the request header i.e. which type of content you are sending
-    xhr.setRequestHeader("Content-Type", "text/plain");
-    // Create a state change callback
-    xhr.onreadystatechange = function () {
-      // Print received data from server
-
-      if (xhr.status == 200 && xhr.readyState === 4) {
-        create_source_Elements(JSON.parse(xhr.responseText), currentContent);
-      } else if (xhr.status == 404) {
-        console.log(xhr.responseText);
-      }
-      return;
-    }; // Converting JSON data to string
-    var data = JSON.stringify({
-      find_belonging_resized_files: fileName,
-    });
-    // Sending data with the request
-    xhr.send(data);
-  } else if (requestName === "save_html_file") {
+  if (requestName === "save_html_file") {
     // Set the request header i.e. which type of content you are sending
     xhr.setRequestHeader("Content-Type", "text/plain");
     // Create a state change callback
@@ -85,7 +41,7 @@ function connectToBackend(requestName, fileName, currentContent) {
       return;
     }; // Converting JSON data to string
     var data = JSON.stringify({
-      save_html_file: html_datei_name,
+      save_html_file: html_datei_pfad,
       content: currentContent,
     });
     // Sending data with the request

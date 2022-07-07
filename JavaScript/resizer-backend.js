@@ -1,8 +1,4 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
-const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/Produkt-uebersicht.html";
-const bilder_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/Bilder";
 
 /* Connection Logic */
 const { error } = require("console");
@@ -20,9 +16,9 @@ const server = http.createServer((req, res) => {
     let queryName = "";
 
     try {
-      console.log("data", data);
+      /* console.log("data", data); */
       queryName = Object.keys(JSON.parse(data));
-      console.log("queryname", queryName);
+      /* console.log("queryname", queryName); */
       if (queryName[0] == "find_belonging_resized_files") {
         /* find_belonging_files(res); */
         console.log("find_belonging_resized_files");
@@ -48,38 +44,6 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-var belonging_files;
-function find_belonging_files(current_file_name, response) {
-  const fs = require("fs");
-  console.log("find_belonging_files");
-  try {
-    belonging_files = fs.readdirSync(bilder_pfad, "utf8", (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
-    const temp = new Array();
-    for (let entry of belonging_files) {
-      if (entry.match(current_file_name)) {
-        temp.push(entry);
-      }
-    }
-    response.writeHead(200, {
-      "Content-Type": "text/plain",
-      "Access-Control-Allow-Origin": "*", // Allow access from other domains
-    });
-    response.write(JSON.stringify(temp));
-  } catch {
-    response.writeHead(404, {
-      "Content-Type": "text/plain",
-      "Access-Control-Allow-Origin": "*", // Allow access from other domains
-    });
-    response.write("irgendwas geht nicht :(");
-  }
-  response.end();
-}
-
 function save_new_html_file(new_html_file, response) {
   console.log("Speichere neuen HTML Inhalt");
   response.writeHead(200, {
@@ -88,9 +52,14 @@ function save_new_html_file(new_html_file, response) {
   });
 
   fs = require("fs");
-  fs.writeFile(html_datei_pfad, new_html_file.content, function (err) {
-    if (err) return console.log(err);
-  });
+
+  fs.writeFile(
+    new_html_file.save_html_file,
+    new_html_file.content,
+    function (err) {
+      if (err) return console.log(err);
+    }
+  );
   response.write("Datei wurde perfekt gespeichert");
   response.end();
   resetDataStream();
