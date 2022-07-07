@@ -1,10 +1,10 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei und JavaScript eingeben */
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
 const javascript_datei_pfad = "/JavaScript/resizer.js";
 
 //TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
-const skript_testen = false;
+const skript_testen = true;
 
 /* TODO: Ab hier nichts mehr ändern, außer du kennst dich aus :D */
 
@@ -233,8 +233,20 @@ function change_picture_element_structure(parsed_data_attr_array, element) {
   for (let source_element of parsed_data_attr_array) {
     source_element_width = source_element.trim().match("[0-9]+");
     source_element_type = source_element.trim().match("[a-zA-Z]+");
+
     source_element_mediaQuery_max = source_element.trim().match("@max[0-9]+");
     source_element_mediaQuery_min = source_element.trim().match("@min[0-9]+");
+    /* TODO: logs wieder entfernen */
+    /* console.log("-------------------");
+    console.error("source_element", source_element);
+    console.error(
+      "source_element_mediaQuery_min",
+      source_element_mediaQuery_min
+    );
+    console.error(
+      "source_element_mediaQuery_max",
+      source_element_mediaQuery_max
+    ); */
     let new_source_element = document.createElement("source");
 
     new_source_element.type = "image/" + source_element_type;
@@ -246,11 +258,14 @@ function change_picture_element_structure(parsed_data_attr_array, element) {
       );
       new_media_query += `(min-width: ${source_element_mediaQuery_min}px)`;
     }
-    if (source_element_mediaQuery_min) {
-      source_element_mediaQuery_min = parseInt(
-        source_element_mediaQuery_min[0].match("[0-9]+")
+    if (source_element_mediaQuery_max) {
+      source_element_mediaQuery_max = parseInt(
+        source_element_mediaQuery_max[0].match("[0-9]+")
       );
-      new_media_query += ` and (max-width: ${source_element_width}px)`;
+      if (new_media_query.length > 0) {
+        new_media_query += " and ";
+      }
+      new_media_query += `(max-width: ${source_element_mediaQuery_max}px)`;
     }
     if (new_media_query.length > 0) {
       new_source_element.media = new_media_query;
