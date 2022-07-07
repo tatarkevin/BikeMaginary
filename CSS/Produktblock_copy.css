@@ -174,7 +174,6 @@
 
 .Element__Bild {
   max-width: 350px;
-  background-image: url(../Bilder/ShipPlane_Bike_1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -189,6 +188,9 @@
   animation-direction: alternate-reverse;
   animation-timing-function: ease-in-out;
   animation-delay: -0.5s;
+}
+.Element__Bild img {
+  width: 100%;
 }
 .Container__Element:nth-child(2n) .Element__Bild,
 .Kundenbewertung-Block:nth-child(2n) .Element__Bild {

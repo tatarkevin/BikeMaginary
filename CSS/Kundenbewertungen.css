@@ -176,7 +176,6 @@
 }
 
 .Kundenbewertung-Block .Container__Element .Element__Bild {
-  background: url(../Bilder/Bus-w350.png);
   min-width: 250px;
   min-height: 250px;
   width: 100%;
@@ -223,7 +222,6 @@
   }
 
   .Kundenbewertung-Block .Container__Element .Element__Bild {
-    background: url(../Bilder/Bus.png);
     min-width: 300px;
     min-height: 300px;
     background-size: 100%;

@@ -60,7 +60,6 @@ html {
 .Product_Card {
   min-width: 300px;
   max-width: 350px;
-  width: 80%;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -87,20 +86,17 @@ html {
 
 .Images {
   display: flex;
-  align-content: flex-start;
   flex-direction: row;
   width: fit-content;
   height: 100%;
   position: relative;
-  mix-blend-mode: normal;
-  background-color: rgba(255, 255, 255, 0.176);
+  margin: auto;
 }
 
 .Product_Image {
   object-fit: cover;
+  height: 100%;
   z-index: 9000;
-  width: 80%;
-  margin: auto;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.6));
 }
 
@@ -170,6 +166,7 @@ html {
   overflow: hidden;
   position: relative;
   z-index: 9996;
+  background-color: rgba(255, 255, 255, 0.165);
 }
 
 :root {
