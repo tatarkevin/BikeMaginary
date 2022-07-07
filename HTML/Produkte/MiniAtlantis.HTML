@@ -172,7 +172,10 @@
         class="Detail-Panel__Slideshow"
         style="--anzahl-der-Bilder: 3; --slideshow-name: slideshow-3"
       >
-        <picture>
+        <picture
+          data-parcel-resizer="400+webp, 600+webp, 800+webp, 1000+webp, 400+webp@1000, 600+webp@1000, 800+webp@1000"
+          data-parcel-order="webp"
+        >
           <img
             class="Slideshow__Item"
             src="/Bilder/Produktseite/Aqua_Family/Kontrollraum/Kontrollraum_1.png"
@@ -191,32 +194,6 @@
             src="/Bilder/Produktseite/Aqua_Family/Kontrollraum/Kontrollraum_3.png"
             alt=""
         /></picture>
-        <picture
-          style="display: hidden"
-          data-parcel-resizer="400+webp, 600+webp, 800+webp"
-        >
-          <!-- Das hier ist nur zum Testen 
-            1. Wir müssen aus img-Element die src-URL auslesen
-            2. dann hängen wir an die URL etwas dran wie "?as=webp&width=800"
-            3. natürlich muss das irgendwo stehen also bspw. in data-parcel-resizer="webp+800, webp+400, usw."
-              Also webp und 800 width das bedeutet webp+800
-            4. picture-Element muss umgeschrieben werden:
-              <picture>
-                <source srcset="URL?as=webp&width=800" media="(min-width: 800px)" type="image/webp">
-                <source srcset="URL?as=webp&width=400" media="(min-width: 400px)" type="image/webp">
-                <img src="URL" alt="blablabla"/>
-              </picture>
-            5. Den ganzen Bumms speichern.
-            
-            Hier die Vorlage aus Parcel-Doc:
-            <picture>
-              <source srcset="image.jpeg?as=avif&width=800" type="image/avif" />
-              <source srcset="image.jpeg?as=webp&width=800" type="image/webp" />
-              <source srcset="image.jpeg?width=800" type="image/jpeg" />
-              <img src="image.jpeg?width=200" alt="test image" />
-            </picture>
-          -->
-        </picture>
       </div>
 
       <div class="Detail-Panel__Info">
@@ -1333,7 +1310,7 @@
       </section>
     </footer>
     <!-- #site end -->
-
+    <script src="/JavaScript/resizer.js"></script>
     <script src="/JavaScript/Menu-Button.js"></script>
     <script src="/JavaScript/Footer-Menu.js"></script>
     <script src="/JavaScript/Submenu.js"></script>

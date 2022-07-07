@@ -120,13 +120,29 @@
         data-parcel-resizer="400+webp, 600+webp, 800+webp,  400+png, 600+png, 800+png"
         data-parcel-order="webp, png"
         ><source
-          media="(max-width: 950px)"
-          srcset="/Bilder/TitelBanner-w950.png"
-          type="image/png" />
+          media="(max-width:400px)"
+          type="image/webp"
+          srcset="/Bilder/TitelBanner.png?as=webp&width=400" />
         <source
-          media="(max-width: 1300px)"
-          srcset="/Bilder/TitelBanner-w1300.png"
-          type="image/png" />
+          media="(max-width:600px)"
+          type="image/webp"
+          srcset="/Bilder/TitelBanner.png?as=webp&width=600" />
+        <source
+          media="(max-width:800px)"
+          type="image/webp"
+          srcset="/Bilder/TitelBanner.png?as=webp&width=800" />
+        <source
+          media="(max-width:400px)"
+          type="image/png"
+          srcset="/Bilder/TitelBanner.png?as=png&width=400" />
+        <source
+          media="(max-width:600px)"
+          type="image/png"
+          srcset="/Bilder/TitelBanner.png?as=png&width=600" />
+        <source
+          media="(max-width:800px)"
+          type="image/png"
+          srcset="/Bilder/TitelBanner.png?as=png&width=800" />
         <img
           type="image/png"
           src="/Bilder/TitelBanner.png"
@@ -348,10 +364,33 @@
               <picture
                 data-parcel-resizer="400+webp, 600+webp, 800+webp,  400+png, 600+png, 800+png"
                 data-parcel-order="webp, png"
-                ><img
+                ><source
+                  media="(max-width:400px)"
+                  type="image/webp"
+                  srcset="/Bilder/Super_Driller-w350.png?as=webp&width=400" />
+                <source
+                  media="(max-width:600px)"
+                  type="image/webp"
+                  srcset="/Bilder/Super_Driller-w350.png?as=webp&width=600" />
+                <source
+                  media="(max-width:800px)"
+                  type="image/webp"
+                  srcset="/Bilder/Super_Driller-w350.png?as=webp&width=800" />
+                <source
+                  media="(max-width:400px)"
+                  type="image/png"
+                  srcset="/Bilder/Super_Driller-w350.png?as=png&width=400" />
+                <source
+                  media="(max-width:600px)"
+                  type="image/png"
+                  srcset="/Bilder/Super_Driller-w350.png?as=png&width=600" />
+                <source
+                  media="(max-width:800px)"
+                  type="image/png"
+                  srcset="/Bilder/Super_Driller-w350.png?as=png&width=800" />
+                <img
                   type="image/png"
                   src="/Bilder/Super_Driller-w350.png"
-                  style="width: 100%"
                   alt=""
               /></picture>
             </div>
@@ -1224,7 +1263,7 @@
     </footer>
     <!-- #site end -->
 
-    <script src="/JavaScript/resizer.js"></script>
+    <!-- <script src="/JavaScript/resizer.js"></script> -->
     <script src="/JavaScript/Menu-Button.js"></script>
     <script src="/JavaScript/Footer-Menu.js"></script>
     <script src="/JavaScript/Submenu.js"></script>

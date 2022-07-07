@@ -1,11 +1,13 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
 //alert("resizer.js wird ausgeführt und füllt jetzt die picture-Elemente aus.");
-const html_datei_name = "index.html";
+const html_datei_name = "MiniAtlantis.HTML";
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
 const javascript_data_pfad = "/JavaScript/resizer.js";
 
-/* Ab hier nichts mehr ändern, außer du kennst dich aus :D */
+const skript_testen = true;
+
+/* TODO: Ab hier nichts mehr ändern, außer du kennst dich aus :D */
 
 var local_html_content = "";
 var media_name_array = new Array();
@@ -23,8 +25,8 @@ function connectToBackend(requestName, fileName, currentContent) {
   xhr.open("POST", url, true);
 
   if (requestName === "find_belonging_resized_files") {
-    console.log(fileName);
-    console.log(currentContent);
+    /* console.log(fileName);
+    console.log(currentContent); */
     // Set the request header i.e. which type of content you are sending
     xhr.setRequestHeader("Content-Type", "text/plain");
     // Create a state change callback
@@ -162,7 +164,7 @@ function parse_content_for_picture_elements() {
         )
       );
     }
-    console.log("picture_element_array", picture_element_array);
+    /* console.log("picture_element_array", picture_element_array); */
   }
   iterate_through_picture_elements();
 }
@@ -189,17 +191,19 @@ function iterate_through_picture_elements() {
     const regex_data_attr = new RegExp(/data-parcel-resizer="(.*[ \n]*.*)"/);
     const regex_data_order = new RegExp(/data-parcel-order="(.*[ \n]*.*)"/);
     let parsed_data_attr_array;
-    parsed_data_attr_array = picture_element_array[i].content
-      .match(regex_data_attr)[1]
-      .split(",");
-    parsed_data_attr_array = sort_picture_element_structure(
-      parsed_data_attr_array,
-      picture_element_array[i].content.match(regex_data_order)[1].split(",")
-    );
-    change_picture_element_structure(
-      parsed_data_attr_array,
-      picture_element_array[i]
-    );
+    parsed_data_attr_array =
+      picture_element_array[i].content.match(regex_data_attr);
+    if (parsed_data_attr_array) {
+      parsed_data_attr_array = parsed_data_attr_array[1].split(",");
+      parsed_data_attr_array = sort_picture_element_structure(
+        parsed_data_attr_array,
+        picture_element_array[i].content.match(regex_data_order)[1].split(",")
+      );
+      change_picture_element_structure(
+        parsed_data_attr_array,
+        picture_element_array[i]
+      );
+    }
   }
   save_html_file(local_html_content);
 }
@@ -251,10 +255,21 @@ function change_picture_element_structure(parsed_data_attr_array, element) {
   for (let source_element of parsed_data_attr_array) {
     source_element_width = source_element.trim().match("[0-9]+");
     source_element_type = source_element.trim().match("[a-zA-Z]+");
+    source_element_mediaQuery = source_element.trim().match("@[0-9]+");
     let new_source_element = document.createElement("source");
     new_source_element.media = "(max-width:" + source_element_width + "px)";
     new_source_element.type = "image/" + source_element_type;
 
+    if (source_element_mediaQuery) {
+      source_element_mediaQuery = parseInt(
+        source_element_mediaQuery[0].match("[0-9]+")
+      );
+      source_element_width = parseInt(source_element_width[0]);
+      source_element_width += source_element_mediaQuery;
+
+      new_source_element.media = `(min-width: ${source_element_mediaQuery}) and (max-width: ${source_element_width})`;
+      source_element_width -= source_element_mediaQuery;
+    }
     new_source_element.srcset =
       element.image_ref +
       "?as=" +
@@ -314,5 +329,7 @@ function save_html_file(new_html_structure) {
     );
   console.log("final_string last ", final_string);
 
-  //connectToBackend("save_html_file", "", final_string);
+  if (!skript_testen) {
+    connectToBackend("save_html_file", "", final_string);
+  }
 }
