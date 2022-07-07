@@ -1,6 +1,6 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei und JavaScript eingeben */
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
 const javascript_datei_pfad = "/JavaScript/resizer.js";
 
 //TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
@@ -233,21 +233,29 @@ function change_picture_element_structure(parsed_data_attr_array, element) {
   for (let source_element of parsed_data_attr_array) {
     source_element_width = source_element.trim().match("[0-9]+");
     source_element_type = source_element.trim().match("[a-zA-Z]+");
-    source_element_mediaQuery = source_element.trim().match("@[0-9]+");
+    source_element_mediaQuery_max = source_element.trim().match("@max[0-9]+");
+    source_element_mediaQuery_min = source_element.trim().match("@min[0-9]+");
     let new_source_element = document.createElement("source");
-    new_source_element.media = "(max-width:" + source_element_width + "px)";
+
     new_source_element.type = "image/" + source_element_type;
 
-    if (source_element_mediaQuery) {
-      source_element_mediaQuery = parseInt(
-        source_element_mediaQuery[0].match("[0-9]+")
+    let new_media_query = "";
+    if (source_element_mediaQuery_min) {
+      source_element_mediaQuery_min = parseInt(
+        source_element_mediaQuery_min[0].match("[0-9]+")
       );
-      source_element_width = parseInt(source_element_width[0]);
-      source_element_width += source_element_mediaQuery;
-
-      new_source_element.media = `(min-width: ${source_element_mediaQuery}px) and (max-width: ${source_element_width}px)`;
-      source_element_width -= source_element_mediaQuery;
+      new_media_query += `(min-width: ${source_element_mediaQuery_min}px)`;
     }
+    if (source_element_mediaQuery_min) {
+      source_element_mediaQuery_min = parseInt(
+        source_element_mediaQuery_min[0].match("[0-9]+")
+      );
+      new_media_query += ` and (max-width: ${source_element_width}px)`;
+    }
+    if (new_media_query.length > 0) {
+      new_source_element.media = new_media_query;
+    }
+
     new_source_element.srcset =
       element.image_ref +
       "?as=" +
