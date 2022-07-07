@@ -1,6 +1,6 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/Produkt-uebersicht.html";
 const bilder_pfad =
   "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/Bilder";
 

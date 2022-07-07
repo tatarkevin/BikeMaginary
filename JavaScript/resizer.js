@@ -1,10 +1,32 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
-//alert("resizer.js wird ausgeführt und füllt jetzt die picture-Elemente aus.");
-const html_datei_name = "MiniAtlantis.HTML";
-const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
-const javascript_data_pfad = "/JavaScript/resizer.js";
+/*  1. Füge das Script in die HTML Datei ans Ende des Body-Elements ein
+    2. Ändere die Referenzen von "html_datei_name", "html_datei_pfad" und "javascript_datei_pfad"
+    3. In der jetzigen HTML-Datei, die dieses Skript verwenden soll musst du jetzt jedem picture Element folgende
+      data-Attribute:
+      Beispiel:
+      data-parcel-resizer="400+webp, 500+webp, 600+webp@1000, 400+png, 500+png, ..."
+      data-parcel-order="webp, png"
+      Somit erstellst das Skript im Picture-Element mehrere source Elemente die so aussehen:
+      für 400+webp:
+      <source type="image/webp" srcset="[Hier steht der Pfad zum bild]?as=webp&width=400" media="(max-width: 400px)">
+      für 600+webp@1000:
+      <source type="image/webp" srcset="[Hier steht der Pfad zum bild]?as=webp&width=600" media="(min-width: 1000px) and (max-width=1600px)">
+      Das Skript berechnet alles selber, wichtig ist nur, dass du dieses Format bei data-parcel-resizer einhältst:
+      data-parcel-resizer="[Bildbreite]+[Bildtyp]@[Bildmedia-Min]"
+      zum Beispiel:
+      data-parcel-resizer="400+jpeg@800"
+      
+*/
 
+const html_datei_pfad =
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/Produkt-uebersicht.html";
+const html_datei_name = html_datei_pfad.match(
+  new RegExp(/\/([a-zA-Z-]+.html)/gm)
+);
+console.log(html_datei_name);
+const javascript_datei_pfad = "/JavaScript/resizer.js";
+
+//TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
 const skript_testen = true;
 
 /* TODO: Ab hier nichts mehr ändern, außer du kennst dich aus :D */
@@ -267,7 +289,7 @@ function change_picture_element_structure(parsed_data_attr_array, element) {
       source_element_width = parseInt(source_element_width[0]);
       source_element_width += source_element_mediaQuery;
 
-      new_source_element.media = `(min-width: ${source_element_mediaQuery}) and (max-width: ${source_element_width})`;
+      new_source_element.media = `(min-width: ${source_element_mediaQuery}px) and (max-width: ${source_element_width}px)`;
       source_element_width -= source_element_mediaQuery;
     }
     new_source_element.srcset =
@@ -308,7 +330,7 @@ function save_html_file(new_html_structure) {
   let match_end_string_array = new Array();
   for (let temp of new_html_structure.matchAll(
     new RegExp(
-      `<script[\n\r ]*src="${javascript_data_pfad}">[\n\r ]*<\/script>`,
+      `<script[\n\r ]*src="${javascript_datei_pfad}">[\n\r ]*<\/script>`,
       "gm"
     )
   )) {
