@@ -1,6 +1,8 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
-const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
-const bilder_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/Bilder";
+const html_datei_pfad =
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
+const bilder_pfad =
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/Bilder";
 
 /* Connection Logic */
 const { error } = require("console");

@@ -1,7 +1,8 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei eingeben */
 //alert("resizer.js wird ausgeführt und füllt jetzt die picture-Elemente aus.");
 const html_datei_name = "index.html";
-const html_datei_pfad = "C:/Users/Kevin/Desktop/BikeMaginary/HTML/index.html";
+const html_datei_pfad =
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
 const javascript_data_pfad = "/JavaScript/resizer.js";
 
 /* Ab hier nichts mehr ändern, außer du kennst dich aus :D */
@@ -74,6 +75,7 @@ function connectToBackend(requestName, fileName, currentContent) {
       if (xhr.status == 200 && xhr.readyState === 4) {
         console.log("200, Die Datei ist angekommen");
         local_html_content = xhr.responseText;
+        console.log(local_html_content);
         parse_content_for_picture_elements();
       } else if (xhr.status == 404) {
         console.log(xhr.responseText);
@@ -129,13 +131,12 @@ function parse_content_for_picture_elements() {
       }
       const element_attribute_array = new Array();
       let image_ref_temp;
-      //const regex_attributes = '([a-zA-Z]{3,})="([a-zA-Z0-9%/. _-]*)"';
-      const regex_attributes = '([a-zA-Z]{3,})="(.*)"';
+      const regex_attributes = '([a-zA-Z]{3,})="([a-zA-Z0-9%/. _-]*)"';
+      /* const regex_attributes = new RegExp(/(src)="(.*\.[a-zA-Z]+)"/g); */
+      /*  const regex_attributes = "src"; */
 
       let attributes_array = "";
-      attributes_array = image_element_structure.matchAll(
-        String(regex_attributes)
-      );
+      attributes_array = image_element_structure.matchAll(regex_attributes);
       /* ([a-zA-Z]+)="(.*)" [a-z]+|[\/] 
           ([a-zA-Z]{3,})=
           [a-zA-Z]+="([a-zA-Z0-9/. _-]*)"
@@ -161,169 +162,157 @@ function parse_content_for_picture_elements() {
         )
       );
     }
+    console.log("picture_element_array", picture_element_array);
   }
-  console.log(picture_element_array);
   iterate_through_picture_elements();
 }
 
 var media_name_array_length;
 function iterate_through_picture_elements() {
-  //TODO: hier geht irgendwas verloren
   media_name_array = new Array();
   console.log(picture_element_array);
-  for (let element of picture_element_array) {
+  for (let i = picture_element_array.length - 1; i >= 0; i--) {
+    /* https://regex101.com/ */
     const regex_media_name = new RegExp(/(([a-zA-Z_0-9]+){1})\.[a-zA-Z]{1,5}/);
     const regex_media_name_split = new RegExp(/[\.][a-zA-Z]+/);
 
     let parsedURL;
-    parsedURL = element.image_ref.match(regex_media_name)[0];
+    parsedURL = picture_element_array[i].image_ref.match(regex_media_name)[0];
     const media_name_split = parsedURL.match(regex_media_name_split);
     media_name_array.push(
       media_name_split.input.slice(0, media_name_split.index)
     );
+
+    /* Hier schauen wir ob das picture-Element ein data-parcel-resizer-Attribut hat
+      Wenn ja, dann parsen wir durch und schauen was für Bilder-Versionen wir vom Original wollen.
+    */
+    const regex_data_attr = new RegExp(/data-parcel-resizer="(.*[ \n]*.*)"/);
+    const regex_data_order = new RegExp(/data-parcel-order="(.*[ \n]*.*)"/);
+    let parsed_data_attr_array;
+    parsed_data_attr_array = picture_element_array[i].content
+      .match(regex_data_attr)[1]
+      .split(",");
+    parsed_data_attr_array = sort_picture_element_structure(
+      parsed_data_attr_array,
+      picture_element_array[i].content.match(regex_data_order)[1].split(",")
+    );
+    change_picture_element_structure(
+      parsed_data_attr_array,
+      picture_element_array[i]
+    );
   }
-  media_name_array_length = media_name_array.length - 1;
-  const temp_mna = media_name_array[media_name_array_length];
-  const temp_pea = picture_element_array[media_name_array_length--];
-  connectToBackend("find_belonging_resized_files", temp_mna, temp_pea);
+  save_html_file(local_html_content);
 }
 
-function create_source_Elements(available_files, currentContent) {
-  console.log("previous available_files", available_files);
-  available_files = sort_available_files(available_files);
-  console.log("current available_files", available_files);
-  const new_picture_Element = document.createElement("picture");
-  for (let file of available_files) {
-    const regex_find_width = new RegExp("-w([0-9]*)");
-    let match = file.match(regex_find_width);
+function sort_picture_element_structure(array, order) {
+  const sorted_arrays = new Array();
+  for (let format of order) {
+    const new_array = new Array();
+    for (let array_item of array) {
+      if (array_item.match(format.trim())) {
+        new_array.push(array_item.trim());
+      }
+    }
+    sorted_arrays.push(new_array);
+  }
+  for (let i = 0; i < sorted_arrays.length; i++) {
+    for (let j = 0; j < sorted_arrays[i].length - 1; j++) {
+      for (let k = j + 1; k < sorted_arrays[i].length; k++) {
+        let left_item = sorted_arrays[i][j].match("[0-9]+");
+        let right_item = sorted_arrays[i][k].match("[0-9]+");
 
-    let new_source_element;
-    if (match) {
-      new_source_element = document.createElement("source");
-      new_source_element.media = `(max-width: ${match[1]}px)`;
-      new_source_element.srcset = `/Bilder/${file}`;
-      console.log(new_source_element);
-      if (file.match(".png")) {
-        new_source_element.setAttribute("type", "image/png");
-      } else if (file.match(".webp")) {
-        new_source_element.setAttribute("type", "image/webp");
-      }
-      new_picture_Element.appendChild(new_source_element);
-    } else if (!match) {
-      //TODO: Es darf keine feste Dateiextension sein, sondern die Anfangsextension.
-      //Also wenn das img-Tag am Anfang ein .jpg hat, dann muss alles was nicht .jpg ist
-      //ein source-tag bekommen und nur das jpg wird zum img-Element
-      if (file.match(".png")) {
-        new_source_element = document.createElement("img");
-        new_source_element.setAttribute("type", "image/png");
-        console.log("new_source_element", new_source_element);
-        console.log(
-          "currentContent.previous_attributes",
-          currentContent.previous_attributes
-        );
-        for (let attribute of currentContent.previous_attributes) {
-          new_source_element.setAttribute(attribute.attribut, attribute.wert);
+        if (parseInt(left_item[0]) > parseInt(right_item[0])) {
+          const temp = sorted_arrays[i][j];
+          sorted_arrays[i][j] = sorted_arrays[i][k];
+          sorted_arrays[i][k] = temp;
         }
-        console.log("new_source_element", new_source_element);
-      } else if (file.match(".webp")) {
-        new_source_element = document.createElement("source");
-        new_source_element.setAttribute("type", "image/webp");
-        new_source_element.srcset = `/Bilder/${file}`;
       }
-      new_picture_Element.appendChild(new_source_element);
     }
   }
 
-  overwrite_local_html_content(new_picture_Element, currentContent);
-}
-
-function sort_available_files(available_files) {
-  const new_array = [...available_files];
-  const regex_find_width = new RegExp("-w([0-9]*)");
-
-  if (new_array.length > 1) {
-    for (let i = 0; i < new_array.length / 2 + 1; i++) {
-      for (let j = new_array.length - 1; j > new_array.length / 2 - 1; j--) {
-        let temp = new_array[i];
-        new_array[i] = new_array[j];
-        new_array[j] = temp;
-      }
-    }
-
-    for (let i = 0; i < new_array.length - 1; i++) {
-      for (let j = i + 1; j < new_array.length; j++) {
-        let temp_entry_ref_i = new_array[i].match(regex_find_width);
-        let temp_entry_ref_j = new_array[j].match(regex_find_width);
-        if (temp_entry_ref_i && temp_entry_ref_j) {
-          if (parseInt(temp_entry_ref_i[1]) > parseInt(temp_entry_ref_j[1])) {
-            let temp = new_array[i];
-            new_array[i] = new_array[j];
-            new_array[j] = temp;
-          }
-        } else if (!temp_entry_ref_i) {
-          let temp = new_array[i];
-          new_array[i] = new_array[j];
-          new_array[j] = temp;
-        }
-        if (new_array[i].match(".png") && new_array[j].match(".webp")) {
-          let temp = new_array[i];
-          new_array[i] = new_array[j];
-          new_array[j] = temp;
-        }
-      }
+  const new_array = new Array();
+  for (let i = 0; i < sorted_arrays.length; i++) {
+    for (let j = 0; j < sorted_arrays[i].length; j++) {
+      new_array.push(sorted_arrays[i][j]);
     }
   }
   return new_array;
 }
-function overwrite_local_html_content(new_picture_Element, current_content) {
-  const temp_container = document.createElement("div");
-  temp_container.appendChild(new_picture_Element);
-  const start_string = local_html_content.slice(0, current_content.start_index);
+function change_picture_element_structure(parsed_data_attr_array, element) {
+  let new_picture_Element_middle = document.createElement("picture");
 
-  let end_string = local_html_content.slice(
-    current_content.end_index,
-    local_html_content.length
+  let new_picture_Element_start = element.content.match(
+    new RegExp(
+      /<[ \n\r]*.*picture[ \n\r]*.*data-parcel-resizer=".*[ \n\r]*.*"[ \n\r]*>/gm
+    )
   );
+  let new_picture_Element_end = "</picture>";
 
-  let final_string = start_string + temp_container.innerHTML + end_string;
+  for (let source_element of parsed_data_attr_array) {
+    source_element_width = source_element.trim().match("[0-9]+");
+    source_element_type = source_element.trim().match("[a-zA-Z]+");
+    let new_source_element = document.createElement("source");
+    new_source_element.media = "(max-width:" + source_element_width + "px)";
+    new_source_element.type = "image/" + source_element_type;
 
-  local_html_content = final_string;
-
-  console.log("---------------------------------------------------");
-  if (media_name_array_length >= 0) {
-    //console.log("final_string", final_string);
-    connectToBackend(
-      "find_belonging_resized_files",
-      media_name_array[media_name_array_length],
-      picture_element_array[media_name_array_length--]
-    );
-  } else {
-    /* JavaScript deaktivieren */
-    let end_string_start;
-    let end_string_end;
-    let match_end_string_array = new Array();
-    for (let temp of end_string.matchAll(
-      "script.*" + javascript_data_pfad + ".*script"
-    )) {
-      match_end_string_array.push(temp);
-    }
-    end_string_start = match_end_string_array[0].index - 1;
-    end_string_end =
-      match_end_string_array[0].index + match_end_string_array[0][0].length + 1;
-
-    final_string =
-      start_string +
-      temp_container.innerHTML +
-      end_string.slice(0, end_string_start) +
-      "<!--" +
-      end_string.slice(end_string_start, end_string_end) +
-      "-->" +
-      end_string.slice(end_string_end, end_string.length);
-    //console.log("final_string last ", final_string);
-    save_html_file(final_string);
+    new_source_element.srcset =
+      element.image_ref +
+      "?as=" +
+      source_element_type +
+      "&width=" +
+      source_element_width;
+    new_picture_Element_middle.appendChild(new_source_element);
   }
+  let current_image_element = document.createElement("img");
+  for (let attr of element.previous_attributes) {
+    current_image_element.setAttribute(attr.attribut, attr.wert);
+  }
+
+  new_picture_Element_middle.appendChild(current_image_element);
+
+  const new_picture_Element_combined =
+    new_picture_Element_start +
+    String(
+      new_picture_Element_middle.innerHTML
+        .replaceAll("amp;", "")
+        .replaceAll("&quot;", '"')
+    ) +
+    new_picture_Element_end;
+
+  local_html_content =
+    local_html_content.slice(0, element.start_index) +
+    new_picture_Element_combined +
+    local_html_content.slice(element.end_index);
 }
 
 function save_html_file(new_html_structure) {
-  connectToBackend("save_html_file", "", new_html_structure);
+  //TODO:
+  /* JavaScript deaktivieren */
+  let end_string_start;
+  let end_string_end;
+  let match_end_string_array = new Array();
+  for (let temp of new_html_structure.matchAll(
+    new RegExp(
+      `<script[\n\r ]*src="${javascript_data_pfad}">[\n\r ]*<\/script>`,
+      "gm"
+    )
+  )) {
+    match_end_string_array.push(temp);
+  }
+
+  end_string_start = match_end_string_array[0].index - 1;
+  end_string_end =
+    match_end_string_array[0].index + match_end_string_array[0][0].length + 1;
+  let final_string =
+    new_html_structure.slice(0, end_string_start) +
+    "<!-- " +
+    match_end_string_array[0][0] +
+    " -->" +
+    new_html_structure.slice(
+      match_end_string_array[0].index + match_end_string_array[0][0].length,
+      new_html_structure.length
+    );
+  console.log("final_string last ", final_string);
+
+  //connectToBackend("save_html_file", "", final_string);
 }
