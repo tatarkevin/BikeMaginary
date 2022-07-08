@@ -33,6 +33,10 @@ body::-webkit-scrollbar {
   position: fixed;
   z-index: -1;
   top: calc(var(--max-header-bar-height) - 2px);
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+  border: 0;
 }
 
 .Spotlight--Aqua,
@@ -40,13 +44,6 @@ body::-webkit-scrollbar {
 .Kaufbanner--Aqua {
   --gradient-color-DetailPanel: rgba(3, 7, 51, 1) 0%, rgba(3, 60, 119, 1) 30%,
     rgba(40, 154, 179, 1) 75%, rgba(125, 219, 207, 1) 100%;
-}
-
-.Spotlight {
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  overflow: hidden;
-  border: 0;
 }
 
 .Spotlight__Bild {
@@ -416,8 +413,6 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
-picture .Kaufbanner__Bild {
-}
 .Kaufbanner__Bild {
   grid-row: 2/3;
   height: 100%;

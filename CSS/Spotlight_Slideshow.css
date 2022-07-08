@@ -1,0 +1,103 @@
+body {
+  --image-width: 100%;
+}
+
+@keyframes Container-Move {
+  0% {
+    right: 0;
+  }
+  33.49% {
+    right: 0;
+  }
+  33.51% {
+    right: var(--image-width);
+  }
+  66.49% {
+    right: var(--image-width);
+  }
+  66.51% {
+    right: calc(2 * var(--image-width));
+  }
+  100% {
+    right: calc(2 * var(--image-width));
+  }
+}
+
+@keyframes Image-Move-Top-To-Bottom {
+  0% {
+    top: -200vh;
+  }
+  33% {
+    top: 200vh;
+  }
+}
+@keyframes Image-Move-Right-To-Left {
+  33.49% {
+    right: -1000vw;
+  }
+  33.51% {
+    right: calc(-1.25 * var(--image-width));
+  }
+  66.49% {
+    right: calc(1.25 * var(--image-width));
+  }
+  66.51% {
+    right: -1000vw;
+  }
+}
+@keyframes Image-Move-Left-To-Right {
+  66.49% {
+    left: -1000vw;
+  }
+  66.51% {
+    left: calc(-1.25 * var(--image-width));
+  }
+  99.8% {
+    left: calc(1.25 * var(--image-width));
+  }
+  99.9% {
+    left: -1000vw;
+  }
+}
+
+.Images-Cutter {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.Image-Container {
+  display: grid;
+  align-items: center;
+  position: relative;
+  top: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100vh;
+  height: 100%;
+  width: 300%;
+  animation-name: Container-Move;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+.Image {
+  top: -300vh;
+  width: 100%;
+  position: relative;
+  animation-name: Image-Move-Top-To-Bottom;
+  animation-duration: 12s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.Image-Container picture:nth-of-type(2n) .Image {
+  animation-name: Image-Move-Right-To-Left;
+  right: -1000vw;
+  top: 0;
+}
+.Image-Container picture:nth-of-type(3n) .Image {
+  animation-name: Image-Move-Left-To-Right;
+  left: -1000vw;
+  top: 0;
+}
