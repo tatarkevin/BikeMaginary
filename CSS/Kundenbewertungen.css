@@ -89,18 +89,23 @@
 }
 
 .Kundenbewertung__Bild {
-  width: 80px;
-  height: 80px;
+  --Kundenbild_breite-hoehe: 80px;
+  width: var(--Kundenbild_breite-hoehe);
+  height: var(--Kundenbild_breite-hoehe);
   margin-right: 20px;
   border-radius: 100px;
-  background-image: url(../Bilder/HTML-CSS-Teacher1-w100.png);
   background-position: 50% 50%;
   background-size: 100%;
   box-shadow: 1px -1px 3px 1px rgba(255, 255, 255, 0.5),
     inset 3px -3px 5px 1px rgba(0, 0, 0, 0.5);
-
+  overflow: hidden;
   background-repeat: no-repeat;
   justify-self: right;
+}
+
+.Kundenbewertung__Bild img {
+  width: var(--Kundenbild_breite-hoehe);
+  height: var(--Kundenbild_breite-hoehe);
 }
 
 .Kundenbewertung__Kunden-Name {
@@ -167,6 +172,7 @@
   grid-template-rows: min-content 1fr min-content;
   grid-row: 3 / 4;
   grid-column: 1 / 2;
+  min-width: 330px;
 }
 
 .Kundenbewertung-Block .Container__Element .Element__Knopf {
