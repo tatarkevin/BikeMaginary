@@ -12,6 +12,47 @@
     <link rel="stylesheet" href="/CSS/combined_Produktuebersicht.css" />
   </head>
   <body>
+    <div id="top_edge"></div>
+
+    <a class="Button__To-Top" href="#top_edge">
+      <span class="Button__To-Top__Arrow"></span>
+    </a>
+    <span
+      id="Navigation-Map"
+      onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
+    >
+      <span>Menü <span class="Menu-Pfeil"></span></span>
+      <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. 
+        onclick="setTimeout(function(){window.scrollBy(0, -parseInt(getComputedStyle(document.getElementsByClassName('Headerbar')[0]).getPropertyValue('--max-header-bar-height')))}, 0);"-->
+      <span id="Navigation-Map__Items">
+        <a class="Navigation__Item Navigation__Section" href="#Section-1"
+          >Sky Bikes</a
+        >
+        <a class="Navigation__Item" href="#Item-1">Käpt'n der Lüfte</a>
+        <a class="Navigation__Item" href="#Item-2">Weißer Baron</a>
+        <a class="Navigation__Item" href="#Item-3">Cyclocopter</a>
+        <a class="Navigation__Item Navigation__Section" href="#Section-2"
+          >Mountain Bikes</a
+        >
+        <a class="Navigation__Item" href="#Item-4">Super Driller</a>
+        <a class="Navigation__Item" href="#Item-5">Arctis 3000</a>
+        <a class="Navigation__Item" href="#Item-6">Möbius der Schneebändiger</a>
+        <a class="Navigation__Item Navigation__Section" href="#Section-3"
+          >Spezial Bikes</a
+        >
+        <a class="Navigation__Item" href="#Item-7">Wohnen auf Rädern</a>
+        <a class="Navigation__Item" href="#Item-8">Schoolbus</a>
+        <a class="Navigation__Item" href="#Item-9">Wolkenzähmer</a>
+        <a class="Navigation__Item Navigation__Section" href="#Section-4"
+          >Aqua Bikes</a
+        >
+        <a class="Navigation__Item" href="#Item-10">Mini Atlantis</a>
+        <a class="Navigation__Item" href="#Item-11">Yellow Submarine</a>
+        <a class="Navigation__Item" href="#Item-12"
+          >Kapsel von Loch Ness</a
+        ></span
+      >
+    </span>
     <div class="Headerbar-Container">
       <div class="Headerbar">
         <a
@@ -111,10 +152,12 @@
 
     <div class="Produkt-Uebersicht">
       <div class="Uebersicht__Bereich Produkt-Block--Sky">
+        <a id="Section-1" class="Menu__Anchor"></a>
         <div class="Bereich__Titel">Sky Bikes</div>
         <div class="Bereich__Divider"></div>
         <div class="Bereich__Produkte">
           <div class="Product_Card">
+            <a id="Item-1" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -152,6 +195,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-2" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -189,6 +233,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-3" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -228,10 +273,12 @@
         </div>
       </div>
       <div class="Uebersicht__Bereich Produkt-Block--Mountain">
+        <a id="Section-2" class="Menu__Anchor"></a>
         <div class="Bereich__Titel">Mountain Bikes</div>
         <div class="Bereich__Divider"></div>
         <div class="Bereich__Produkte">
           <div class="Product_Card">
+            <a id="Item-4" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -265,6 +312,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-5" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -300,6 +348,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-6" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -339,10 +388,12 @@
         </div>
       </div>
       <div class="Uebersicht__Bereich Produkt-Block--Spezial">
+        <a id="Section-3" class="Menu__Anchor"></a>
         <div class="Bereich__Titel">Spezial Bikes</div>
         <div class="Bereich__Divider"></div>
         <div class="Bereich__Produkte">
           <div class="Product_Card">
+            <a id="Item-7" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -380,6 +431,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-8" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -412,7 +464,9 @@
               <button class="btn btn--primary">Mehr Info</button>
             </div>
           </div>
+
           <div class="Product_Card">
+            <a id="Item-9" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -452,10 +506,12 @@
         </div>
       </div>
       <div class="Uebersicht__Bereich Produkt-Block--Aqua">
+        <a id="Section-4" class="Menu__Anchor"></a>
         <div class="Bereich__Titel">Aqua Bikes</div>
         <div class="Bereich__Divider"></div>
         <div class="Bereich__Produkte">
           <div class="Product_Card">
+            <a id="Item-10" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -497,6 +553,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-11" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture
@@ -530,6 +587,7 @@
             </div>
           </div>
           <div class="Product_Card">
+            <a id="Item-12" class="Menu__Anchor"></a>
             <div class="image_slider">
               <div data-image-index="0" data-images-loaded="0" class="Images">
                 <picture

@@ -5,6 +5,11 @@
   user-select: none !important;
 }
 
+#top_edge {
+  position: absolute;
+  top: 0;
+}
+
 :root {
   font-size: 62.5%;
   --page-background-color: rgb(44, 44, 44);
@@ -40,18 +45,8 @@ body {
   border-radius: 10px;
 }
 
-#site::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: rgba(255, 255, 255, 0.363);
-}
-
-#site {
-  width: 100vw;
-  height: calc(100vh - var(--max-header-bar-height));
-  overflow-x: hidden;
-  margin-top: var(--max-header-bar-height);
-  scrollbar-color: white transparent;
-  scrollbar-width: thin;
-  position: fixed;
 }
 
 .Button__To-Top {
@@ -231,4 +226,11 @@ body {
 .Produkt-Block--Spezial .Produkt-Block__Fahrrad-Typ,
 .Produkt-Block--Spezial .Element__Name {
   color: rgb(143, 72, 25);
+}
+
+a.Menu__Anchor {
+  display: block;
+  position: relative;
+  top: calc(-1 * var(--max-header-bar-height) - 30px);
+  visibility: hidden;
 }

@@ -90,7 +90,7 @@
 }
 
 .Produkt-Block__Container .Container__Element {
-  margin: 0 10px;
+  margin: auto 10px;
 }
 
 .Produkt-Block__Container .Container__Element:nth-child(1n) {

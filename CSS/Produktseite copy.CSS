@@ -12,6 +12,7 @@ a.Menu__Anchor {
 .Kaufbanner {
   --gradient-direction-DetailPanel: 0deg;
   --gradient-color-DetailPanel: rgb(96, 96, 96) -20%, rgb(187, 187, 187) 100%;
+
   background: linear-gradient(
     var(--gradient-direction-DetailPanel),
     var(--gradient-color-DetailPanel)
@@ -22,10 +23,6 @@ a.Menu__Anchor {
 
 body {
   padding-top: 100vh;
-}
-
-body::-webkit-scrollbar {
-  width: 2px;
 }
 
 .Spotlight {
@@ -40,6 +37,107 @@ body::-webkit-scrollbar {
 .Kaufbanner--Aqua {
   --gradient-color-DetailPanel: rgba(3, 7, 51, 1) 0%, rgba(3, 60, 119, 1) 30%,
     rgba(40, 154, 179, 1) 75%, rgba(125, 219, 207, 1) 100%;
+}
+
+#Navigation-Map {
+  --max-height_Nav-Map-padding: 7px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1000;
+  max-height: calc(3.4rem + var(--max-height_Nav-Map-padding) + 7px);
+  overflow: hidden;
+  transition: max-height 0.5s;
+  margin: 5px 2px;
+  user-select: none;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+#Navigation-Map::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+#Navigation-Map:hover {
+  opacity: 1;
+}
+#Navigation-Map.Navigation-Map--ausgeklappt {
+  /* TODO: ich muss die Headerbarhöhe abziehen von 100vh */
+  max-height: calc(
+    100vh - (2 * var(--max-header-bar-height)) -
+      var(--max-height_Nav-Map-padding)
+  );
+}
+
+#Navigation-Map > :first-child {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+  border-radius: 100px;
+  padding: var(--max-height_Nav-Map-padding) 15px;
+  margin-bottom: 5px;
+  font-size: 2.5rem !important;
+}
+#Navigation-Map__Items {
+  --transparency-value-top: 3%;
+  --transparency-value-bottom: 3%;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 17px;
+  margin-left: 10px;
+}
+.Navigation-Map--ausgeklappt #Navigation-Map__Items {
+  overflow-y: auto;
+  scrollbar-color: white transparent;
+  scrollbar-width: thin;
+}
+
+#Navigation-Map__Items > :nth-child(n) {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  cursor: default;
+  cursor: pointer;
+  margin-left: 50px;
+  margin: 2px 0;
+  padding: var(--max-height_Nav-Map-padding) 10px;
+  transition: font-weight 0.09s;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+#Navigation-Map__Items > :nth-child(n):hover {
+  font-weight: bold;
+  color: var(--page-background-color);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.Menu-Pfeil {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  transform: translateY(-5px) rotate(-45deg);
+  transition: transform 0.5s;
+}
+.Navigation-Map--ausgeklappt .Menu-Pfeil {
+  max-height: 100vh;
+  transform: translateY(-3px) rotate(135deg);
 }
 
 .Spotlight {
@@ -333,7 +431,7 @@ body::-webkit-scrollbar {
     --right-column: 10fr;
     grid-template-columns: var(--left-column) min-content var(--right-column);
   }
-  .Detail-Panel:nth-of-type(odd) {
+  .Detail-Panel:nth-child(odd) {
     grid-template-columns: var(--right-column) min-content var(--left-column);
   }
   .Detail-Panel__Slideshow {
@@ -375,7 +473,7 @@ body::-webkit-scrollbar {
     grid-column: 1/2;
     grid-row: 3/4;
   }
-  .Detail-Panel:nth-of-type(odd) .Detail-Panel__Slideshow {
+  .Detail-Panel:nth-child(odd) .Detail-Panel__Slideshow {
     grid-column: 3/4;
     grid-row: 3/4;
   }
@@ -387,7 +485,7 @@ body::-webkit-scrollbar {
     grid-column: 3/4;
     font-size: 2.5rem;
   }
-  .Detail-Panel:nth-of-type(odd) .Detail-Panel__Info {
+  .Detail-Panel:nth-child(odd) .Detail-Panel__Info {
     grid-row: 3/4;
     grid-column: 1/2;
   }
@@ -403,15 +501,113 @@ body::-webkit-scrollbar {
     bottom: 2px;
   }
 }
+
+#Navigation-Map {
+  --max-height_Nav-Map-padding: 7px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: var(--max-header-bar-height);
+  z-index: 1000;
+  max-height: calc(3.4rem + var(--max-height_Nav-Map-padding) + 7px);
+  overflow: hidden;
+  transition: max-height 0.5s;
+  margin: 5px 2px;
+  user-select: none;
+  opacity: 0.5;
+  z-index: 998;
+}
+
+#Navigation-Map:hover {
+  opacity: 1;
+}
+#Navigation-Map.Navigation-Map--ausgeklappt {
+  /* TODO: ich muss die Headerbarhöhe abziehen von 100vh */
+  max-height: calc(
+    100vh - (2 * var(--max-header-bar-height)) -
+      var(--max-height_Nav-Map-padding)
+  );
+}
+
+#Navigation-Map > :first-child {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+  border-radius: 100px;
+  padding: var(--max-height_Nav-Map-padding) 15px;
+  margin-bottom: 5px;
+  font-size: 2.5rem !important;
+}
+#Navigation-Map__Items {
+  --transparency-value-top: 3%;
+  --transparency-value-bottom: 3%;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 17px;
+  margin-left: 10px;
+}
+.Navigation-Map--ausgeklappt #Navigation-Map__Items {
+  overflow-y: auto;
+  scrollbar-color: white transparent;
+  scrollbar-width: thin;
+}
+
+#Navigation-Map__Items > :nth-child(n) {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  cursor: default;
+  cursor: pointer;
+  margin-left: 50px;
+  margin: 2px 0;
+  padding: var(--max-height_Nav-Map-padding) 10px;
+  transition: font-weight 0.09s;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+#Navigation-Map__Items > :nth-child(n):hover {
+  font-weight: bold;
+  color: var(--page-background-color);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.Menu-Pfeil {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  transform: translateY(-5px) rotate(-45deg);
+  transition: transform 0.5s;
+}
+.Navigation-Map--ausgeklappt .Menu-Pfeil {
+  max-height: 100vh;
+  transform: translateY(-3px) rotate(135deg);
+}
+
 /* Kaufbanner */
 .Kaufbanner {
   background-color: black;
-  max-height: 100%;
   display: grid;
+  position: relative;
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr;
-  height: fit-content;
   grid-template-rows: min-content fit-content min-content fit-content;
   margin: 0;
 }
@@ -425,6 +621,7 @@ body::-webkit-scrollbar {
 }
 
 .Kaufbanner__Info {
+  height: 100%;
   width: 95vw;
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-color) transparent;

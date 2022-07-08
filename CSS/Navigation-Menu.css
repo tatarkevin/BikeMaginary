@@ -1,0 +1,107 @@
+#Navigation-Map {
+  --max-height_Nav-Map-padding: 7px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 2px;
+  max-height: calc(3.4rem + var(--max-height_Nav-Map-padding) + 7px);
+  opacity: 0.5;
+  overflow: hidden;
+  position: fixed;
+  top: var(--max-header-bar-height);
+  transition: max-height 0.5s;
+  user-select: none !important;
+  z-index: 1000;
+}
+
+#Navigation-Map::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+#Navigation-Map:hover {
+  opacity: 1;
+}
+#Navigation-Map.Navigation-Map--ausgeklappt {
+  /* TODO: ich muss die Headerbarhöhe abziehen von 100vh */
+  max-height: calc(
+    100vh - (2 * var(--max-header-bar-height)) -
+      var(--max-height_Nav-Map-padding)
+  );
+}
+
+#Navigation-Map > :first-child {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+  border-radius: 100px;
+  padding: var(--max-height_Nav-Map-padding) 15px;
+  margin-bottom: 5px;
+  font-size: 2.5rem !important;
+}
+#Navigation-Map__Items {
+  --transparency-value-top: 3%;
+  --transparency-value-bottom: 3%;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--transparency-value-top),
+    black calc(100% - var(--transparency-value-bottom)),
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  padding-bottom: 17px;
+  padding-top: 10px;
+}
+
+.Navigation-Map--ausgeklappt #Navigation-Map__Items {
+  overflow-y: auto;
+  scrollbar-color: white transparent;
+  scrollbar-width: thin;
+}
+
+#Navigation-Map__Items .Navigation__Item {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  cursor: default;
+  cursor: pointer;
+  margin-left: 50px;
+  margin: 2px 0;
+  padding: var(--max-height_Nav-Map-padding) 10px;
+  transition: font-weight 0.09s;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+#Navigation-Map__Items .Navigation__Item:hover {
+  font-weight: bold;
+  color: var(--page-background-color);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.Menu-Pfeil {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  transform: translateY(-5px) rotate(-45deg);
+  transition: transform 0.5s;
+}
+
+.Navigation-Map--ausgeklappt .Menu-Pfeil {
+  max-height: 100vh;
+  transform: translateY(-3px) rotate(135deg);
+}
+
+#Navigation-Map__Items .Navigation__Section {
+  font-weight: bold;
+  font-size: 120%;
+}

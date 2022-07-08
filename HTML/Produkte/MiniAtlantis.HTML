@@ -122,10 +122,9 @@
       onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
     >
       <span>Menü <span class="Menu-Pfeil"></span></span>
-      <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. -->
-      <span
-        onclick="setTimeout(function(){window.scrollBy(0, -parseInt(getComputedStyle(document.getElementsByClassName('Headerbar')[0]).getPropertyValue('--max-header-bar-height')))}, 0);"
-        id="Navigation-Map__Items"
+      <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. 
+        onclick="setTimeout(function(){window.scrollBy(0, -parseInt(getComputedStyle(document.getElementsByClassName('Headerbar')[0]).getPropertyValue('--max-header-bar-height')))}, 0);"-->
+      <span id="Navigation-Map__Items"
         ><a class="Navigation__Item" href="#Detail-1">Kontrollzentren</a>
         <a class="Navigation__Item" href="#Detail-2">Stauraum</a>
         <a class="Navigation__Item" href="#Detail-3">Toilette</a>
@@ -165,7 +164,8 @@
         type="video/webm"
       ></video>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-1">
+    <a id="Detail-1" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Kontrollzentren für 8 Personen</h3>
 
       <div
@@ -489,7 +489,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-2">
+    <a id="Detail-2" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Stauraum für Gepäck</h3>
 
       <div
@@ -810,7 +811,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-3">
+    <a id="Detail-3" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">
         Vollständig funktionsfähige Toilette
       </h3>
@@ -1136,7 +1138,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-4">
+    <a id="Detail-4" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Badezimmer</h3>
 
       <div
@@ -1457,7 +1460,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-5">
+    <a id="Detail-5" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Schlafzimmer</h3>
 
       <div
@@ -1781,7 +1785,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-6">
+    <a id="Detail-6" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Küche</h3>
 
       <div
@@ -2112,7 +2117,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-7">
+    <a id="Detail-7" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Speiseraum</h3>
 
       <div
@@ -2432,7 +2438,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-8">
+    <a id="Detail-8" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Eingang</h3>
 
       <div
@@ -2762,7 +2769,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-9">
+    <a id="Detail-9" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Luftversorgung</h3>
 
       <div
@@ -3089,7 +3097,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-10">
+    <a id="Detail-10" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Antrieb</h3>
 
       <div
@@ -3326,7 +3335,8 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-    <div class="Detail-Panel Detail-Panel--Aqua" id="Detail-11">
+    <a id="Detail-11" class="Menu__Anchor"></a>
+    <div class="Detail-Panel Detail-Panel--Aqua">
       <h3 class="Detail-Panel__Heading">Motor und sonstige Komponenten</h3>
 
       <div
@@ -3657,12 +3667,28 @@
         <span class="Divider__Fish"></span>
       </div>
     </div>
-
-    <div class="Kaufbanner Kaufbanner--Aqua" id="Detail-12">
-      <img class="Kaufbanner__Bild" src="/Bilder/Aqua_Family28.png" />
+    <a id="Detail-12" class="Menu__Anchor"></a>
+    <div class="Kaufbanner Kaufbanner--Aqua">
+      <img
+        class="Kaufbanner__Bild"
+        src="/Bilder/Hauptseite/Mini_Atlantis.png"
+      />
       <div class="Kaufbanner__Titel">Mini Atlantis</div>
       <div class="Kaufbanner__Preis-Knopf">
-        <div class="Kaufbanner__Preis">49.000 Schrauben UVP</div>
+        <div class="Kaufbanner__Preis">
+          49.000
+          <span>
+            <picture
+              data-parcel-resizer="70+webp, 70+png"
+              data-parcel-order="webp, png"
+              ><img
+                src="/Bilder/Schrauben.png"
+                style="transform: translateY(30px); width: 70px; height: 70px"
+            /></picture>
+          </span>
+
+          UVP
+        </div>
         <div class="Kaufbanner__Knopf">Jetzt kaufen</div>
       </div>
       <div class="Kaufbanner__Info">

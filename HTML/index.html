@@ -114,7 +114,30 @@
     </a>
 
     <div id="top_edge"></div>
+    <span
+      id="Navigation-Map"
+      onclick="document.getElementById('Navigation-Map').classList.toggle('Navigation-Map--ausgeklappt');"
+    >
+      <span>Menü <span class="Menu-Pfeil"></span></span>
+      <!-- Wir müssen zu erst ganz nach oben scrollen, weil wir position sticky verwenden. 
+        onclick="setTimeout(function(){window.scrollBy(0, -parseInt(getComputedStyle(document.getElementsByClassName('Headerbar')[0]).getPropertyValue('--max-header-bar-height')))}, 0);"-->
+      <span id="Navigation-Map__Items">
+        <a class="Navigation__Item Navigation__Section" href="#Section-1"
+          >Nach oben</a
+        >
+        <a class="Navigation__Item Navigation__Section" href="#Section-2"
+          >Übersicht der Fahrradtypen</a
+        >
+        <a class="Navigation__Item Navigation__Section" href="#Section-3"
+          >Kundenbewertungen</a
+        >
+        <a class="Navigation__Item Navigation__Section" href="#Section-4"
+          >Zum Ende der Seite</a
+        >
+      </span>
+    </span>
 
+    <a id="Section-1" class="Menu__Anchor"></a>
     <section class="Hauptbanner">
       <picture
         ><source
@@ -134,6 +157,7 @@
       </h2>
     </section>
 
+    <a id="Section-2" class="Menu__Anchor"></a>
     <section class="Product-Block__Section">
       <header class="Section__Heading">
         <h2 class="Heading__Header">
@@ -1072,6 +1096,7 @@
       </div>
     </section>
 
+    <a id="Section-3" class="Menu__Anchor"></a>
     <section class="Kundenbewertungen__Section">
       <header class="Section__Heading">
         <h2 class="Heading__Header">
@@ -1090,6 +1115,10 @@
           <div class="Kundenbewertung__Kunde">
             <div class="Kundenbewertung__Bild">
               <picture>
+                <source
+                  type="image/web"
+                  src="/Bilder/Sonja1.png?as=webp&width=100"
+                />
                 <img src="/Bilder/Sonja1.png" alt="" />
               </picture>
             </div>
@@ -1179,7 +1208,7 @@
               </picture>
             </div>
             <div class="Kundenbewertung__Kunden-Name">
-              Ta&NoBreak;-&NoBreak;Ke
+              Tah&NoBreak;-&NoBreak;Ke
             </div>
           </div>
 
@@ -1259,6 +1288,7 @@
         <!-- <div class="Kundenbewertung__Block-Divider"></div> -->
       </section>
     </section>
+    <a id="Section-4" class="Menu__Anchor"></a>
     <footer class="Footer">
       <div class="Footer__Logo">
         <div class="BM_Logo"></div>
