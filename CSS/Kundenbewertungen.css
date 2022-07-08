@@ -23,7 +23,7 @@
   width: 95vw;
   border-radius: 20px;
   color: rgb(255, 255, 255);
-  padding: 50px 10px;
+  padding: 20px 10px 0;
   /* --transparency-value: 1%;
   -webkit-mask-image: linear-gradient(
     to top,
@@ -85,7 +85,7 @@
   align-items: center;
   height: min-content;
   margin: 10px 0;
-  grid-row: 3 / 4;
+  grid-row: 1 / 2;
 }
 
 .Kundenbewertung__Bild {
@@ -138,11 +138,11 @@
   grid-row: 5/6;
   height: min-content;
   justify-self: left;
-  max-height: 500px;
-  /* mix-blend-mode: darken; */
+  max-height: 300px;
   overflow-y: auto;
-  padding-right: 10px;
+
   padding: 20px 0;
+  padding-right: 10px;
 }
 
 .Kundenbewertung__Divider {
@@ -165,7 +165,7 @@
 
 .Kundenbewertung-Block .Container__Element {
   grid-template-rows: min-content 1fr min-content;
-  grid-row: 1 / 2;
+  grid-row: 3 / 4;
   grid-column: 1 / 2;
 }
 
@@ -183,19 +183,22 @@
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: 90% 45%;
+  padding-left: 20px;
+  padding-right: 0;
 }
 
 @media screen and (min-width: 800px) {
   .Kundenbewertung-Block {
     grid-template-columns: min-content min-content 1fr;
     grid-template-rows: max-content min-content 1fr;
-    padding-left: 50px;
+    padding-bottom: 10px;
     width: 90vw;
   }
 
   .Kundenbewertung__Text {
     grid-column: 3 / 4;
     grid-row: 1 / 4;
+    max-height: 500px;
   }
 
   .Kundenbewertung__Kunde {
