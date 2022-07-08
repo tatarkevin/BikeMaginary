@@ -416,6 +416,8 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
+picture .Kaufbanner__Bild {
+}
 .Kaufbanner__Bild {
   grid-row: 2/3;
   height: 100%;
@@ -508,7 +510,6 @@ body::-webkit-scrollbar {
     align-items: center;
     /* TODO: */
     height: calc(100vh - var(--max-header-bar-height));
-
     padding: 0;
   }
 
@@ -539,7 +540,7 @@ body::-webkit-scrollbar {
     align-self: flex-end;
     font-weight: bold;
 
-    font-size: 90px;
+    font-size: 80px;
     position: relative;
     top: 50px;
     grid-column: 1/2;
@@ -572,7 +573,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     align-self: flex-start;
     position: relative;
-    bottom: 70px;
+    bottom: 100px;
   }
 
   .Kaufbanner__Info {

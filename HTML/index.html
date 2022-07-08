@@ -1114,13 +1114,17 @@
         <article class="Kundenbewertung-Block">
           <div class="Kundenbewertung__Kunde">
             <div class="Kundenbewertung__Bild">
-              <picture>
+              <picture
+                data-parcel-resizer="100+webp, 100+png"
+                data-parcel-order="webp, png"
+                ><source
+                  type="image/webp"
+                  srcset="/Bilder/Sonja1.png?as=webp&width=100" />
                 <source
-                  type="image/web"
-                  src="/Bilder/Sonja1.png?as=webp&width=100"
-                />
-                <img src="/Bilder/Sonja1.png" alt="" />
-              </picture>
+                  type="image/png"
+                  srcset="/Bilder/Sonja1.png?as=png&width=100" />
+                <img src="/Bilder/Sonja1.png" alt=""
+              /></picture>
             </div>
             <div class="Kundenbewertung__Kunden-Name">Sonja&nbsp;Sommer</div>
           </div>
@@ -1203,9 +1207,14 @@
         <article class="Kundenbewertung-Block">
           <div class="Kundenbewertung__Kunde">
             <div class="Kundenbewertung__Bild">
-              <picture>
-                <img src="/Bilder/HTML-CSS-Teacher1-w100.png" alt="" />
-              </picture>
+              <picture data-parcel-resizer="100+webp" data-parcel-order="webp"
+                ><source
+                  type="image/webp"
+                  srcset="
+                    /Bilder/HTML-CSS-Teacher1-w100.png?as=webp&width=100
+                  " />
+                <img src="/Bilder/HTML-CSS-Teacher1-w100.png" alt=""
+              /></picture>
             </div>
             <div class="Kundenbewertung__Kunden-Name">
               Tah&NoBreak;-&NoBreak;Ke

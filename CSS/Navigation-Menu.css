@@ -10,7 +10,9 @@
   top: var(--max-header-bar-height);
   transition: max-height 0.5s;
   user-select: none !important;
-  z-index: 1000;
+  width: 100vw;
+  padding-right: 5px;
+  z-index: 998;
 }
 
 #Navigation-Map::-webkit-scrollbar {
@@ -103,5 +105,5 @@
 
 #Navigation-Map__Items .Navigation__Section {
   font-weight: bold;
-  font-size: 120%;
+  font-size: min(6vw, 120%);
 }

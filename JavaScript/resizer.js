@@ -1,6 +1,6 @@
 /* TODO: Hier kannst du deine eigenen Namen für deine HTML-Datei und JavaScript eingeben */
 const html_datei_pfad =
-  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/Produkte/MiniAtlantis.HTML";
+  "C:/Users/Kevin/Desktop/Desktop_Sortiert/Webentwicklung/BikeMaginary/HTML/index.html";
 const javascript_datei_pfad = "/JavaScript/resizer.js";
 
 //TODO: Wenn du das skript testen willst dann auf "true", ansonsten auf "false";
