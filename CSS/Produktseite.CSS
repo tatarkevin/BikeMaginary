@@ -46,6 +46,12 @@ body::-webkit-scrollbar {
     rgba(40, 154, 179, 1) 75%, rgba(125, 219, 207, 1) 100%;
 }
 
+.Kaufbanner--Aqua {
+  --gradient-direction-DetailPanel: -135deg;
+  --gradient-color-DetailPanel: rgba(3, 7, 51, 1) -30%, rgba(3, 60, 119, 1) 10%,
+    rgba(40, 154, 179, 1) 50%, rgba(125, 219, 207, 1) 120%;
+}
+
 .Spotlight__Bild {
   object-fit: cover;
   height: 100%;
@@ -400,6 +406,10 @@ body::-webkit-scrollbar {
     bottom: 2px;
   }
 }
+
+.Kaufbanner__Info .Kaufbanner__Info .Kaufbanner__Daten__Reihe [colspan="2"] {
+  font-size: 150%;
+}
 /* Kaufbanner */
 .Kaufbanner {
   background-color: black;
@@ -436,12 +446,15 @@ body::-webkit-scrollbar {
   background-color: white;
   border-radius: 10px;
 }
+
 .Kaufbanner__Titel {
-  grid-row: 1/2;
-  font-weight: bold;
-  font-size: 90px;
-  mix-blend-mode: overlay;
+  color: #46f9ff;
+  text-shadow: 0 0 7px #00f7ffa8;
   text-align: center;
+  grid-row: 1 / 2;
+  font-size: 90px;
+  font-weight: bold;
+  filter: brightness(2);
 }
 
 .Kaufbanner__Info__Daten {
@@ -474,9 +487,12 @@ body::-webkit-scrollbar {
 .Kaufbanner__Preis {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: clamp(40px, 10vw, 60px);
   position: relative;
   bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .Kaufbanner__Knopf {
@@ -491,10 +507,17 @@ body::-webkit-scrollbar {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s;
+  position: relative;
+  bottom: 30px;
+  font-size: clamp(40px, 10vw, 60px);
 }
 
 .Kaufbanner__Knopf:hover {
   transform: scale(1.1);
+}
+
+.Kaufbanner__Preis-Waehrungsicon {
+  width: 80px;
 }
 
 @media screen and (min-width: 800px) {
@@ -510,7 +533,7 @@ body::-webkit-scrollbar {
 
   .Kaufbanner__Bild {
     height: 100%;
-    max-width: 90%;
+    max-width: 100%;
     object-fit: contain;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -535,7 +558,7 @@ body::-webkit-scrollbar {
     align-self: flex-end;
     font-weight: bold;
 
-    font-size: 80px;
+    font-size: 130px;
     position: relative;
     top: 50px;
     grid-column: 1/2;
@@ -560,6 +583,15 @@ body::-webkit-scrollbar {
   }
   .Kaufbanner__Daten__Reihe :nth-child(n) {
     font-size: 2rem;
+  }
+
+  .Kaufbanner__Preis {
+    font-size: clamp(40px, 10vw, 60px);
+    bottom: 0;
+  }
+
+  .Kaufbanner__Knopf {
+    bottom: 0;
   }
 
   .Kaufbanner__Preis-Knopf {
@@ -599,4 +631,9 @@ body::-webkit-scrollbar {
 
 .Footer {
   z-index: 776 !important;
+}
+
+.Kaufbanner__Bild-Container {
+  display: flex;
+  justify-content: center;
 }

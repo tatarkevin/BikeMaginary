@@ -68,7 +68,6 @@ body {
 
 .Image-Container {
   display: grid;
-  align-items: center;
   position: relative;
   top: 0;
   grid-template-columns: repeat(3, 1fr);
