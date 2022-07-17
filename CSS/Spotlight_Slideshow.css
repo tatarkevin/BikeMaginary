@@ -25,10 +25,10 @@ body {
 
 @keyframes Image-Move-Top-To-Bottom {
   0% {
-    top: -200vh;
+    top: -100vh;
   }
   33% {
-    top: 200vh;
+    top: 100vh;
   }
 }
 @keyframes Image-Move-Right-To-Left {
@@ -75,16 +75,18 @@ body {
   height: 100%;
   width: 300%;
   animation-name: Container-Move;
-  animation-duration: 12s;
+  --animation-duration: 15s;
+  animation-duration: var(--animation-duration);
   animation-iteration-count: infinite;
 }
 
 .Image {
-  top: -300vh;
-  width: 100%;
+  transform: scale(1.5);
+  top: -100vh;
+  width: var(--image-width);
   position: relative;
   animation-name: Image-Move-Top-To-Bottom;
-  animation-duration: 12s;
+  animation-duration: var(--animation-duration);
   animation-delay: 0s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;

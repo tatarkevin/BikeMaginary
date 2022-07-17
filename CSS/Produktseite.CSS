@@ -246,7 +246,6 @@ body::-webkit-scrollbar {
 
 .Slideshow__Item {
   object-fit: cover;
-
   animation: var(--slideshow-name)
     calc(var(--dauer-pro-Bild) * var(--anzahl-der-Bilder)) ease-in-out 2s
     infinite alternate;
@@ -418,9 +417,18 @@ body::-webkit-scrollbar {
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, fit-content);
   height: fit-content;
-  grid-template-rows: min-content fit-content min-content fit-content;
   margin: 0;
+}
+
+.Kaufbanner__Produkt-Container {
+  display: grid;
+  max-height: calc(100vh - var(--max-header-bar-height));
+  grid-template-columns: 100vw;
+  grid-template-rows: fit-content 100vw fit-content;
+  justify-items: center;
+  align-items: center;
 }
 
 .Kaufbanner__Bild {
@@ -452,7 +460,7 @@ body::-webkit-scrollbar {
   text-shadow: 0 0 7px #00f7ffa8;
   text-align: center;
   grid-row: 1 / 2;
-  font-size: 90px;
+  font-size: 80px;
   font-weight: bold;
   filter: brightness(2);
 }
@@ -509,7 +517,7 @@ body::-webkit-scrollbar {
   transition: transform 0.3s;
   position: relative;
   bottom: 30px;
-  font-size: clamp(40px, 10vw, 60px);
+  font-size: clamp(40px, 6vw, 60px);
 }
 
 .Kaufbanner__Knopf:hover {
@@ -523,12 +531,16 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 800px) {
   .Kaufbanner {
     grid-template-columns: 55% 45%;
-    grid-template-rows: min-content fit-content min-content;
     justify-items: center;
     align-items: center;
-    /* TODO: */
     height: calc(100vh - var(--max-header-bar-height));
     padding: 0;
+  }
+
+  .Kaufbanner__Produkt-Container {
+    height: calc(100vh - var(--max-header-bar-height));
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content 100% fit-content;
   }
 
   .Kaufbanner__Bild {
@@ -557,8 +569,7 @@ body::-webkit-scrollbar {
   .Kaufbanner__Titel {
     align-self: flex-end;
     font-weight: bold;
-
-    font-size: 130px;
+    font-size: clamp(80px, 8vw, 130px);
     position: relative;
     top: 50px;
     grid-column: 1/2;
@@ -587,6 +598,7 @@ body::-webkit-scrollbar {
 
   .Kaufbanner__Preis {
     font-size: clamp(40px, 10vw, 60px);
+
     bottom: 0;
   }
 
@@ -622,6 +634,9 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 1440px) {
   .Kaufbanner__Preis-Knopf {
     flex-direction: row;
+  }
+  .Kaufbanner__Knopf {
+    margin-left: 2vw;
   }
 }
 
