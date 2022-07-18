@@ -25,10 +25,10 @@ body {
 
 @keyframes Image-Move-Top-To-Bottom {
   0% {
-    top: -100vh;
+    top: -300vh;
   }
   33% {
-    top: 100vh;
+    top: 150vh;
   }
 }
 @keyframes Image-Move-Right-To-Left {
